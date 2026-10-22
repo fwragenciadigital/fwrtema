@@ -26,6 +26,19 @@
         offsetTop: el.offsetTop
       };
     });
+    var body = document.body;
+    var header = document.querySelector("#cabecalho");
+    data.geometria = {
+      viewport: [window.innerWidth, window.innerHeight],
+      bodyPaddingTop: body ? getComputedStyle(body).paddingTop : null,
+      bodyPaddingTopInline: body ? body.style.paddingTop : null,
+      headerPosition: header ? getComputedStyle(header).position : null,
+      headerHeight: header ? Math.round(header.getBoundingClientRect().height) : null,
+      headerTop: header ? Math.round(header.getBoundingClientRect().top) : null,
+      contentTop: document.querySelector(".conteiner-principal") ? Math.round(document.querySelector(".conteiner-principal").getBoundingClientRect().top) : null,
+      carrosselOwl: !!document.querySelector(".listagem .owl-loaded"),
+      categoriasMontadas: !!document.querySelector(".secao-banners + #fm-categorias")
+    };
     samples.push(data);
     if (samples.length > 12) samples.shift();
     return data;
