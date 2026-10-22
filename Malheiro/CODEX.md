@@ -58,3 +58,15 @@ Backup de produção deve ser mantido. Não mexer no que funciona até haver tes
 - O CSS de head ocultava os produtos e banners com `opacity:0` até receber `.lazyloaded`, e desfocava imagens até `.loaded`. Esses eventos não foram localizados nas fontes recebidas; outro script pode existir. Candidato que remove só esse efeito: `homologacao/html/cabecalho-sem-fade-arriscado.html`.
 - O quiz anexado já existe na home (markup e JS, ainda que em partes separadas): NÃO duplicar IDs nem adicionar o anexo ao head. `<script defer>` inline ignora defer; exige montagem de DOM antes do JS.
 - Testar `node Malheiro/scripts/validar-cabecalho.mjs` e validar visualmente; **não publicar na loja sem confirmação**.
+
+## Diagnóstico aprofundado e testes (22/10/2026)
+- Leia primeiro `auditoria/07-CAUSAS-CLS-CORRECOES-VALIDACAO.md`; tem tabelas causais, evidências e critérios de aceite.
+- O arquivo real de Settings foi importado em `legado/configuracao/settings-tema-sanitizadas.js`; **menuFlutuante=true confirmado**, portanto o tema fixa o header no DOMReady. Token de integração foi redigido antes de publicar no GitHub público.
+- CSS externo `csscompactadoo.css` ainda indisponível para revisão; não assumir que a análise de todas as regras está completa.
+- Teste de header em desktop: `homologacao/html/cabecalho-prepaint-desktop.html` (pré-fixa o header no head >=993px). CSS limpo: `homologacao/assets/css-secundario-sem-padding-duplicado.css`. Nunca aplicar isoladamente sem verificar as Settings e altura real.
+- Experimento home: `homologacao/experimentos/home-montagem-sincrona.html` adianta o DOM, mas não substitui HTML inicial; não é uma correção de CLS garantida.
+- Experimento Owl: `homologacao/experimentos/malheiroshoww-owl-domready.js` inicializa as vitrines no DOMReady, em vez de window.load. **Não adicionar ao JS original**, apenas substituir em homologação isolada.
+- Testes estáticos: `node Malheiro/scripts/validar-cls-v2.mjs`, `node Malheiro/scripts/validar-montagem-sincrona.mjs`.
+- Medição real (sem escrita na loja): `node Malheiro/scripts/medir-cls-loja-real.mjs` usa Playwright e intercepta somente a sessão de browser; pode rodar pelo workflow `malheiro-cls-verify.yml` (GitHub Actions). **Resultados ainda não conferidos**. 
+- Números de fixture 1366px de header 0,062225→0 e seções 0,129312→0 são só experimentos controlados, NÃO métricas da Malheiro.
+- Sem trace real antes/depois, nenhum merge da PR Draft e nenhum upload final no painel.
