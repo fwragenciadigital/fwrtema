@@ -1,0 +1,47 @@
+name: Malheiro CLS - One-off Browser Baseline
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - '.github/workflows/malheiro-cls-verify.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  cls-browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: malheiro/cls-preflight
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Validate code invariants before browsing
+        run: |
+          node Malheiro/scripts/validar-cls-v2.mjs
+          node Malheiro/scripts/validar-montagem-sincrona.mjs
+          node Malheiro/scripts/validar-homologacao.mjs
+          node Malheiro/scripts/validar-cabecalho.mjs
+
+      - name: Prepare headless Chrome
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium
+
+      - name: Measure baseline and isolated header candidate
+        run: node Malheiro/scripts/medir-cls-loja-real.mjs
+
+      - name: Attach JSON with events and layout attribution
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: malheiro-cls-single-run
+          path: Malheiro/auditoria/cls-live-browser-resultados.json
+          if-no-files-found: warn
