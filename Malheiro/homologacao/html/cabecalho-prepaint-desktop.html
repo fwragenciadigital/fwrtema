@@ -1,0 +1,113 @@
+<link rel="preconnect" href="https://cdn.awsli.com.br" crossorigin>
+<link rel="dns-prefetch" href="//cdn.awsli.com.br">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+<link rel="stylesheet" href="https://cdn.awsli.com.br/1351/1351790/arquivos/csscompactadoo.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+
+<style>
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.links-rodape.links-rodape-paginas ul li:nth-child(n+10) {
+    display: none !important;
+}
+
+.listagem-item .imagem-principal,
+.pagina-produto #imagemProduto {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+}
+
+/* Keep desktop header geometry fixed from the first paint. */
+@media (min-width: 993px) {
+  html body:not(.pagina-carrinho):not(.carrinho-checkout) {
+    padding-top: 85px !important;
+  }
+
+  html body #cabecalho,
+  html body #cabecalho .cabecalho-conteiner .row-fluid,
+  html body #cabecalho .abriga-menu,
+  html body #cabecalho .abriga-logo,
+  html body #cabecalho.fixed .cabecalho-conteiner .row-fluid {
+    transition: none !important;
+  }
+
+  html body #cabecalho,
+  html body #cabecalho .cabecalho-conteiner .row-fluid,
+  html body #cabecalho.fixed .cabecalho-conteiner .row-fluid {
+    min-height: 85px !important;
+  }
+
+  html body #cabecalho.fixed .cabecalho-conteiner .row-fluid {
+    padding-top: 0 !important;
+  }
+
+  /* Anchor the cart counter to its icon instead of extending past the viewport. */
+  html body #cabecalho .novo-carrinho .carrinho {
+    position: relative !important;
+  }
+
+  html body #cabecalho .novo-carrinho .qtd-carrinho {
+    box-sizing: border-box !important;
+    width: 20px !important;
+    height: 20px !important;
+    min-width: 20px !important;
+    line-height: 16px !important;
+    top: -7px !important;
+    right: -7px !important;
+    left: auto !important;
+    margin: 0 !important;
+  }
+}
+
+/* Prevent the closed QuizChat drawer from adding off-screen visual overflow. */
+#qc-drawer[aria-hidden="true"] {
+  display: none !important;
+}
+
+#qc-drawer[aria-hidden="false"] {
+  display: flex !important;
+  transform: translateX(0) !important;
+}
+
+/* Contain the Trustvox carousel control without hiding page-wide overflow. */
+#_trustvox_colt {
+  max-width: 100%;
+  overflow: clip;
+}
+
+#_trustvox_colt .carousel__next {
+  left: auto !important;
+  right: 0 !important;
+  transform: translateX(0) !important;
+}
+</style>
+
+
+<!-- MALHEIRO / HOMOLOGAÇÃO: manter apenas se menuFlutuante estiver ligado nas Settings do tema. -->
+<script>
+  /* Marcador inserido sincronamente no HTML/Cabeçalho, antes da primeira pintura. */
+  document.documentElement.classList.add('ml-header-prepaint-test');
+</script>
+<style>
+  /* Corrige o salto de layout causado quando JS transforma o header normal em fixed no DOMReady.
+     Evita aplicar a carrinho/checkout; primeiro validar se a altura real do header é 85px. */
+  @media (min-width: 993px) {
+    html.ml-header-prepaint-test body:not(.pagina-carrinho):not(.carrinho-checkout) #cabecalho {
+      position: fixed !important;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      z-index: 201;
+    }
+    html.ml-header-prepaint-test body:not(.pagina-carrinho):not(.carrinho-checkout) {
+      padding-top: 85px !important;
+    }
+  }
+</style>
