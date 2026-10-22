@@ -19,6 +19,19 @@ O arquivo `cls-live-browser-resultados.json` registra quatro navegações Chromi
 
 O relatório JSON informa coleta de execução única por cenário, não cinco repetições; a execução local não captura call stacks/trace do DevTools. Há erro de rede e a condição do Owl variou entre as duas amostras mobile. Portanto não existe comparação experimental isolada suficiente para aprovar qualquer patch.
 
+### Revisita direta à produção (22/10/2026)
+
+Foi feita uma segunda rodada sem interceptar HTML, CSS ou JS: Chrome local headless, HTTPS da loja pública, HTTP 200 em todas as páginas, duas navegações por cenário, `PerformanceObserver` para `layout-shift`/LCP, sem throttling, coleta por 5–6 s após `DOMContentLoaded`. É evidência de laboratório da versão publicada, não CrUX. CLS/LCP variam entre carregamentos, especialmente nos PDPs:
+
+| Página / viewport | CLS amostra 1 / 2 | LCP amostra 1 / 2 | Observação |
+|---|---:|---:|---|
+| Home, 1366×768 | 0,99814 / 0,99528 | 1.996 / 1.576 ms | Header fixed, 85 px; `.conteiner-principal` termina em y=5. Shift principal: y=85→5, valor 0,99349. |
+| Home, 390×844 | 0,86584 / 0,86584 | 1.560 / 1.584 ms | Header fixed, 120 px; conteúdo em y=124. |
+| PDP sabonete, 390×844 | 0,65881 / 0,22554 | 2.252 / 1.672 ms | Na primeira amostra, `.span6` e `#carouselImagem` mudaram de posição em shifts de grande magnitude. |
+| PDP vitamina B1, 390×844 | 0,73169 / 0,13973 | 2.676 / 828 ms | Na primeira amostra, `.row-fluid`, `.atributos` e ações do produto deslocaram-se. |
+
+As duas PDPs emitiram erro de página `rdtracker is not defined` nas duas amostras, além de falhas de fetch para recursos externos. Esses erros são registrados, mas as falhas de rede podem depender do ambiente do navegador. A observação de `sources` identifica os elementos afetados pelo layout shift; esta coleta não capturou stack trace suficiente para atribuir cada deslocamento a uma função específica. Não foram testados categoria, busca, tablet, carrinho/checkout nem interações de compra nesta rodada.
+
 ## Camadas e conflitos
 
 | Camada | Conflito confirmado por inspeção | Resultado |
