@@ -25,6 +25,7 @@ jobs:
 
       - name: Validate code invariants before browsing
         run: |
+          node Malheiro/scripts/validar-csscompactadoo.mjs
           node Malheiro/scripts/validar-cls-v2.mjs
           node Malheiro/scripts/validar-montagem-sincrona.mjs
           node Malheiro/scripts/validar-homologacao.mjs
