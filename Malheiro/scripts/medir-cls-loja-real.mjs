@@ -15,7 +15,7 @@ const storefront='https://www.farmaciamalheiro.com.br/';
 const jsCandidate=await readFile(resolve(root,'homologacao/assets/malheiroshoww.js'),'utf8');
 const UA='Malheiro-CLS-Validation/1.0';
 const result=[];
-const collector=String.raw\`
+const collector=String.raw`
 (()=> {
   window.__malheiroClsEvents=[];
   try {
@@ -33,9 +33,9 @@ const collector=String.raw\`
     });
     observer.observe({type:'layout-shift',buffered:true});
   }catch(e){window.__malheiroObserverError=String(e);}
-})();\`.replaceAll('\\\`','\`');
+})();`;
 
-const prepaint=\`<script>document.documentElement.classList.add('ml-header-prepaint-test');</script>
+const prepaint=`<script>document.documentElement.classList.add('ml-header-prepaint-test');</script>
 <style>@media(min-width:993px){
 html.ml-header-prepaint-test body:not(.pagina-carrinho):not(.carrinho-checkout) #cabecalho {
   position:fixed!important;top:0;left:0;right:0;width:100%;z-index:201;
@@ -43,7 +43,7 @@ html.ml-header-prepaint-test body:not(.pagina-carrinho):not(.carrinho-checkout) 
 html.ml-header-prepaint-test body:not(.pagina-carrinho):not(.carrinho-checkout) {
   padding-top:85px!important;
 }
-}</style>\`;
+}</style>`;
 
 function clsLargestWindow(events){
   let best=0;
@@ -66,7 +66,7 @@ for(const {w,h} of [{w:1366,h:768},{w:390,h:844}]){
       reducedMotion:'reduce'
     });
     const page=await ctx.newPage();
-    const row={viewport:\`\${w}x\${h}\`,variant,htmlModified:false,jsReplaced:false,
+    const row={viewport:`\${w}x\${h}`,variant,htmlModified:false,jsReplaced:false,
       documentStatus:null,cls:null,events:[],errors:[]};
     await page.addInitScript({content:collector});
     page.on('pageerror',e=>row.errors.push('pageerror: '+e.message.slice(0,220)));
