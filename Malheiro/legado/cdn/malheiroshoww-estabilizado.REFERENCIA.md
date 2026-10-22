@@ -1,7 +1,5 @@
-# JavaScript de produção ainda não importado
+# JavaScript original de produção — importado
 
-URL original (manter ativa até ter cópia e substituição aprovada):
+Backup completo e fiel: `Malheiro/legado/cdn/malheiroshoww-estabilizado-original.js`.
 
-`//cdn.awsli.com.br/1351/1351790/arquivos/malheiroshoww-estabilizado.js`
-
-Não foi possível baixar o conteúdo do CDN nesta sessão. Não substituir por arquivo vazio nem pressupor como ele organiza o layout. Precisamos importar o conteúdo exato antes de homologar a migração completa.
+URL original continua sendo `//cdn.awsli.com.br/1351/1351790/arquivos/malheiroshoww-estabilizado.js`. Não substituir em produção antes da homologação.
