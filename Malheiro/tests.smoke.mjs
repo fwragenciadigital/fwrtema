@@ -37,3 +37,16 @@ test('base da home preserva uma vitrine nativa inicial e ordena os módulos uma 
     assert.ok(home.includes(marker), `base perdeu integração ou bloco: ${marker}`);
   }
 });
+
+test('asset JS da home contém a base HTML, mantém URLs e monta junto à vitrine nativa', async () => {
+  const home = await read('./homologacao/html/home.html');
+  const asset = await read('./homologacao/assets/home-malheiro.js');
+  const organizer = /<!--\s*\n\s*Ordem da home:[\s\S]*?window\.__FWR_HOME_ORDER__[\s\S]*?<\/script>\s*/;
+  const payloadMatch = asset.match(/var markup = ([\s\S]*?);\n  var selector/);
+
+  assert.ok(payloadMatch, 'asset deve conter a base HTML serializada');
+  assert.equal(JSON.parse(payloadMatch[1]), home.replace(organizer, ''), 'base empacotada deve corresponder à fonte sem o organizador concorrente');
+  assert.match(asset, /#corpo #listagemProdutos\.listagem\.borda-alpha/);
+  assert.match(asset, /__FWR_MALHEIRO_HOME_ASSET_V1__/);
+  assert.doesNotMatch(asset.slice(0, asset.indexOf('var markup = ')), /fetch\s*\(/, 'carregador não deve tentar baixar HTML externo');
+});
