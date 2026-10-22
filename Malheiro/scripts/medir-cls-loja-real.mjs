@@ -117,6 +117,6 @@ for(const {w,h} of [{w:1366,h:768},{w:390,h:844}]){
 await browser.close();
 const out=resolve(root,'auditoria/cls-live-browser-resultados.json');
 await mkdir(dirname(out),{recursive:true});
-await writeFile(out,JSON.stringify({date:new Date().toISOString(),source:'real storefront via Chromium GitHub Actions; single lab runs; NOT CrUX',site:storefront,results:result},null,2));
+await writeFile(out,JSON.stringify({date:new Date().toISOString(),source:'real storefront via locally installed Chrome; single lab runs; NOT CrUX',site:storefront,results:result},null,2));
 console.log('Resultado de execução: '+out);
 if(result.every(r=>r.documentStatus!==200))process.exitCode=1;

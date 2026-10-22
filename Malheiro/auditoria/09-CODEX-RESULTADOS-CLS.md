@@ -38,7 +38,7 @@ O relatório JSON informa coleta de execução única por cenário, não cinco r
 
 ## URLs e homologação
 
-Nenhuma URL HTTPS de asset da branch foi verificada. Os snippets de desenvolvimento atualmente apontam para GitHub Pages, mas disponibilidade/MIME/conteúdo não foram comprovados nesta execução. Não instalar esses snippets na loja de teste ainda. Uma vez liberada a publicação de Pages no repositório, verificar cada URL com HTTP 200, MIME esperado e hash/conteúdo do commit antes de entregar as instruções exatas.
+Os snippets de homologação foram atualizados para fixar o commit `9636c3a095fb966f6c79f93ba728dd8eb214c327` (em vez de um SHA antigo). CSS e JS retornaram HTTP 200 via jsDelivr com MIME `text/css` e `application/javascript`; o conteúdo remoto foi comparado byte a byte com os blobs do commit. Links: [CSS](https://cdn.jsdelivr.net/gh/fwragenciadigital/fwrtema@9636c3a095fb966f6c79f93ba728dd8eb214c327/Malheiro/homologacao/assets/css-secundario.css) e [JavaScript](https://cdn.jsdelivr.net/gh/fwragenciadigital/fwrtema@9636c3a095fb966f6c79f93ba728dd8eb214c327/Malheiro/homologacao/assets/malheiroshoww.js). São arquivos candidatos publicados no CDN para a branch, não uma aprovação para instalar: **não instalar ainda**, pois a medição real não passou e a validação funcional está incompleta.
 
 ## Rollback
 
