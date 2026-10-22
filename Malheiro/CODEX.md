@@ -9,7 +9,7 @@ Trabalhar na branch `malheiro/cls-preflight`; não publicar no painel da loja se
 - CSS secundário completo: `legado/css/css-secundario-original.css`.
 - HTML completo do bloco Home / Rodapé: `legado/home/base-home-original.html`.
 - Rotina de carregamento final: `legado/rodape/footer-carregamento-original.html`.
-- CDN principal externo: `//cdn.awsli.com.br/1351/1351790/arquivos/malheiroshoww-estabilizado.js` **conteúdo ainda não obtido**; registrado em `legado/cdn/malheiroshoww-estabilizado.REFERENCIA.md`.
+- CDN principal externo: `//cdn.awsli.com.br/1351/1351790/arquivos/malheiroshoww-estabilizado.js` **conteúdo obtido, versão original disponível em `legado/cdn/malheiroshoww-estabilizado-original.js`**; registrado em `legado/cdn/malheiroshoww-estabilizado.REFERENCIA.md`.
 - Candidato parcial: `src/home/base-home-candidata-posicionamento-unico.html` (não publicar).
 
 ## Evidências dos conflitos confirmados
@@ -31,7 +31,7 @@ Consultar `auditoria/04-ARQUIVOS-RECEBIDOS-E-CONFLITOS.md`.
 - Não usar MCP ou API da Loja Integrada.
 
 ## Roteiro de execução
-1. Conseguir e auditar **o conteúdo exato** do JS CDN. Registrar ownership dos seletores, bibliotecas, eventos e ordem de inicialização.
+1. Auditar o conteúdo exato importado do JS CDN; o primeiro mapa de conflitos está em `auditoria/05-INTEGRACAO-JS-TEMA-E-HOMOLOGACAO.md`. Registrar ownership dos seletores, bibliotecas, eventos e ordem de inicialização.
 2. Mapear dependências entre CDN JS, CSS e HTML; capturar trace base de CLS e subárvore de DOM.
 3. Corrigir prioridade P0: montagem única das seções, posição estável da home/heading, deduplicar scripts/movimentos. Se não for possível montar antes do paint via campos HTML, documentar dependência de template e testar reserva de espaço específica.
 4. Separar HTML dos componentes, CSS e JS sem duplicar lógica. Escrever testes unitários/smoke + verificações de URLs.
@@ -44,3 +44,9 @@ Consultar `auditoria/04-ARQUIVOS-RECEBIDOS-E-CONFLITOS.md`.
 
 ## Não esquecer
 Backup de produção deve ser mantido. Não mexer no que funciona até haver teste funcional e comparação visual.
+
+## Atualização 22/10 — JS do tema recebido
+- Fonte original completa: `legado/cdn/malheiroshoww-estabilizado-original.js`.
+- Candidato JS com segunda chamada duplicada de `prepend()` removida: `homologacao/assets/malheiroshoww.js`.
+- CSS e HTML de teste: `homologacao/assets/css-secundario.css` e `homologacao/html/home.html`.
+- **Ainda não corrigimos CLS estrutural**. Avaliar cabeçalho fixed e `body` padding-top dinâmico vs 72px important, vitrines Owl após load e movidas, `lista-one` e `fm-categorias` após DOMReady, antes de chamar pronto.
