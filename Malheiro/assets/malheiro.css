@@ -1,0 +1,53 @@
+/**
+ * Malheiro — CSS isolado. Sem estilos globais, fontes externas ou @import.
+ * Colocar no <head> da Loja Integrada para evitar flash e deslocamento visual.
+ */
+[data-malheiro-slot="beneficios"] {
+  min-block-size: 92px;
+}
+
+.malheiro-beneficios {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: center;
+  gap: 12px;
+  min-block-size: 92px;
+  padding: 16px 20px;
+  border-radius: 8px;
+  color: var(--tb-beneficios-texto, #253344);
+  background: var(--tb-beneficios-bg, #f5f7fa);
+  font: inherit;
+}
+
+.malheiro-beneficios *,
+.malheiro-beneficios *::before,
+.malheiro-beneficios *::after { box-sizing: border-box; }
+
+.malheiro-beneficios__item {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.4;
+  text-align: center;
+  overflow-wrap: anywhere;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+}
+
+@media (max-width: 640px) {
+  [data-malheiro-slot="beneficios"] { min-block-size: 186px; }
+  .malheiro-beneficios {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    min-block-size: 186px;
+    padding: 12px 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .malheiro-beneficios,
+  .malheiro-beneficios * { animation: none !important; transition: none !important; }
+}
