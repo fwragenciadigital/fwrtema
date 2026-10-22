@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Malheiro — preview de desenvolvimento</title>
+  <link rel="stylesheet" href="./assets/malheiro.css">
+  <style>body{font-family:system-ui,sans-serif;max-width:960px;margin:64px auto;padding:0 20px;line-height:1.5}</style>
+</head>
+<body>
+  <h1>Malheiro</h1>
+  <p>Prévia isolada do componente de exemplo. Na loja, o componente fica desativado por padrão.</p>
+  <div data-malheiro-slot="beneficios"></div>
+  <p id="status">Verificando JS...</p>
+  <script>
+    window.MalheiroSettings = {
+      geral: {ativo: true, debug: false},
+      beneficios: {ativo: true, seletor: '[data-malheiro-slot="beneficios"]',
+        texto1: 'Compra segura', texto2: 'Envio para todo o Brasil', texto3: 'Atendimento especializado',
+        corFundo: '#f5f7fa', corTexto: '#253344'}
+    };
+    document.addEventListener('malheiro:ready', function () {
+      document.getElementById('status').textContent = 'JavaScript carregado — v' + window.Malheiro.version;
+    });
+  </script>
+  <script defer src="./assets/malheiro.js"></script>
+</body>
+</html>
