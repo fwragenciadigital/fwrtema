@@ -32,6 +32,12 @@ Foi feita uma segunda rodada sem interceptar HTML, CSS ou JS: Chrome local headl
 
 As duas PDPs emitiram erro de página `rdtracker is not defined` nas duas amostras, além de falhas de fetch para recursos externos. Esses erros são registrados, mas as falhas de rede podem depender do ambiente do navegador. A observação de `sources` identifica os elementos afetados pelo layout shift; esta coleta não capturou stack trace suficiente para atribuir cada deslocamento a uma função específica. Não foram testados categoria, busca, tablet, carrinho/checkout nem interações de compra nesta rodada.
 
+### Ablação visual da home: `.conteiner-principal`
+
+Teste adicional, somente no navegador isolado: CSS foi injetado na resposta HTML antes da primeira pintura; nada foi salvo na loja. No controle, CLS foi 0,99814 desktop e 0,86584 mobile. Ocultando `.conteiner-principal` inteiro com `display:none!important`, CLS caiu para 0,00442 e 0,00421, respectivamente — mas a altura renderizada do cabeçalho também caiu para 0 px. O teste elimina praticamente toda a página, portanto só confirma que o shift está na região ampla removida; não é uma correção aceitável nem prova de que os módulos injetados sejam a causa.
+
+Para separar os módulos sem remover o cabeçalho, foi feita outra ablação pré-pintura dos seletores presentes `.lista-one`, `.lista-two`, `.videos-box`, `.box-new-sobre`, `.titulo_avalia` e `#_trustvox_colt` (`.fwr-bb` e `#app` não existiam nessa visita). Header preservado: 85 px desktop e 120 px mobile. CLS foi 0,77454 desktop e 0,86677 mobile. O shift dominante do próprio `.conteiner-principal` persistiu em 0,76989 no desktop (y=85→5); no mobile persistiu o shift de 0,8658 envolvendo `#rodape`/`#corpo`. Uma navegação por viewport/variante não prova causalidade, mas indica que ocultar apenas os módulos conhecidos não elimina o deslocamento dominante. O teste oculto também remove conteúdo e não deve ser instalado.
+
 ## Camadas e conflitos
 
 | Camada | Conflito confirmado por inspeção | Resultado |
