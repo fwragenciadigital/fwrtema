@@ -69,3 +69,17 @@ test('variante CLS remove Trustvox e modal de vídeo sem alterar os demais módu
   assert.match(asset, /new MutationObserver/, 'runtime deve remover nós Trustvox adicionados tardiamente');
   assert.deepEqual(cdn(markup), cdn(home), 'URLs CDN de imagens devem permanecer exatamente na mesma ordem');
 });
+
+test('variante sem Instagram remove o feed e LightWidget, preservando o restante da home', async () => {
+  const home = await read('./homologacao/html/home.html');
+  const asset = await read('./homologacao/assets/home-malheiro-sem-insta-footer.js');
+  const payloadMatch = asset.match(/var markup = ([\s\S]*?);\n  var selector/);
+  assert.ok(payloadMatch, 'variante deve conter a base HTML serializada');
+  const markup = JSON.parse(payloadMatch[1]);
+  const cdn = value => [...value.matchAll(/(?:src|data-bg|data-product-img)\s*=\s*["']((?:https?:)?\/\/cdn\.awsli\.com\.br\/[^"']+)["']/gi)].map(match => match[1]);
+
+  assert.doesNotMatch(markup, /insta-footer|fwr-insta|lightwidget/i, 'Instagram e sua dependência devem sair do payload');
+  assert.match(markup, /fwr-vimeo-modal/, 'modal Vimeo deve permanecer nesta variante isolada');
+  assert.match(markup, /id="qc-trigger"/, 'QuizChat deve permanecer');
+  assert.deepEqual(cdn(markup), cdn(home), 'URLs CDN AWS devem permanecer literalmente iguais');
+});

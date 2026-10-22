@@ -6,9 +6,11 @@ const scriptDir = dirname(fileURLToPath(import.meta.url));
 const malheiroDir = resolve(scriptDir, '..');
 const sourcePath = resolve(malheiroDir, 'homologacao/html/home.html');
 const ablation = process.argv.includes('--ablation-cls');
-const outputPath = resolve(malheiroDir, ablation
-  ? 'homologacao/assets/home-malheiro-ablation-cls.js'
-  : 'homologacao/assets/home-malheiro.js');
+const removeInstagram = process.argv.includes('--remove-insta-footer');
+const outputName = removeInstagram
+  ? 'home-malheiro-sem-insta-footer.js'
+  : ablation ? 'home-malheiro-ablation-cls.js' : 'home-malheiro.js';
+const outputPath = resolve(malheiroDir, 'homologacao/assets', outputName);
 
 function removeDivsWithClass(markup, className) {
   const openPattern = new RegExp('<div\\b[^>]*\\bclass="[^"]*\\b' + className + '\\b[^"]*"[^>]*>', 'i');
@@ -47,6 +49,17 @@ if (!organizerPattern.test(source)) {
 }
 
 let html = source.replace(organizerPattern, '');
+if (removeInstagram) {
+  const instaPattern = /<section class="insta-footer fwr-insta"(?=[\s>])[\s\S]*?<\/section>/g;
+  const before = html;
+  html = html.replace(instaPattern, '');
+  if (before === html || (before.match(/<section class="insta-footer fwr-insta"/g) || []).length !== 1) {
+    throw new Error('Esperada exatamente uma seção insta-footer.fwr-insta; bundle não foi gerado.');
+  }
+  if (html.includes('cdn.lightwidget.com/widgets/lightwidget.js') || html.includes('cdn.lightwidget.com/widgets/d1f4f7eb1f625e419e74ec481a131a5a.html')) {
+    throw new Error('A seção Instagram foi removida, mas a dependência LightWidget permaneceu.');
+  }
+}
 let removedModalCount = 0;
 if (ablation) {
   const trustvoxPattern = /<!--\s*Trustvox\s*-->[\s\S]*?<!--\s*\/Trustvox\s*-->\s*<div\s+id="_trustvox_colt"\s*><\/div>/i;
@@ -215,4 +228,4 @@ const generated = `/*
 `;
 
 await writeFile(outputPath, generated, 'utf8');
-console.log(`Gerado${ablation ? ' (ablação CLS)' : ''}: ${outputPath}`);
+console.log(`Gerado${ablation ? ' (ablação CLS)' : ''}${removeInstagram ? ' (sem insta-footer)' : ''}: ${outputPath}`);
