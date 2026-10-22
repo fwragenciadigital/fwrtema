@@ -37,3 +37,13 @@ O JS CDN já foi importado em `legado/cdn/malheiroshoww-estabilizado-original.js
 - CSS adicional linkado em `https://cdn.awsli.com.br/1351/1351790/arquivos/csscompactadoo.css` não foi baixado nesta auditoria, portanto não está inventariado internamente.
 - Detalhes: `auditoria/06-CABECALHO-QUIZ-CLS.md`.
 - Teste: `node Malheiro/scripts/validar-cabecalho.mjs`.
+
+
+## Escopo CSS fechado — 22/10/2026
+- Fonte compactada completa: `legado/css/csscompactadoo-original.css` (241.530 caracteres; preservadas as URLs AWS).
+- Relatório técnico combinado de CSS compactado, CSS secundário, HTML/Cabeçalho e JS do tema: `auditoria/08-CSS-COMPACTADO-ANALISE-INTEGRADA.md`.
+- Experimento de Owl (**não publicar sem trace**): `homologacao/experimentos/csscompactadoo-owl-reserva-fluxo.css`; remove `display:none` inicial de `.produtos-carrossel` e **pode piorar CLS se os filhos empilharem antes do Owl**.
+- Experimento de header sticky desktop (**alternativo** ao prepaint fixed): `homologacao/experimentos/cabecalho-sticky-sem-salto.html`; mantém o header no fluxo e remove padding-top artificial >=993px. Sem teste de rolagem/DOM real.
+- Testes automatizados: `node Malheiro/scripts/validar-csscompactadoo.mjs` + demais scripts de CLS.
+- Particularidade tablet: compactado faz `#cabecalho.fixed { margin-top:-60px }` entre 768..992px; mobile <=767 já usa fixed desde CSS, com reserva de 124px.
+- **Status:** quatro fontes principais entregues e auditadas, mas CLS real não está provadamente corrigido; não realizar deploy ou merge por enquanto.
