@@ -50,3 +50,22 @@ test('asset JS da home contém a base HTML, mantém URLs e monta junto à vitrin
   assert.match(asset, /__FWR_MALHEIRO_HOME_ASSET_V1__/);
   assert.doesNotMatch(asset.slice(0, asset.indexOf('var markup = ')), /fetch\s*\(/, 'carregador não deve tentar baixar HTML externo');
 });
+
+test('variante CLS remove Trustvox e modal de vídeo sem alterar os demais módulos ou URLs', async () => {
+  const home = await read('./homologacao/html/home.html');
+  const asset = await read('./homologacao/assets/home-malheiro-ablation-cls.js');
+  const payloadMatch = asset.match(/var markup = ([\s\S]*?);\n  var selector/);
+  assert.ok(payloadMatch, 'variante CLS deve conter a base HTML serializada');
+  const markup = JSON.parse(payloadMatch[1]);
+  const cdn = value => [...value.matchAll(/(?:src|data-bg|data-product-img)\s*=\s*["']((?:https?:)?\/\/cdn\.awsli\.com\.br\/[^"']+)["']/gi)].map(match => match[1]);
+
+  assert.doesNotMatch(markup, /trustvox|_trustvox_colt|titulo_avalia/i, 'Trustvox deve ser removido do HTML empacotado');
+  assert.doesNotMatch(markup, /fwr-vc-modal|__FWR_VC_HARDENED__/i, 'modal, backdrop e inicializador de vídeo devem sair do HTML empacotado');
+  assert.match(markup, /id="qc-trigger"/, 'QuizChat deve permanecer no payload');
+  for (const marker of ['lista-one', 'lista-two', 'videos-box', 'banner-central-marcas']) {
+    assert.ok(markup.includes(marker), `variante removeu conteúdo não solicitado: ${marker}`);
+  }
+  assert.match(asset, /querySelectorAll\('\.titulo_avalia, #_trustvox_colt'\)/, 'runtime deve remover seletores Trustvox já presentes');
+  assert.match(asset, /new MutationObserver/, 'runtime deve remover nós Trustvox adicionados tardiamente');
+  assert.deepEqual(cdn(markup), cdn(home), 'URLs CDN de imagens devem permanecer exatamente na mesma ordem');
+});
