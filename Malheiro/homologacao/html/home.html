@@ -85,7 +85,6 @@
   
   <script>
   (function(){
-    /* Posicionamento centralizado na rotina única após .secao-banners. */
     function ativarCarrossel(){
       var sec=document.getElementById('fm-categorias');
       if(!sec || sec.dataset.fmCarousel) return;
@@ -150,43 +149,6 @@
     }
     function iniciar(){ativarCarrossel();}
     if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',iniciar);}else{iniciar();}
-  })();
-  (function () {
-    function posicionarCategorias() {
-      const banner = document.querySelector('.secao-banners');
-      const categorias = document.querySelector('#fm-categorias');
-  
-      if (!banner || !categorias) return false;
-  
-      // Posiciona imediatamente após o banner principal
-      if (banner.nextElementSibling !== categorias) {
-        banner.insertAdjacentElement('afterend', categorias);
-      }
-  
-      return true;
-    }
-  
-    function iniciar() {
-      if (posicionarCategorias()) return;
-  
-      // Aguarda o banner caso seja carregado posteriormente
-      const observer = new MutationObserver(() => {
-        if (posicionarCategorias()) observer.disconnect();
-      });
-  
-      observer.observe(document.body, {
-        childList: true,
-        subtree: true
-      });
-  
-      setTimeout(() => observer.disconnect(), 12000);
-    }
-  
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', iniciar);
-    } else {
-      iniciar();
-    }
   })();
   </script>
 
@@ -509,15 +471,6 @@
     </section>
 
 </div>
-
-
-<script>
-  jQuery(function($){
-    $('.lista-one').insertAfter('#corpo');
-  });
-</script>
-
-
 <div class="disable lista-two">
 
   <div class="fwr-cat-hero-list">
@@ -1604,7 +1557,395 @@
 })();
 </script>
 
-<!-- Os dois handlers JS de texto solto foram isolados para revisão na pasta legado; não eram executáveis em HTML. -->
+<!--
+  Ordem da home: primeiro a vitrine nativa da Loja Integrada; depois, uma única
+  montagem dos módulos autorais, preservando sua ordem e as integrações abaixo.
+  Este organizador não oculta conteúdo e só move os nós se o destino já existe.
+-->
+<script>
+(function () {
+  if (window.__FWR_HOME_ORDER__) return;
+  window.__FWR_HOME_ORDER__ = true;
+
+  var vitrine = document.querySelector('#corpo #listagemProdutos.listagem.borda-alpha');
+  var categorias = document.getElementById('fm-categorias');
+  var listaUm = document.querySelector('.lista-one');
+  var listaDois = document.querySelector('.lista-two');
+  var videos = document.querySelector('.videos-box');
+  var marcas = document.querySelector('.banner-central-marcas');
+
+  if (!vitrine || !vitrine.parentNode) return;
+
+  var blocos = [categorias, listaUm, listaDois, videos, marcas].filter(Boolean);
+  if (!blocos.length) return;
+
+  var fragmento = document.createDocumentFragment();
+  blocos.forEach(function (bloco) {
+    fragmento.appendChild(bloco);
+  });
+
+  vitrine.parentNode.insertBefore(fragmento, vitrine.nextSibling);
+})();
+</script>
+
+(function () {
+  "use strict";
+  if (window.__FWR_VC_HARDENED__) return;
+  window.__FWR_VC_HARDENED__ = true;
+
+  function qs(sel, root){ return (root||document).querySelector(sel); }
+  function qsa(sel, root){ return Array.from((root||document).querySelectorAll(sel)); }
+  function abs(u){ try { return new URL(u, location.origin).toString(); } catch(e){ return ""; } }
+  function strip(s){ return String(s||"").replace(/\s+/g," ").trim(); }
+
+  function normalizeVimeo(input, wantSound){
+    var raw = String(input||"").trim();
+    if (!raw) return "";
+
+    raw = raw.replace(/&amp;/g, "&");
+
+    if (/^\d+$/.test(raw)){
+      return "https://player.vimeo.com/video/" + raw +
+        "?autoplay=1&muted=" + (wantSound ? "0" : "1") +
+        "&autopause=0&controls=0&loop=1&byline=0&title=0&portrait=0";
+    }
+
+    try{
+      var u = new URL(raw);
+      u.searchParams.set("autoplay","1");
+      u.searchParams.set("autopause","0");
+      u.searchParams.set("controls","0");
+      u.searchParams.set("loop","1");
+      u.searchParams.set("byline","0");
+      u.searchParams.set("title","0");
+      u.searchParams.set("portrait","0");
+      u.searchParams.set("muted", wantSound ? "0" : "1");
+      return u.toString();
+    }catch(e){
+      return raw;
+    }
+  }
+
+  function parseMoneyBR(v){
+    var s = String(v||"").replace(/[^\d.,]/g,"");
+    if (!s) return NaN;
+    return Number(s.replace(/\./g,"").replace(",","."));
+  }
+
+  function fmtBRL(n){
+    try { return n.toLocaleString("pt-BR",{style:"currency",currency:"BRL"}); }
+    catch(e){ return "R$ " + (Math.round(n*100)/100).toFixed(2).replace(".",","); }
+  }
+
+  function extractFromAndInst(text){
+    var t = String(text||"");
+    var ap = [];
+    var reAp = /A\s*partir\s*de\s*R\$\s*([\d\.]+,\d{2})/gi;
+    var m;
+    while((m=reAp.exec(t))!==null){
+      var n = parseMoneyBR(m[1]);
+      if (Number.isFinite(n)) ap.push(n);
+    }
+    var min = ap.length ? Math.min.apply(null, ap) : NaN;
+
+    var region = t;
+    var idx = t.search(/A\s*partir\s*de\s*R\$/i);
+    if (idx>=0) region = t.slice(idx, idx+700);
+
+    var inst = "";
+    var mi = region.match(/até\s*(\d+)\s*x\s*de\s*R\$\s*([\d\.]+,\d{2})(?:\s*sem\s*juros)?/i)
+          || t.match(/até\s*(\d+)\s*x\s*de\s*R\$\s*([\d\.]+,\d{2})(?:\s*sem\s*juros)?/i);
+    if (mi){
+      inst = "até " + mi[1] + "x de R$ " + mi[2] + (/\bsem\s+juros\b/i.test(mi[0]) ? " sem juros" : "");
+    }
+
+    return {
+      fromText: Number.isFinite(min) ? ("A partir de " + fmtBRL(min)) : "Consulte o preço",
+      instText: inst
+    };
+  }
+
+  function findCheapestAddLink(doc){
+    var links = Array.from(doc.querySelectorAll('a[href*="/carrinho/produto/"][href$="/adicionar"]'));
+    if (!links.length) return "";
+
+    var best = { price: Infinity, href: "" };
+
+    links.forEach(function(a){
+      var href = a.getAttribute("href") || "";
+      if (!href) return;
+
+      var scope = a.closest("div, li, form, section, article") || a.parentElement;
+      var scopeText = scope ? (scope.textContent || "") : "";
+      var matches = scopeText.match(/R\$\s*[\d\.]+,\d{2}/g) || [];
+      var nums = matches.map(parseMoneyBR).filter(Number.isFinite);
+      var variantPrice = nums.length ? Math.max.apply(null, nums) : NaN;
+
+      if (Number.isFinite(variantPrice) && variantPrice < best.price){
+        best.price = variantPrice;
+        best.href = href;
+      }
+    });
+
+    var chosen = best.href || (links[0].getAttribute("href") || "");
+    if (!chosen) return "";
+    try { return new URL(chosen, location.origin).toString(); }
+    catch(e){ return chosen; }
+  }
+
+  var cache = new Map();
+  async function fetchProductData(productUrl){
+    var url = abs(productUrl);
+    if (!url) return { name:"Produto", fromText:"Consulte o preço", instText:"", addHref:"" };
+    if (cache.has(url)) return cache.get(url);
+
+    var res = await fetch(url, { credentials: "same-origin" });
+    var html = await res.text();
+    var doc = new DOMParser().parseFromString(html, "text/html");
+
+    var h1 = doc.querySelector("h1");
+    var name = strip(h1 ? h1.textContent : doc.title) || "Produto";
+
+    var bodyText = strip(doc.body ? doc.body.textContent : "");
+    var ex = extractFromAndInst(bodyText);
+
+    var addHref = findCheapestAddLink(doc);
+
+    var out = { name:name, fromText:ex.fromText, instText:ex.instText, addHref:addHref };
+    cache.set(url, out);
+    return out;
+  }
+
+  function ensureModal(){
+    var modal = qs(".fwr-vc-modal");
+    if (modal) return modal;
+
+    modal = document.createElement("div");
+    modal.className = "fwr-vc-modal";
+    modal.hidden = true;
+    modal.setAttribute("aria-hidden","true");
+    modal.innerHTML =
+      '<div class="fwr-vc-modal__backdrop" data-vc-close></div>' +
+      '<div class="fwr-vc-modal__panel" role="dialog" aria-modal="true" aria-label="Vídeo do produto" tabindex="-1">' +
+        '<button class="fwr-vc-modal__close" type="button" aria-label="Fechar" data-vc-close>×</button>' +
+        '<div class="fwr-vc-modal__videoWrap">' +
+          '<div class="fwr-vc-modal__ratio">' +
+            '<iframe class="fwr-vc-modal__iframe" title="Vídeo do produto" allow="autoplay; fullscreen; picture-in-picture"></iframe>' +
+          '</div>' +
+          '<div class="fwr-vc-modal__overlay">' +
+            '<div class="fwr-vc-modal__overlayTop">' +
+              '<div class="fwr-vc-modal__title" data-vc-title>—</div>' +
+              '<button class="fwr-vc-modal__sound" type="button" data-vc-sound aria-label="Ativar som">🔊 Som</button>' +
+            '</div>' +
+            '<div class="fwr-vc-modal__from" data-vc-from>Carregando preço…</div>' +
+            '<div class="fwr-vc-modal__inst" data-vc-inst></div>' +
+            '<div class="fwr-vc-modal__overlayBottom">' +
+              '<a class="fwr-vc-modal__btn fwr-vc-modal__btn--primary" href="#" data-vc-buy>Comprar</a>' +
+              '<button class="fwr-vc-modal__btn fwr-vc-modal__btn--ghost" type="button" data-vc-close>Fechar</button>' +
+            '</div>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+    document.body.appendChild(modal);
+    return modal;
+  }
+
+  var modal = ensureModal();
+  var iframe = qs(".fwr-vc-modal__iframe", modal);
+  var panel  = qs(".fwr-vc-modal__panel", modal);
+  var titleEl= qs("[data-vc-title]", modal);
+  var fromEl = qs("[data-vc-from]", modal);
+  var instEl = qs("[data-vc-inst]", modal);
+  var buyEl  = qs("[data-vc-buy]", modal);
+  var soundBtn = qs("[data-vc-sound]", modal);
+
+  var lastFocus = null;
+  var activeCard = null;
+  var soundOn = false;
+
+  function setSoundUI(){
+    if (!soundBtn) return;
+    soundBtn.textContent = soundOn ? "🔇 Mudo" : "🔊 Som";
+    soundBtn.setAttribute("aria-label", soundOn ? "Ativar mudo" : "Ativar som");
+  }
+
+  function setPlayerFromCard(card){
+    var vimeo = card.getAttribute("data-vimeo-url") || card.getAttribute("data-vimeo-id") || "";
+    var src = normalizeVimeo(vimeo, soundOn);
+
+    iframe.removeAttribute("src");
+    iframe.setAttribute("src", src);
+    iframe.setAttribute("allow", "autoplay; fullscreen; picture-in-picture");
+    iframe.setAttribute("allowfullscreen","");
+  }
+
+  function openModalFromCard(card){
+    activeCard = card;
+    lastFocus = document.activeElement;
+
+    modal.hidden = false;
+    modal.removeAttribute("hidden");
+    modal.setAttribute("aria-hidden","false");
+    document.body.style.overflow = "hidden";
+
+    soundOn = false;
+    setSoundUI();
+    setPlayerFromCard(card);
+
+    var purl = card.getAttribute("data-product-url") || "";
+    if (titleEl) titleEl.textContent = "Carregando…";
+    if (fromEl) fromEl.textContent = "Carregando preço…";
+    if (instEl) instEl.textContent = "";
+
+    fetchProductData(purl).then(function(p){
+      if (titleEl) titleEl.textContent = p.name || "Produto";
+      if (fromEl) fromEl.textContent = p.fromText || "Consulte o preço";
+      if (instEl) instEl.textContent = p.instText || "";
+      if (buyEl) buyEl.href = p.addHref || "#";
+    });
+
+    if (buyEl){
+      buyEl.onclick = function(ev){
+        ev.preventDefault();
+        fetchProductData(purl).then(function(p){
+          if (p.addHref) location.href = p.addHref;
+        });
+      };
+    }
+
+    setTimeout(function(){ try { panel.focus(); } catch(e){} }, 0);
+  }
+
+  function closeModal(){
+    modal.hidden = true;
+    modal.setAttribute("hidden","");
+    modal.setAttribute("aria-hidden","true");
+    document.body.style.overflow = "";
+    iframe.removeAttribute("src");
+    activeCard = null;
+    soundOn = false;
+    setSoundUI();
+
+    if (lastFocus && typeof lastFocus.focus === "function"){
+      try { lastFocus.focus(); } catch(e){}
+    }
+  }
+
+  document.addEventListener("click", function(e){
+    var close = e.target.closest("[data-vc-close]");
+    if (close && !modal.hidden){
+      e.preventDefault();
+      closeModal();
+      return;
+    }
+
+    var openBtn = e.target.closest("[data-vc-open]");
+    if (openBtn){
+      e.preventDefault();
+      var card = openBtn.closest(".fwr-vc__card");
+      if (card) openModalFromCard(card);
+      return;
+    }
+
+    var buyBtn = e.target.closest("[data-vc-buybtn]");
+    if (buyBtn){
+      e.preventDefault();
+      var card2 = buyBtn.closest(".fwr-vc__card");
+      if (!card2) return;
+      var purl2 = card2.getAttribute("data-product-url") || "";
+      fetchProductData(purl2).then(function(p){
+        if (p.addHref) location.href = p.addHref;
+      });
+      return;
+    }
+
+    var sb = e.target.closest("[data-vc-sound]");
+    if (sb && !modal.hidden){
+      e.preventDefault();
+      if (!activeCard) return;
+
+      soundOn = !soundOn;
+      setSoundUI();
+      setPlayerFromCard(activeCard);
+      return;
+    }
+  }, true);
+
+  document.addEventListener("keydown", function(e){
+    if (modal.hidden) return;
+    if (e.key === "Escape"){ e.preventDefault(); closeModal(); }
+  });
+
+})();
+
+(function(){
+  "use strict";
+  if (window.__FWR_BENEFITS_FLEX__) return;
+  window.__FWR_BENEFITS_FLEX__ = true;
+
+  var mq = window.matchMedia("(max-width: 980px)");
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+  var inited = false;
+  var originalHTML = null;
+
+  function init(){
+    var el = document.querySelector("[data-fwr-benefits]");
+    if (!el) return;
+
+    if (!originalHTML) originalHTML = el.innerHTML;
+
+    // precisa de jQuery + flexslider
+    if (!window.jQuery || !window.jQuery.fn || !window.jQuery.fn.flexslider) return;
+
+    if (!mq.matches || reduce.matches){
+      destroy(el);
+      return;
+    }
+
+    if (inited) return;
+
+    window.jQuery(el).flexslider({
+      animation: "slide",
+      animationLoop: true,
+      slideshow: true,
+      slideshowSpeed: 2400,
+      animationSpeed: 520,
+      controlNav: false,
+      directionNav: false,
+      touch: true,
+      keyboard: false,
+      pauseOnHover: false,
+      pauseOnAction: false
+    });
+
+    inited = true;
+  }
+
+  function destroy(el){
+    if (!inited) return;
+    // forma mais segura: restaurar markup original (remove wrappers/clones do flexslider)
+    if (originalHTML) el.innerHTML = originalHTML;
+    inited = false;
+  }
+
+  function boot(){
+    init();
+    // retry curto (às vezes flexslider carrega depois)
+    var tries = 0;
+    var t = setInterval(function(){
+      tries++;
+      init();
+      if (inited || tries > 20) clearInterval(t);
+    }, 250);
+  }
+
+  boot();
+  if (mq.addEventListener) mq.addEventListener("change", init);
+  else mq.addListener(init);
+
+  if (reduce.addEventListener) reduce.addEventListener("change", init);
+  else reduce.addListener(init);
+})();
 
 <style>
   .sr-only{position:absolute!important;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}

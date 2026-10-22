@@ -26,3 +26,14 @@ test('runtime não depende de biblioteca e contém verificações de idempotênc
   assert.match(js, /replaceChildren/);
   assert.doesNotMatch(js, /jQuery|\$\(/);
 });
+
+test('base da home preserva uma vitrine nativa inicial e ordena os módulos uma vez', async () => {
+  const home = await read('./homologacao/html/home.html');
+  assert.match(home, /#corpo #listagemProdutos\.listagem\.borda-alpha/);
+  assert.match(home, /var blocos = \[categorias, listaUm, listaDois, videos, marcas\]/);
+  assert.match(home, /insertBefore\(fragmento, vitrine\.nextSibling\)/);
+  assert.doesNotMatch(home, /posicionarCategorias|insertAfter\('#corpo'\)|data\.fmPosicionado/);
+  for (const marker of ['.lista-one', '.lista-two', '.videos-box', '.banner-central-marcas', 'id="qc-trigger"', 'id="_trustvox_colt"']) {
+    assert.ok(home.includes(marker), `base perdeu integração ou bloco: ${marker}`);
+  }
+});
