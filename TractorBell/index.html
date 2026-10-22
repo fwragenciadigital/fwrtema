@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>TractorBell · Teste de carregamento</title>
+  <link rel="stylesheet" href="./assets/tractorbell.css">
+  <script defer src="./assets/tractorbell.js"></script>
+</head>
+<body style="font-family:system-ui,sans-serif;max-width:700px;margin:60px auto;padding:0 24px">
+  <main class="tractorbell">
+    <h1>TractorBell</h1>
+    <p>Arquivos CSS e JavaScript preparados para integração na Loja Integrada.</p>
+    <p id="status">Verificando JavaScript...</p>
+  </main>
+  <script>
+    function check() {
+      document.getElementById('status').textContent =
+        window.TractorBell?.initialized
+          ? 'JavaScript carregado (v' + window.TractorBell.version + ').'
+          : 'JavaScript ainda não carregado.';
+    }
+    document.addEventListener('tractorbell:ready', check, { once: true });
+    window.addEventListener('load', check, { once: true });
+  </script>
+</body>
+</html>
