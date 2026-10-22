@@ -29,3 +29,11 @@ Ler `CODEX.md` e todos os relatórios em `auditoria/`. Conferir o código ausent
 
 ## Links de teste e próximos passos
 O JS CDN já foi importado em `legado/cdn/malheiroshoww-estabilizado-original.js`. A versão candidata mínima está em `homologacao/assets/`, a home correspondente em `homologacao/html/home.html`, e a análise técnica em `auditoria/05-INTEGRACAO-JS-TEMA-E-HOMOLOGACAO.md`. Conferir HTTP 200 e CSS/JS antes da instalação isolada, sem duplicar scripts. Ainda não é uma correção de CLS validada.
+
+## HTML/Cabeçalho importado (22/10)
+- Backup dos códigos ativos de Cabeçalho: `legado/cabecalho/html-cabecalho-original.html`.
+- QuizChat anexo preservado: `legado/cabecalho/quizchat-anexo-original.html`. A home já contém markup e JavaScript do QuizChat; **não instalar o anexo pela segunda vez**.
+- Ajuste mínimo e conservador, ainda NÃO validado em loja: `homologacao/html/cabecalho-sem-fade-arriscado.html`; somente segundo `<style>` do fade/blur foi removido (973 caracteres). CSS crítico, URLs originais e regras do topo foram preservados.
+- CSS adicional linkado em `https://cdn.awsli.com.br/1351/1351790/arquivos/csscompactadoo.css` não foi baixado nesta auditoria, portanto não está inventariado internamente.
+- Detalhes: `auditoria/06-CABECALHO-QUIZ-CLS.md`.
+- Teste: `node Malheiro/scripts/validar-cabecalho.mjs`.
