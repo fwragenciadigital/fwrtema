@@ -66,7 +66,7 @@ for(const {w,h} of [{w:1366,h:768},{w:390,h:844}]){
       reducedMotion:'reduce'
     });
     const page=await ctx.newPage();
-    const row={viewport:`\${w}x\${h}`,variant,htmlModified:false,jsReplaced:false,
+    const row={viewport:`${w}x${h}`,variant,htmlModified:false,jsReplaced:false,
       documentStatus:null,cls:null,events:[],errors:[]};
     await page.addInitScript({content:collector});
     page.on('pageerror',e=>row.errors.push('pageerror: '+e.message.slice(0,220)));
