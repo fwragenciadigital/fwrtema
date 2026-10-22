@@ -70,3 +70,17 @@ Backup de produção deve ser mantido. Não mexer no que funciona até haver tes
 - Medição real (sem escrita na loja): `node Malheiro/scripts/medir-cls-loja-real.mjs` usa Playwright e intercepta somente a sessão de browser; pode rodar pelo workflow `malheiro-cls-verify.yml` (GitHub Actions). **Resultados ainda não conferidos**. 
 - Números de fixture 1366px de header 0,062225→0 e seções 0,129312→0 são só experimentos controlados, NÃO métricas da Malheiro.
 - Sem trace real antes/depois, nenhum merge da PR Draft e nenhum upload final no painel.
+
+
+## CSS compactado importado — 22/10 (auditoria agora inclui as quatro camadas)
+- Backup integral: `legado/css/csscompactadoo-original.css` (241.530 caracteres).
+- CSS validado com `tinycss2`: 0 erros estruturais; CSS secundário também 0.
+- Relatório obrigatório: `auditoria/08-CSS-COMPACTADO-ANALISE-INTEGRADA.md`.
+- **P0 comprovado no código:** `.produtos-carrossel{display:none}`, `.owl-loading{opacity:0;display:block}`, `.owl-loaded{display:block}`; o JS monta Owl após `window.load`. Isso pode causar um deslocamento ao aparecer uma vitrine inteira. Teste `homologacao/experimentos/csscompactadoo-owl-reserva-fluxo.css` troca apenas um `display:none` por `display:block`, mas **é diagnóstico, não solução pronta**; sem layout inicial dimensionado os cards podem empilhar e piorar CLS.
+- Breakpoint tablet 768..992: `#cabecalho.fixed{margin-top:-60px;padding-top:24px}`; JS `menuFlutuante=true` ativa o fixed a partir de 769px. Requer medição e correção separada.
+- Desktop >=993: além da solução anterior fixed-prepaint há alternativa **preferencial para ensaio** `homologacao/experimentos/cabecalho-sticky-sem-salto.html`, que mantém header no fluxo e remove necessidade de padding-top artificial; o CSS com `!important` sobrepõe o `fixed` inline de JS. Verificar se sticky funciona com o DOM real, ancestrais overflow, menu e rolagem.
+- Mobile <=767: compactado já posiciona `#cabecalho{position:fixed}` e `body{padding-top:124px}` inicialmente, **não reusar 85px do desktop**. Confirmar visual.
+- Não utilizar os dois candidatos de header juntos. Não utilizar dois JS malheiroshoww juntos; não sobrescrever ZIP/URLs imagens.
+- Compare CSS original/candidato com `node Malheiro/scripts/validar-csscompactadoo.mjs` (incluído no workflow).
+- A meta é **corrigir** layout, não disfarçar a métrica: DOM pre-Owl e pós-Owl precisam ter mesma geometria; evitar CSS global `display:none` da vitrine sem fallback com dimensões apropriadas. Registrar Chrome Performance e LayoutShift entries antes/depois.
+- **Bloqueio de merge e publicação permanece** até existir uma comparação real de CLS na loja, aceite visual e QA de compra.
