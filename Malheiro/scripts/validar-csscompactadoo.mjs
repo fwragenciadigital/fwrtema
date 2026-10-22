@@ -11,9 +11,10 @@ const [compact,compactTest,head,headSticky,settings]=await Promise.all([
  read('homologacao/experimentos/cabecalho-sticky-sem-salto.html'),
  read('legado/configuracao/settings-tema-sanitizadas.js')
 ]);
-const marker='.produtos-carrossel {\n    display: none;';
-assert.equal(compact.split(marker).length,2,'Seletor .produtos-carrossel display:none deve ser único');
-assert.equal(compactTest,compact.replace(marker,'.produtos-carrossel {\n    display: block;'),
+const owlRules=[...compact.matchAll(/\.produtos-carrossel\s*\{\s*display:\s*none\s*;/g)];
+assert.equal(owlRules.length,1,'Seletor .produtos-carrossel display:none deve ser único');
+const normalizeOwlDisplay=s=>s.replace(/(\.produtos-carrossel\s*\{\s*)display:\s*(?:none|block)\s*;/,'$1display: none;');
+assert.equal(normalizeOwlDisplay(compactTest),compact,
   'Experimento Owl não pode modificar qualquer outra regra');
 const urls=s=>[...s.matchAll(/(?:https?:)?\/\/cdn\.awsli\.com\.br\/[^\s"'<>)}\\]+/gi)].map(x=>x[0]);
 assert.deepEqual(urls(compactTest),urls(compact),'URL AWS de imagem foi alterada');

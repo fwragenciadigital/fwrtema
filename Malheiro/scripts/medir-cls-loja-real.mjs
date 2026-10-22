@@ -58,7 +58,8 @@ function clsLargestWindow(events){
   }
   return +best.toFixed(6);
 }
-const browser=await chromium.launch({headless:true,args:['--no-sandbox']});
+const executablePath=process.env.CHROME_PATH;
+const browser=await chromium.launch({headless:true,args:['--no-sandbox'],...(executablePath?{executablePath}:{})});
 for(const {w,h} of [{w:1366,h:768},{w:390,h:844}]){
   for(const variant of ['original','header-prepaint']){
     const ctx=await browser.newContext({

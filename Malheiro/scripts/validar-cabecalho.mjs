@@ -18,10 +18,10 @@ const [original, candidate, quiz, home]=await Promise.all([
   file('legado/home/base-home-original.html')
 ]);
 
-const marker='\n<style>\n  /* Containers começam invisíveis */';
-const index=original.indexOf(marker);
+const marker=/<style>\s*\/\* Containers começam invisíveis \*\//;
+const index=original.search(marker);
 assert(index>=0, 'Bloco de animações não encontrado no cabeçalho original');
-assert.equal(candidate, original.slice(0,index).trimEnd()+'\n', 'Candidato alterou mais do que o bloco de fade/blur');
+assert.equal(candidate.replace(/\r\n/g,'\n'), original.slice(0,index).trimEnd()+'\n', 'Candidato alterou mais do que o bloco de fade/blur');
 const links=str=>[...str.matchAll(/<link\b[^>]*href="([^"]+)"/g)].map(m=>m[1]);
 assert.deepEqual(links(candidate),links(original),'URLs preconnect, fontes ou CSS mudaram');
 assert.match(candidate,/padding-top:\s*85px\s*!important/,'Reserva de topo alterada sem testes');

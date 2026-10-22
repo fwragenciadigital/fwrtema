@@ -26,10 +26,10 @@ const [head0,head1,head2,css0,css1,js0,js1,js2,home0,home1] = await Promise.all(
 const linkURLs=s=>[...s.matchAll(/<link\b[^>]*href="([^"]+)"/gi)].map(m=>m[1]);
 const awsURLs=s=>[...s.matchAll(/(?:https?:)?\/\/cdn\.awsli\.com\.br\/[^\s"'<>)}\\]+/g)].map(m=>m[0]);
 const images=s=>[...s.matchAll(/(?:src|data-bg|data-product-img)\s*=\s*["']((?:https?:)?\/\/cdn\.awsli\.com\.br\/[^"']+)["']/gi)].map(m=>m[1]);
-const fade='\n<style>\n  /* Containers começam invisíveis */';
-const fadeIndex=head0.indexOf(fade);
+const fade=/<style>\s*\/\* Containers começam invisíveis \*\//;
+const fadeIndex=head0.search(fade);
 assert(fadeIndex>=0,'Bloco fade não encontrado');
-assert.equal(head1,head0.slice(0,fadeIndex).trimEnd()+'\n','Remoção do fade modificou código adicional');
+assert.equal(head1.replace(/\r\n/g,'\n'),head0.slice(0,fadeIndex).replace(/\r\n/g,'\n').trimEnd()+'\n','Remoção do fade modificou código adicional');
 assert(head2.startsWith(head1),'Header prepaint deve acrescentar código, nunca reescrever estilos existentes');
 assert(head2.includes('document.documentElement.classList.add') && head2.includes('position: fixed !important'),'Prepaint ausente');
 assert.deepEqual(linkURLs(head0),linkURLs(head2),'CSS/fontes externos do head alterados');
