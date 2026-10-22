@@ -38,6 +38,16 @@ Teste adicional, somente no navegador isolado: CSS foi injetado na resposta HTML
 
 Para separar os módulos sem remover o cabeçalho, foi feita outra ablação pré-pintura dos seletores presentes `.lista-one`, `.lista-two`, `.videos-box`, `.box-new-sobre`, `.titulo_avalia` e `#_trustvox_colt` (`.fwr-bb` e `#app` não existiam nessa visita). Header preservado: 85 px desktop e 120 px mobile. CLS foi 0,77454 desktop e 0,86677 mobile. O shift dominante do próprio `.conteiner-principal` persistiu em 0,76989 no desktop (y=85→5); no mobile persistiu o shift de 0,8658 envolvendo `#rodape`/`#corpo`. Uma navegação por viewport/variante não prova causalidade, mas indica que ocultar apenas os módulos conhecidos não elimina o deslocamento dominante. O teste oculto também remove conteúdo e não deve ser instalado.
 
+### Testes direcionados de reposicionamento (22/10/2026)
+
+Foi testado no navegador isolado mover `.row-fluid.banner.cheio` para o primeiro filho de `.secao-banners` assim que ambos aparecem no DOM, antes do `prepend` posterior de `malheiroshoww.js`. Não houve melhora: desktop controle 0,99679 versus intervenção 1,00291; mobile 0,86677 em ambos. São amostras únicas, portanto a diferença desktop é ruído provável; o teste descarta esse banner, isoladamente, como solução do shift dominante. Não promover esse observer nem acrescentar código ao tema.
+
+A captura de mutações mostrou a transição do cabeçalho de `position: static; top=85px; altura=242px` para `position: fixed; top=0; altura=85px`, com `body` ainda reservando 85 px. No mesmo intervalo o topo de `.conteiner-principal` muda de y=85 para y=5. Isso é evidência de uma transição geométrica simultânea, não prova de que remover o cabeçalho resolva o CLS: o prepaint já testado ainda ficou em 0,943 desktop. O wrapper `.conteiner-principal` é estrutural da plataforma e não deve ser ocultado/removido; o teste `display:none` só suprimiu quase toda a página.
+
+Também foi identificado no HTML entregue pela produção um conjunto de scripts inline jQuery que reposiciona módulos (`.lista-one`, `.lista-two`, `.videos-box`, `banner-central-marcas`, `.box-new-sobre`, `.titulo_avalia`, `#app`, `#_trustvox_colt`, `#barraNewsletter`, entre outros). A cópia candidata versionada contém apenas parte desse conjunto (por exemplo, `home.html` move `.lista-one` depois de `#corpo`); logo, editar apenas o JS/CSS disponível não remove as mutações que hoje ocorrem na loja publicada. A substituição segura é renderizar cada bloco uma única vez em sua posição final no HTML de origem — não movê-lo no DOMReady/load. Não foi aplicada reordenação de teste: a variante parser-time anterior piorou CLS (ver commit `fb912a7`/seção de experimentos), e uma solução completa depende de recuperar/exportar os campos HTML/Cabeçalho e Rodapé exatos hoje ativos para reconciliar todos os scripts sem perder Settings editáveis, URLs ou integrações.
+
+**Decisão desta rodada:** nenhum patch foi promovido; solução continua **NO-GO**. Próximo passo técnico bloqueante é obter a exportação integral dos campos de HTML/Cabeçalho, HTML/Rodapé e JS/CSS efetivamente ativos. Com essa fonte, remover as relocações redundantes e colocar os nós no destino final antes da primeira pintura; então repetir as medições reais em Chrome, sem esconder conteúdo.
+
 ## Camadas e conflitos
 
 | Camada | Conflito confirmado por inspeção | Resultado |
