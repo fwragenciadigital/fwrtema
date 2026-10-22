@@ -24,6 +24,9 @@ No CSS secundário há `body { padding-top:72px!important; }` em desktop (>1025p
 ### P1 — Duplicação do modal de vídeo
 O HTML inclui **duas instâncias** `.fwr-vc-modal`. O código `querySelector('.fwr-vc-modal')` seleciona só a primeira. Precisa rastrear se a segunda tem uso por outro script antes de removê-la.
 
+### P0/P1 — Dois blocos JavaScript fora de tags `<script>`
+Logo depois do encerramento `</script>` do controlador institucional, o HTML contém duas funções autoexecutáveis de texto puro, começando por `(function () { ... window.__FWR_VC_HARDENED__ ... })();` e `(function(){ ... window.__FWR_BENEFITS_FLEX__ ... })();`, seguidas de `<style>`. Em HTML renderizado normalmente, o navegador não executa esses blocos; são texto solto na página. Antes de convertê-los em scripts executáveis, verificar se o arquivo do CDN já oferece esses recursos: ativar dois handlers pode causar novas regressões.
+
 ### P1 — Prioridades de imagem incoerentes
 O HTML contém **39 `img`**, 5 marcações `fetchpriority='high'` e diversos `loading='lazy'`. O bloco `footer-carregamento-original.html` busca a maior imagem geométrica dentro de 1,25 viewports, alterando `fetchpriority`, `loading`, `decoding` após `DOMContentLoaded`, durante idle e após `load + 1s`. O navegador já iniciou muitos downloads nesse ponto: essas mudanças tardias não corrigem a descoberta inicial do LCP e adicionam varreduras de layout repetidas. Substituição recomendada: política declarativa por componente, aplicada no HTML inicial, sem varredura global.
 
