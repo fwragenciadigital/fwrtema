@@ -1,3 +1,5 @@
+> **TAREFA ATIVA PARA O CODEX — EXECUTAR PRIMEIRO:** [CODEX_TAREFA_VALIDACAO_CLS.md](./CODEX_TAREFA_VALIDACAO_CLS.md). Fazer correção e validação de CLS na loja real, registrar evidências e emitir GO/NO-GO; não fazer merge nem publicar. Este arquivo CODEX.md permanece como contexto histórico e regras complementares.
+
 # Malheiro — Handoff para Codex/Cursor (22/10/2026)
 
 ## Escopo
