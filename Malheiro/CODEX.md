@@ -50,3 +50,11 @@ Backup de produção deve ser mantido. Não mexer no que funciona até haver tes
 - Candidato JS com segunda chamada duplicada de `prepend()` removida: `homologacao/assets/malheiroshoww.js`.
 - CSS e HTML de teste: `homologacao/assets/css-secundario.css` e `homologacao/html/home.html`.
 - **Ainda não corrigimos CLS estrutural**. Avaliar cabeçalho fixed e `body` padding-top dinâmico vs 72px important, vitrines Owl após load e movidas, `lista-one` e `fm-categorias` após DOMReady, antes de chamar pronto.
+
+## Novo material — códigos reais do HTML/Cabeçalho
+- Ler `legado/cabecalho/html-cabecalho-original.html` e `legado/cabecalho/quizchat-anexo-original.html`.
+- Ler `auditoria/06-CABECALHO-QUIZ-CLS.md` antes de modificar CSS ou QuizChat.
+- São três controladores concorrentes do topo: CSS secundário `padding-top:72px!important`; CSS do head `padding-top:85px!important`; JS do tema `body.css('padding-top',height)` com header fixed. Breakpoints não coincidem (769px JS vs 993px head). Confirmar por viewport e altura real.
+- O CSS de head ocultava os produtos e banners com `opacity:0` até receber `.lazyloaded`, e desfocava imagens até `.loaded`. Esses eventos não foram localizados nas fontes recebidas; outro script pode existir. Candidato que remove só esse efeito: `homologacao/html/cabecalho-sem-fade-arriscado.html`.
+- O quiz anexado já existe na home (markup e JS, ainda que em partes separadas): NÃO duplicar IDs nem adicionar o anexo ao head. `<script defer>` inline ignora defer; exige montagem de DOM antes do JS.
+- Testar `node Malheiro/scripts/validar-cabecalho.mjs` e validar visualmente; **não publicar na loja sem confirmação**.
