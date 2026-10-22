@@ -110,3 +110,31 @@ Medição de laboratório sem throttling, `prefers-reduced-motion: reduce`, espe
 **Conclusão: NO-GO para declarar CLS resolvido.** A meta ≤0,05 não foi atingida; o CLS segue severo, sobretudo em tablet e mobile. Os maiores eventos observados associaram-se a `#barraNewsletter` (desktop, 0,3855; y=463→0), `#rodape` (tablet, 0,5576; mobile, 0,7192; y para 0), `.conteiner-principal` (desktop, 0,1949; y=85→5), `#corpo`/banner (tablet, 0,1758; mobile, 0,3893) e `#fm-categorias` (desktop, 0,0562; tablet, 0,1880; mobile, 0,1516; y para 0). As fontes do navegador identificam elementos que se moveram, mas não atribuem por si só cada evento à função causadora. Também ocorreram quatro erros `Failed to fetch` por navegação; a origem não foi isolada nesta rodada.
 
 Os resultados são medições reais de laboratório na versão pública e não CrUX. Comparação numérica com as medições anteriores é indicativa, não um A/B controlado (duas amostras por cenário; conteúdo e estado da loja podem variar). O asset está publicado e funcional; ainda são necessários diagnóstico de cada relocação remanescente, correção em staging, cinco ou mais repetições e QA das integrações/checkout antes de qualquer aprovação.
+
+### Revalidação com contextos anônimos — 22/10/2026
+
+Runner: `scripts/validar-base-atual.mjs`, Chrome local via Playwright, contextos novos sem cookies/cache, viewport 390/820/1366 × 844, DPR 1, animações normais, sem limitação de CPU/rede, 10 segundos após DOMContentLoaded. Cinco cargas frias por viewport e variante. CLS calculado pela maior janela de sessão (gap <1 s; duração <5 s), excluindo entradas com input recente. JSON e screenshots em `auditoria/evidencias-base-atual/`. Não são resultados CrUX nem uma nova execução Lighthouse. A rodada não cobre cache quente ou regressão completa de PDP/categoria/busca/checkout.
+
+O recurso publicado foi `https://cdn.awsli.com.br/1351/1351790/arquivos/end-home-malheiro-ablation-cls.js`, HTTP 200, SHA-256 `d007502952ecd40ae6c70c9d0177b23e40b5645523a0c2e30b6119a6eac3382d`. Ele já não contém Instagram nem `__FWR_BENEFITS_FLEX__`.
+
+| Viewport | CLS publicado: intervalo de 5 cargas | Mediana |
+|---|---:|---:|
+| 390 × 844 | 0,45356–0,45510 | 0,45417 |
+| 820 × 844 | 0,23402–0,24132 | 0,23457 |
+| 1366 × 844 | 0,19622–0,19884 | 0,19884 |
+
+As medições Lighthouse anteriores em outro viewport/método, inclusive CLS mobile próximo de 0,008, não representam estas cargas frias. Não atribuir uma regressão a uma alteração específica a partir dessa diferença de método.
+
+**Correção do diagnóstico anterior:** a posição do asset no HTML e a presença de `insertBefore` não comprovam que a injeção da base causa o evento desktop de ~0,20. A amostragem de geometria mostra base já montada antes do evento dominante; no evento, `#cabecalho` muda de `static` para `fixed` e `.conteiner-principal` sobe de y=85 para y=5. No tablet, o header muda de static/263 px para fixed/130 px e o padding do body passa de 0 para 123 px. No mobile, há normalização tardia do header de ~403 para 120 px e `#corpo` desce de y=194 para y=554. Esses mecanismos exigem geometria inicial no cabeçalho/hero, não um espaçamento arbitrário na base.
+
+**Melhoria implementada na base:** o runtime reaproveita o QuizChat global quando trigger, backdrop e drawer já existem. Nesse caso, não insere os três nós duplicados nem o script/CSS correspondente da segunda instância. O bundle continua autossuficiente quando não há instância global. Nas sessões interceptadas, o número de `#qc-trigger` passou de 2 para 1; abertura e fechamento do drawer foram verificados nos três viewports. As URLs AWS permaneceram idênticas, incluindo as ocorrências em CSS/srcset; smoke 7/7 e sintaxe JS aprovados. Isso é uma correção de duplicação/funcionalidade, sem ganho relevante de CLS atribuído a ela.
+
+Persistem três `Failed to fetch` por navegação nas duas variantes, sem origem isolada. Um iframe Vimeo exibiu restrição de acesso do próprio provedor nesta máquina; reprodução integral dos vídeos não foi aprovada. A candidata é somente para homologação e a loja pública não foi alterada por este runner.
+
+Comparação da base local com reaproveitamento do QuizChat (cinco cargas por largura): mediana CLS 0,45510 em 390 px; 0,23493 em 820 px; 0,19633 em 1366 px. Uma instância do trigger em todas as quinze cargas; abertura e fechamento verificados na primeira carga de cada largura. Não há ganho estrutural relevante de CLS. LCP observado varia com rede/terceiros e a interceptação local do JS não reproduz sua entrega pelo CDN; não atribuir ganho de LCP a essa variante.
+
+**Experimento de cabeçalho rejeitado:** antecipar somente `position:fixed` no head, mantendo o padding atual, deu CLS 0,38204–0,38467 nas cinco cargas desktop. O controle com a mesma interceptação/buffering de HTML, sem CSS adicionado, ficou em 0,19622–0,19884. O container principal passa a ter posição constante, porém `#corpo` ainda desce de y=35 para y=555 e a altura do header muda de 242 para 85 px na inicialização do tema. Isso evidencia que fixar apenas o header não basta: as transformações do hero e do header precisam ser tratadas juntas. O código permanece exclusivamente como experimento reprovado em `homologacao/experimentos/header-fixed-reprovado.html`; NÃO INSTALAR. O simples desaparecimento da movimentação do container não comprova que o CLS total melhorou.
+
+No controle, o teste de clicar no primeiro trigger do QuizChat falhou porque a segunda cópia interceptava o ponteiro. Na candidata com uma cópia, abrir e fechar o drawer passou em mobile, tablet e desktop. Todos os cenários públicos responderam HTTP 200. O clique em link de carrinho não foi executado; o teste de um seletor exato relativo não encontrou o link no experimento e não é prova de ausência de carrinho. O scroll manteve o header em top=0/position=fixed no experimento, mas isso não supera a regressão de CLS.
+
+**NO-GO para declarar CLS resolvido.** A base atualizada está pronta para homologar a deduplicação do QuizChat. O principal trabalho restante está na geometria inicial do cabeçalho/hero e nas mutações do tema. Nenhuma alteração foi publicada na loja. Rollback da base: voltar à URL CDN anterior informada nesta seção; os assets anteriores e os arquivos em legado continuam preservados.

@@ -61,6 +61,9 @@ test('variante CLS remove Trustvox e modal de vídeo sem alterar os demais módu
 
   assert.doesNotMatch(markup, /trustvox|_trustvox_colt|titulo_avalia/i, 'Trustvox deve ser removido do HTML empacotado');
   assert.doesNotMatch(markup, /fwr-vc-modal|__FWR_VC_HARDENED__/i, 'modal, backdrop e inicializador de vídeo devem sair do HTML empacotado');
+  assert.doesNotMatch(markup, /insta-footer|fwr-insta|lightwidget/i, 'Instagram e LightWidget devem sair desta variante de homologação');
+  assert.doesNotMatch(markup, /__FWR_BENEFITS_FLEX__|window\.jQuery\(el\)\.flexslider/, 'inicializador responsivo redundante de benefícios deve sair do payload');
+  assert.match(markup, /\$\('\.flexslider'\)\.flexslider\(/, 'carrossel de benefícios existente deve permanecer');
   assert.match(markup, /id="qc-trigger"/, 'QuizChat deve permanecer no payload');
   for (const marker of ['lista-one', 'lista-two', 'videos-box', 'banner-central-marcas']) {
     assert.ok(markup.includes(marker), `variante removeu conteúdo não solicitado: ${marker}`);
@@ -68,6 +71,8 @@ test('variante CLS remove Trustvox e modal de vídeo sem alterar os demais módu
   assert.match(asset, /querySelectorAll\('\.titulo_avalia, #_trustvox_colt'\)/, 'runtime deve remover seletores Trustvox já presentes');
   assert.match(asset, /new MutationObserver/, 'runtime deve remover nós Trustvox adicionados tardiamente');
   assert.deepEqual(cdn(markup), cdn(home), 'URLs CDN de imagens devem permanecer exatamente na mesma ordem');
+  const allCdn = value => value.match(/(?:https?:)?\/\/cdn\.awsli\.com\.br\/[^\s"'<>)]*/g) || [];
+  assert.deepEqual(allCdn(markup), allCdn(home), 'todas as referências AWS, inclusive CSS e srcset, devem permanecer idênticas');
 });
 
 test('variante sem Instagram remove o feed e LightWidget, preservando o restante da home', async () => {

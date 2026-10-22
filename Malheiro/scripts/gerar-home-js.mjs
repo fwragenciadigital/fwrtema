@@ -7,9 +7,9 @@ const malheiroDir = resolve(scriptDir, '..');
 const sourcePath = resolve(malheiroDir, 'homologacao/html/home.html');
 const ablation = process.argv.includes('--ablation-cls');
 const removeInstagram = process.argv.includes('--remove-insta-footer');
-const outputName = removeInstagram
-  ? 'home-malheiro-sem-insta-footer.js'
-  : ablation ? 'home-malheiro-ablation-cls.js' : 'home-malheiro.js';
+const outputName = ablation
+  ? 'home-malheiro-ablation-cls.js'
+  : removeInstagram ? 'home-malheiro-sem-insta-footer.js' : 'home-malheiro.js';
 const outputPath = resolve(malheiroDir, 'homologacao/assets', outputName);
 
 function removeDivsWithClass(markup, className) {
@@ -65,6 +65,15 @@ if (ablation) {
   const trustvoxPattern = /<!--\s*Trustvox\s*-->[\s\S]*?<!--\s*\/Trustvox\s*-->\s*<div\s+id="_trustvox_colt"\s*><\/div>/i;
   if (!trustvoxPattern.test(html)) throw new Error('Bloco Trustvox não encontrado; ablação cancelada.');
   html = html.replace(trustvoxPattern, '');
+
+  const benefitsGuard = 'window.__FWR_BENEFITS_FLEX__';
+  const benefitsGuardIndex = html.indexOf(benefitsGuard);
+  const benefitsStart = benefitsGuardIndex >= 0 ? html.lastIndexOf('(function(){', benefitsGuardIndex) : -1;
+  const benefitsEnd = benefitsGuardIndex >= 0 ? html.indexOf('})();', benefitsGuardIndex) : -1;
+  if (benefitsStart < 0 || benefitsEnd < 0 || !html.slice(benefitsStart, benefitsEnd).includes('window.jQuery(el).flexslider')) {
+    throw new Error('Inicializador __FWR_BENEFITS_FLEX__ não encontrado; ablação cancelada.');
+  }
+  html = html.slice(0, benefitsStart) + html.slice(benefitsEnd + '})();'.length);
 
   const vcGuardIndex = html.indexOf('window.__FWR_VC_HARDENED__');
   const vcCodeStart = vcGuardIndex >= 0 ? html.lastIndexOf('(function () {', vcGuardIndex) : -1;
@@ -191,6 +200,24 @@ const generated = `/*
     window[KEY].state = 'mounting';
     var template = document.createElement('template');
     template.innerHTML = markup;
+
+    // O tema pode fornecer o QuizChat global antes da base da home.
+    // Reutilize somente uma instância completa; não reanexe seus handlers.
+    var reuseQuiz = ['qc-trigger', 'qc-backdrop', 'qc-drawer'].every(function (id) {
+      return document.getElementById(id);
+    });
+    if (reuseQuiz) {
+      ['qc-trigger', 'qc-backdrop', 'qc-drawer'].forEach(function (id) {
+        var duplicate = template.content.querySelector('#' + id);
+        if (duplicate) duplicate.remove();
+      });
+      template.content.querySelectorAll('script').forEach(function (script) {
+        if (script.textContent.includes("const trigger  = document.getElementById('qc-trigger')")) script.remove();
+      });
+      template.content.querySelectorAll('style').forEach(function (style) {
+        if (style.textContent.includes('--qz-bg:') && style.textContent.includes('.qc-trigger')) style.remove();
+      });
+    }
 
     var styles = Array.prototype.slice.call(template.content.querySelectorAll('style'));
     var scripts = Array.prototype.slice.call(template.content.querySelectorAll('script'));
