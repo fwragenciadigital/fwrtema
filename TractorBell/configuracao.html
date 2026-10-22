@@ -1,0 +1,30 @@
+<!-- TractorBell - CONFIGURAÇÕES EDITÁVEIS NO HTML/RODAPÉ -->
+<!-- Mude apenas os valores à direita do sinal '='. Não altere os nomes das variáveis. -->
+<script>
+// ===== CONFIGURAÇÕES GERAIS =====
+var tractorbellAtivo = false;      // true = ativa os componentes; false = desativa todos
+var tractorbellDebug = false;      // true = mensagens de diagnóstico no console
+
+// ===== BARRA DE VANTAGENS (EXEMPLO) =====
+var beneficiosAtivo = false;       // true = exibe; false = desativa
+var beneficiosSeletor = '[data-tractorbell-slot="beneficios"]'; // Slot HTML já presente na página
+var beneficiosTexto1 = 'Compra segura';
+var beneficiosTexto2 = 'Envio para todo o Brasil';
+var beneficiosTexto3 = 'Atendimento especializado';
+var beneficiosCorFundo = '#f5f7fa';
+var beneficiosCorTexto = '#253344';
+
+// ===== NÃO EDITAR ABAIXO DESTA LINHA =====
+window.TractorBellSettings = {
+  geral: { ativo: tractorbellAtivo, debug: tractorbellDebug },
+  beneficios: {
+    ativo: beneficiosAtivo,
+    seletor: beneficiosSeletor,
+    texto1: beneficiosTexto1,
+    texto2: beneficiosTexto2,
+    texto3: beneficiosTexto3,
+    corFundo: beneficiosCorFundo,
+    corTexto: beneficiosCorTexto
+  }
+};
+</script>
