@@ -1,0 +1,101 @@
+<!-- TractorBell - produção: HTML/Rodapé, Tipo HTML (sem dependência do GitHub) -->
+<!-- TractorBell - CONFIGURAÇÕES EDITÁVEIS NO HTML/RODAPÉ -->
+<!-- Mude apenas os valores à direita do sinal '='. Não altere os nomes das variáveis. -->
+<script>
+// ===== CONFIGURAÇÕES GERAIS =====
+var tractorbellAtivo = false;      // true = ativa os componentes; false = desativa todos
+var tractorbellDebug = false;      // true = mensagens de diagnóstico no console
+
+// ===== BARRA DE VANTAGENS (EXEMPLO) =====
+var beneficiosAtivo = false;       // true = exibe; false = desativa
+var beneficiosSeletor = '[data-tractorbell-slot="beneficios"]'; // Slot HTML já presente na página
+var beneficiosTexto1 = 'Compra segura';
+var beneficiosTexto2 = 'Envio para todo o Brasil';
+var beneficiosTexto3 = 'Atendimento especializado';
+var beneficiosCorFundo = '#f5f7fa';
+var beneficiosCorTexto = '#253344';
+
+// ===== NÃO EDITAR ABAIXO DESTA LINHA =====
+window.TractorBellSettings = {
+  geral: { ativo: tractorbellAtivo, debug: tractorbellDebug },
+  beneficios: {
+    ativo: beneficiosAtivo,
+    seletor: beneficiosSeletor,
+    texto1: beneficiosTexto1,
+    texto2: beneficiosTexto2,
+    texto3: beneficiosTexto3,
+    corFundo: beneficiosCorFundo,
+    corTexto: beneficiosCorTexto
+  }
+};
+</script>
+
+<script>
+/**
+ * TractorBell runtime: vanilla JavaScript, sem dependências nem buscas de HTML.
+ * Templates HTML são incorporados no build para facilitar a entrega final.
+ * IMPORTANTE: inserir acima da dobra exige slot existente e altura reservada antes do JS.
+ */
+(() => {
+  'use strict';
+
+  const VERSION = '0.2.0';
+  const templates = {"beneficios":"\u003c!-- Componente de demonstração. Ativação somente por Settings e slot previamente reservado. -->\n\u003csection class=\"tractorbell-beneficios\" aria-label=\"Vantagens da loja\">\n  \u003cp class=\"tractorbell-beneficios__item\" data-tb-texto=\"1\">Compra segura\u003c/p>\n  \u003cp class=\"tractorbell-beneficios__item\" data-tb-texto=\"2\">Envio para todo o Brasil\u003c/p>\n  \u003cp class=\"tractorbell-beneficios__item\" data-tb-texto=\"3\">Atendimento especializado\u003c/p>\n\u003c/section>\n"};
+  const config = window.TractorBellSettings || {};
+  const enabled = config.geral?.ativo === true;
+  const debug = config.geral?.debug === true;
+  const log = (...args) => { if (debug) console.info('[TractorBell]', ...args); };
+
+  // Registro idempotente: evita duplicações em reexecuções acidentais do código.
+  if (window.TractorBell?.initialized) return;
+
+  function safeColor(color, fallback) {
+    return typeof color === 'string' && /^#[0-9a-fA-F]{3}(?:[0-9a-fA-F]{3})?$/.test(color)
+      ? color
+      : fallback;
+  }
+
+  function mountBeneficios() {
+    const options = config.beneficios;
+    if (!enabled || options?.ativo !== true) return false;
+    const selector = options.seletor;
+    if (typeof selector !== 'string' || !selector.trim()) return false;
+
+    let slot;
+    try { slot = document.querySelector(selector); } catch (_) { log('Seletor inválido:', selector); return false; }
+    if (!slot || slot.dataset.tractorbellMounted === 'beneficios') return false;
+
+    // A edição de HTML é controlada no repositório; textos do editor não são HTML.
+    const fragment = document.createElement('template');
+    fragment.innerHTML = templates.beneficios;
+    const element = fragment.content.firstElementChild;
+    if (!element) return false;
+
+    const texts = [options.texto1, options.texto2, options.texto3];
+    element.querySelectorAll('[data-tb-texto]').forEach((node, index) => {
+      if (typeof texts[index] === 'string') node.textContent = texts[index].slice(0, 90);
+    });
+
+    slot.style.setProperty('--tb-beneficios-bg', safeColor(options.corFundo, '#f5f7fa'));
+    slot.style.setProperty('--tb-beneficios-texto', safeColor(options.corTexto, '#253344'));
+    slot.replaceChildren(element);
+    slot.dataset.tractorbellMounted = 'beneficios';
+    log('Componente beneficios ativado.');
+    return true;
+  }
+
+  function init() {
+    if (window.TractorBell?.initialized) return;
+    window.TractorBell = Object.freeze({ version: VERSION, initialized: true, mountBeneficios });
+    mountBeneficios();
+    document.dispatchEvent(new CustomEvent('tractorbell:ready', { detail: { version: VERSION } }));
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init, { once: true });
+  } else {
+    init();
+  }
+})();
+
+</script>
