@@ -1,0 +1,13 @@
+/**
+ * TractorBell · Estilos próprios
+ * Os seletores devem começar por .tractorbell- ou ficar contidos em .tractorbell.
+ * Evite estilos globais que possam quebrar o tema da Loja Integrada.
+ */
+.tractorbell,
+.tractorbell *,
+.tractorbell *::before,
+.tractorbell *::after {
+  box-sizing: border-box;
+}
+
+/* Adicione novos componentes abaixo, mantendo seletores isolados. */
