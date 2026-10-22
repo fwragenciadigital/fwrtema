@@ -1,27 +1,28 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>TractorBell · Teste de carregamento</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TractorBell — preview de desenvolvimento</title>
   <link rel="stylesheet" href="./assets/tractorbell.css">
-  <script defer src="./assets/tractorbell.js"></script>
+  <style>body{font-family:system-ui,sans-serif;max-width:960px;margin:64px auto;padding:0 20px;line-height:1.5}</style>
 </head>
-<body style="font-family:system-ui,sans-serif;max-width:700px;margin:60px auto;padding:0 24px">
-  <main class="tractorbell">
-    <h1>TractorBell</h1>
-    <p>Arquivos CSS e JavaScript preparados para integração na Loja Integrada.</p>
-    <p id="status">Verificando JavaScript...</p>
-  </main>
+<body>
+  <h1>TractorBell</h1>
+  <p>Prévia isolada do componente de exemplo. Na loja, o componente fica desativado por padrão.</p>
+  <div data-tractorbell-slot="beneficios"></div>
+  <p id="status">Verificando JS...</p>
   <script>
-    function check() {
-      document.getElementById('status').textContent =
-        window.TractorBell?.initialized
-          ? 'JavaScript carregado (v' + window.TractorBell.version + ').'
-          : 'JavaScript ainda não carregado.';
-    }
-    document.addEventListener('tractorbell:ready', check, { once: true });
-    window.addEventListener('load', check, { once: true });
+    window.TractorBellSettings = {
+      geral: {ativo: true, debug: false},
+      beneficios: {ativo: true, seletor: '[data-tractorbell-slot="beneficios"]',
+        texto1: 'Compra segura', texto2: 'Envio para todo o Brasil', texto3: 'Atendimento especializado',
+        corFundo: '#f5f7fa', corTexto: '#253344'}
+    };
+    document.addEventListener('tractorbell:ready', function () {
+      document.getElementById('status').textContent = 'JavaScript carregado — v' + window.TractorBell.version;
+    });
   </script>
+  <script defer src="./assets/tractorbell.js"></script>
 </body>
 </html>
