@@ -77,7 +77,7 @@ for(const {w,h} of [{w:1366,h:768},{w:390,h:844}]){
         await route.fulfill({status:200,contentType:'application/javascript; charset=utf-8',body:jsCandidate});
       });
       await page.route('**/*',async route=>{
-        if(route.request().resourceType()!=='document')return route.continue();
+        if(route.request().resourceType()!=='document')return route.fallback();
         const response=await route.fetch({timeout:45000});
         let body=await response.text();
         if(!/<\/head\s*>/i.test(body)) throw new Error('HTML retornado sem fechamento de head');
@@ -105,6 +105,8 @@ for(const {w,h} of [{w:1366,h:768},{w:390,h:844}]){
         };
       });
       if(row.documentStatus!==200)row.errors.push('HTTP da loja: '+row.documentStatus);
+      if(!row.geometry?.headerHeight) row.errors.push('Header #cabecalho indisponível — possível bloqueio/alteração do site');
+      if(candidate && !row.jsReplaced) row.errors.push('O JS remoto esperado não foi interceptado: candidato não validado');
     } catch(e) { row.errors.push(String(e).slice(0,500)); }
     result.push(row);
     console.log(JSON.stringify({viewport:row.viewport,variant:row.variant,CLS:row.cls,HTTP:row.documentStatus,headerPosition:row.geometry?.headerPosition,jsReplaced:row.jsReplaced,errors:row.errors.slice(0,2)}));
