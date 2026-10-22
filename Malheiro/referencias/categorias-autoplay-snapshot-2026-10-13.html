@@ -1,0 +1,181 @@
+<!--
+ FARMÁCIA MALHEIRO • 7 CATEGORIAS • AUTOPLAY • APÓS .secao-banners
+ Instalação: Visual > Incluir código HTML > Modo avançado > Adicionar código.
+ Local: Rodapé | Página: Página inicial - Home | Tipo: HTML.
+ IMPORTANTE: Substitua as 7 ocorrências URL_CDN_... por URLs reais do Gerenciador de Arquivos.
+ Não utilize o arquivo com URLs não substituídas em produção.
+-->
+<style>
+/* Farmácia Malheiro • Carrossel responsivo com avanço automático (sem frameworks) */
+#fm-categorias,#fm-categorias *{box-sizing:border-box}
+#fm-categorias{max-width:1500px;width:100%;margin:36px auto 48px;padding:0 18px;font-family:Arial,Helvetica,sans-serif;color:#102c53}
+#fm-categorias .fm-head{display:flex;justify-content:space-between;align-items:end;gap:16px;margin:0 0 20px;text-align:left}
+#fm-categorias .fm-head-copy{min-width:0}
+#fm-categorias .fm-eyebrow{display:block;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#45658c;margin:0 0 7px}
+#fm-categorias .fm-heading{font-family:Arial,Helvetica,sans-serif;font-size:clamp(22px,2.1vw,32px);line-height:1.18;letter-spacing:-.025em;font-weight:800;color:#102d55;margin:0 0 7px}
+#fm-categorias .fm-description{font-size:14px;line-height:1.5;color:#586679;margin:0}
+#fm-categorias .fm-controls{display:flex;align-items:center;gap:8px;flex-shrink:0}
+#fm-categorias .fm-control{width:38px;height:38px;display:grid;place-items:center;border:1px solid #d9e4f1;border-radius:50%;background:#fff;color:#174a8e;font:700 23px/1 Arial,Helvetica,sans-serif;cursor:pointer;padding:0}
+#fm-categorias .fm-control:focus-visible{outline:3px solid #1366b7;outline-offset:2px}
+#fm-categorias .fm-control:hover{background:#eef4fd}
+#fm-categorias .fm-track{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 48px)/4);gap:16px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:#b9cbe1 transparent;margin:0;padding:2px 0 12px;list-style:none}
+#fm-categorias .fm-track::-webkit-scrollbar{height:5px}
+#fm-categorias .fm-track::-webkit-scrollbar-thumb{border-radius:8px;background:#b9cbe1}
+#fm-categorias .fm-item{min-width:0;margin:0;padding:0;list-style:none;scroll-snap-align:start}
+#fm-categorias .fm-card{display:block;height:100%;overflow:hidden;border:1px solid #e6edf5;border-radius:13px;background:#fff;box-shadow:0 2px 10px rgba(11,37,72,.055);text-decoration:none!important;color:#123c70!important;transition:box-shadow .2s ease,transform .2s ease}
+#fm-categorias .fm-card img{display:block;width:100%!important;height:auto!important;max-width:100%!important;aspect-ratio:9/16;object-fit:cover;margin:0!important;padding:0;border:0;border-radius:0}
+#fm-categorias .fm-foot{display:flex;gap:8px;align-items:center;justify-content:space-between;min-height:52px;padding:12px 13px;background:#fff;text-align:left}
+#fm-categorias .fm-name{font:700 14px/1.25 Arial,Helvetica,sans-serif;color:#123c70;min-width:0}
+#fm-categorias .fm-arrow{display:grid;place-items:center;flex:0 0 27px;width:27px;height:27px;background:#eef4fd;border-radius:50%;font:700 19px/1 Arial,Helvetica,sans-serif;color:#174a8e}
+#fm-categorias .fm-mobile-hint{display:none}
+#fm-categorias .fm-card:focus-visible{outline:3px solid #1366b7;outline-offset:3px}
+@media(hover:hover) and (pointer:fine){#fm-categorias .fm-card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(11,37,72,.11)}#fm-categorias .fm-card:hover .fm-arrow{background:#dceafc}}
+@media(max-width:1120px){#fm-categorias .fm-track{grid-auto-columns:calc((100% - 32px)/3)}}
+@media(max-width:780px){#fm-categorias .fm-track{grid-auto-columns:calc((100% - 16px)/2)}}
+@media(max-width:600px){
+ #fm-categorias{padding:0 14px;margin:26px auto 32px}
+ #fm-categorias .fm-head{margin-bottom:14px;align-items:center;gap:8px}
+ #fm-categorias .fm-control{width:34px;height:34px;font-size:20px}
+ #fm-categorias .fm-heading{font-size:24px}
+ #fm-categorias .fm-description{font-size:13px}
+ #fm-categorias .fm-mobile-hint{display:block;margin:8px 0 0;color:#45658c;font-size:12px}
+ #fm-categorias .fm-track{grid-auto-columns:min(320px,78vw);gap:12px}
+ #fm-categorias .fm-foot{min-height:50px}
+ #fm-categorias .fm-name{font-size:15px}
+}
+@media(max-width:350px){#fm-categorias .fm-track{grid-auto-columns:83vw}}
+@media(prefers-reduced-motion:reduce){#fm-categorias .fm-card{transition:none}#fm-categorias .fm-card:hover{transform:none}#fm-categorias .fm-track{scroll-behavior:auto}}
+</style>
+<section id="fm-categorias" aria-labelledby="fm-cat-titulo">
+  <header class="fm-head">
+    <div class="fm-head-copy">
+      <span class="fm-eyebrow">Farmácia Malheiro</span>
+      <h2 class="fm-heading" id="fm-cat-titulo">Explore nossas categorias</h2>
+      <p class="fm-description">Encontre produtos para cada necessidade e fase da vida.</p>
+      <p class="fm-mobile-hint" aria-hidden="true">As categorias avançam sozinhas. Deslize para explorar →</p>
+    </div>
+    <div class="fm-controls" aria-label="Controles do carrossel">
+      <button class="fm-control fm-prev" type="button" aria-label="Ver categorias anteriores">‹</button>
+      <button class="fm-control fm-next" type="button" aria-label="Ver próximas categorias">›</button>
+    </div>
+  </header>
+  <nav aria-label="Categorias de produtos da Farmácia Malheiro">
+    <ul class="fm-track" aria-label="Arraste para navegar pelas sete categorias">
+    <li class="fm-item"><a class="fm-card" href="https://www.farmaciamalheiro.com.br/vitaminas-e-mineirais" aria-label="Ver produtos de Vitaminas e Minerais">
+      <img src="URL_CDN_VITAMINAS" alt="Mulher sorrindo em cozinha iluminada com vitaminas e frutas cítricas" width="810" height="1440" loading="eager" decoding="async" fetchpriority="high">
+      <span class="fm-foot"><span class="fm-name">Vitaminas e Minerais</span><span class="fm-arrow" aria-hidden="true">›</span></span>
+    </a></li>
+    <li class="fm-item"><a class="fm-card" href="https://www.farmaciamalheiro.com.br/saude" aria-label="Ver produtos de Saúde">
+      <img src="URL_CDN_SAUDE" alt="Homem sorrindo em ambiente acolhedor com chá e suplemento" width="810" height="1440" loading="lazy" decoding="async">
+      <span class="fm-foot"><span class="fm-name">Saúde</span><span class="fm-arrow" aria-hidden="true">›</span></span>
+    </a></li>
+    <li class="fm-item"><a class="fm-card" href="https://www.farmaciamalheiro.com.br/emagrecimento" aria-label="Ver produtos de Peso">
+      <img src="URL_CDN_PESO" alt="Mulher sorrindo com vitamina verde e alimentos frescos" width="810" height="1440" loading="lazy" decoding="async">
+      <span class="fm-foot"><span class="fm-name">Peso</span><span class="fm-arrow" aria-hidden="true">›</span></span>
+    </a></li>
+    <li class="fm-item"><a class="fm-card" href="https://www.farmaciamalheiro.com.br/beleza" aria-label="Ver produtos de Beleza">
+      <img src="URL_CDN_BELEZA" alt="Mulher em ambiente de autocuidado com suplemento e água" width="810" height="1440" loading="lazy" decoding="async">
+      <span class="fm-foot"><span class="fm-name">Beleza</span><span class="fm-arrow" aria-hidden="true">›</span></span>
+    </a></li>
+    <li class="fm-item"><a class="fm-card" href="https://www.farmaciamalheiro.com.br/performance-esportiva" aria-label="Ver produtos de Performance">
+      <img src="URL_CDN_PERFORMANCE" alt="Atleta após o treino na academia ao lado de suplementos" width="810" height="1440" loading="lazy" decoding="async">
+      <span class="fm-foot"><span class="fm-name">Performance</span><span class="fm-arrow" aria-hidden="true">›</span></span>
+    </a></li>
+    <li class="fm-item"><a class="fm-card" href="https://www.farmaciamalheiro.com.br/40" aria-label="Ver produtos de 40+">
+      <img src="URL_CDN_40" alt="Mulher madura caminhando em trilha nas montanhas ao amanhecer" width="810" height="1440" loading="lazy" decoding="async">
+      <span class="fm-foot"><span class="fm-name">40+</span><span class="fm-arrow" aria-hidden="true">›</span></span>
+    </a></li>
+    <li class="fm-item"><a class="fm-card" href="https://www.farmaciamalheiro.com.br/60" aria-label="Ver produtos de 60+">
+      <img src="URL_CDN_60" alt="Casal sênior sorrindo durante café da manhã ao ar livre" width="810" height="1440" loading="lazy" decoding="async">
+      <span class="fm-foot"><span class="fm-name">60+</span><span class="fm-arrow" aria-hidden="true">›</span></span>
+    </a></li>
+    </ul>
+  </nav>
+</section>
+<script>
+/* Instalação via Rodapé da Loja Integrada: posiciona a seção imediatamente após .secao-banners. */
+(function(){
+  function posicionar(){
+    var sec = document.getElementById('fm-categorias');
+    var banner = document.querySelector('#corpo .secao-banners, .pagina-inicial .secao-banners, .secao-banners');
+    if (!sec || !banner || !banner.parentNode) return false;
+    // Move a seção existente, não a duplica; a posição fica depois de TODO o bloco dos banners.
+    if (banner.nextElementSibling !== sec) banner.insertAdjacentElement('afterend', sec);
+    sec.dataset.fmPosicionado = 'apos-banner-principal';
+    return true;
+  }
+  function aguardarBanner(){
+    if (posicionar() || !('MutationObserver' in window)) return;
+    // O tema pode carregar o banner depois do HTML personalizado.
+    var observador = new MutationObserver(function(){
+      if (posicionar()) observador.disconnect();
+    });
+    observador.observe(document.documentElement, { childList: true, subtree: true });
+    window.setTimeout(function(){ observador.disconnect(); }, 12000);
+  }
+  function ativarCarrossel(){
+    var sec=document.getElementById('fm-categorias');
+    if(!sec || sec.dataset.fmCarousel) return;
+    sec.dataset.fmCarousel='1';
+    var track=sec.querySelector('.fm-track');
+    var itens=Array.prototype.slice.call(sec.querySelectorAll('.fm-item'));
+    var anterior=sec.querySelector('.fm-prev');
+    var proximo=sec.querySelector('.fm-next');
+    if(!track || itens.length<2) return;
+
+    var visivel=true, comMouse=false, comFoco=false, arrastando=false;
+    var ultimaInteracao=0;
+    var reduzMovimento=window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
+    var intervalo=4800; // Troque para 6000 para passar a cada 6 segundos
+    var pausaManual=12000; // Aguarda 12s após uma interação manual
+
+    function larguraMaxima(){return Math.max(0,track.scrollWidth-track.clientWidth);}
+    function posicao(item){
+      return track.scrollLeft+item.getBoundingClientRect().left-track.getBoundingClientRect().left;
+    }
+    function mover(para){
+      track.scrollTo({left:Math.max(0,Math.min(larguraMaxima(),para)),behavior:reduzMovimento && reduzMovimento.matches?'auto':'smooth'});
+    }
+    function navegar(direcao){
+      var atual=track.scrollLeft, limite=larguraMaxima();
+      if(limite<4) return;
+      if(direcao>0){
+        if(atual>=limite-5){mover(0);return;}
+        for(var i=0;i<itens.length;i++){
+          var destino=posicao(itens[i]);
+          if(destino>atual+5){mover(destino);return;}
+        }
+        mover(0);
+      }else{
+        if(atual<=5){mover(limite);return;}
+        for(var j=itens.length-1;j>=0;j--){
+          var voltar=posicao(itens[j]);
+          if(voltar<atual-5){mover(voltar);return;}
+        }
+        mover(0);
+      }
+    }
+    function interromper(){ultimaInteracao=Date.now();}
+    if(anterior) anterior.addEventListener('click',function(){interromper();navegar(-1);});
+    if(proximo) proximo.addEventListener('click',function(){interromper();navegar(1);});
+    track.addEventListener('pointerdown',function(){arrastando=true;interromper();});
+    document.addEventListener('pointerup',function(){arrastando=false;});
+    document.addEventListener('pointercancel',function(){arrastando=false;});
+    track.addEventListener('wheel',interromper,{passive:true});
+    track.addEventListener('keydown',interromper);
+    sec.addEventListener('mouseenter',function(){comMouse=true;});
+    sec.addEventListener('mouseleave',function(){comMouse=false;});
+    sec.addEventListener('focusin',function(){comFoco=true;interromper();});
+    sec.addEventListener('focusout',function(){comFoco=false;});
+    if('IntersectionObserver' in window){
+      new IntersectionObserver(function(e){visivel=e[0].isIntersecting;},{threshold:0.15}).observe(sec);
+    }
+    window.setInterval(function(){
+      if((reduzMovimento && reduzMovimento.matches) || document.hidden || !visivel || comMouse || comFoco || arrastando || Date.now()-ultimaInteracao<pausaManual) return;
+      navegar(1);
+    },intervalo);
+  }
+  function iniciar(){aguardarBanner();ativarCarrossel();}
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',iniciar);}else{iniciar();}
+})();
+</script>
