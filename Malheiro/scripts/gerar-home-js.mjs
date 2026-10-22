@@ -103,7 +103,7 @@ const purgeTestSelectors = ablation
   });
   purgeObserver.observe(document.documentElement, { childList: true, subtree: true });
   window.setTimeout(function () { purgeObserver.disconnect(); }, 60000);
-  `
+`
   : '';
 const generated = `/*
  * Farmácia Malheiro — asset de homologação.

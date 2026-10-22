@@ -30,7 +30,7 @@
   });
   purgeObserver.observe(document.documentElement, { childList: true, subtree: true });
   window.setTimeout(function () { purgeObserver.disconnect(); }, 60000);
-  
+
 
   function isAlreadyLoaded(src) {
     var expected = new URL(src, document.baseURI).href;
