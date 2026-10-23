@@ -1,85 +1,49 @@
-# Malheiro — Frontend leve para Loja Integrada
+# Malheiro — Modernização do frontend da Loja Integrada
 
-Desenvolvimento no **Cursor**, hospedagem temporária via **GitHub Pages** e entrega final **independente** com código incorporado nos campos HTML da Loja Integrada. Não usa MCP, API, bibliotecas externas ou backend.
+**Estado:** fontes reais importadas para auditoria na branch `malheiro/cls-preflight`. NÃO colocar em produção nem substituir scripts existentes enquanto a dependência CDN principal não for auditada.
 
-## Os quatro pilares
+## O que já temos
+| Local | Conteúdo | Estado |
+|---|---|---|
+| `legado/css/css-secundario-original.css` | CSS secundário completo fornecido pelo cliente | Backup imutável |
+| `legado/home/base-home-original.html` | HTML/CSS/JS do rodapé/home completo | Backup imutável |
+| `legado/rodape/footer-carregamento-original.html` | Otimização global de imagens/vídeos descrita no painel | Backup imutável |
+| `legado/cdn/malheiroshoww-estabilizado.REFERENCIA.md` | URL do JS principal no CDN da loja | **Arquivo fonte recebido, veja o backup ao lado** |
+| `src/home/base-home-candidata-posicionamento-unico.html` | Teste de remover um dos dois posicionadores de categorias | Parcial; não publicar |
+| `teste/cls-observer.js` | Diagnóstico não invasivo de CLS | Somente homologação |
+| `auditoria/04-ARQUIVOS-RECEBIDOS-E-CONFLITOS.md` | Defeitos concretos e plano técnico | Pronto |
+| `scripts/verificar-urls-imagens.mjs` | Compara URLs de imagens em original/candidata | Pronto |
 
-1. **Fluidez:** JavaScript vanilla, sem dependências, carregamento não bloqueante, código idempotente, interfaces responsivas e `prefers-reduced-motion`.
-2. **CLS / Google:** sempre reservar **no HTML inicial** o espaço de um componente que será exibido acima da dobra. Carregar CSS no cabeçalho. Imagens sempre com largura/altura ou proporção definidas. Nunca usar lazy-loading na imagem de LCP.
-3. **Migração:** manter HTML dos componentes em arquivos individuais. O build incorpora esse HTML ao JS. O pacote de produção inclui os próprios CSS/JS, sem depender do GitHub.
-4. **Settings / Variables:** ativação, cores, textos e seletores editáveis no bloco `configuracao.html`, que vai no HTML/Rodapé. Não editar a lógica de cada componente para customização comum.
+## Arquitetura de evolução
+- Desenvolvimento: Cursor/Codex + GitHub, arquivos organizados por componente e Settings no HTML/Rodapé.
+- CSS crítico precisa chegar ao cabeçalho antes do layout, sem corrigir deslocamento a posteriori por margin/padding.
+- JS manipula somente o que lhe pertence e não deve mover a mesma seção em dois callbacks.
+- Produtos, checkout, minicart, meios de pagamento, login e frete são responsabilidade nativa da plataforma. Evitar afetá-los.
+- **Todas as URLs atuais de imagens (AWS Loja Integrada) são imutáveis**, inclusive protocolo, nome e caminho. Não criar nova hospedagem de imagens.
 
-**Metas de referência** em dados reais (percentil 75): CLS ≤ 0,1, LCP ≤ 2,5 s, INP ≤ 200 ms. Elas **não foram medidas na loja** e não são garantidas apenas pelo pacote.
+## Execução do Codex
+Ler `CODEX.md` e todos os relatórios em `auditoria/`. Conferir o código ausente do CDN antes de concluir a integração. Usar `node Malheiro/scripts/verificar-urls-imagens.mjs` para garantir URL de imagens.
 
-## Estrutura
+## Atenção — scaffold anterior
+`src/runtime.js`, `src/components/beneficios.html`, `assets/malheiro.js`, `assets/malheiro.css`, `configuracao.html` e `dist/` começaram como **estrutura demonstrativa** copiada de TractorBell, com ativação desligada. Não representam a loja real. **Não usar os links de master/Pages para testar a versão nova**; ela ainda não está publicada.
 
-- `src/components/beneficios.html` — componente HTML de exemplo.
-- `src/runtime.js` — inicializador e lógica de montagem.
-- `assets/malheiro.css` — CSS escopado e reserva de altura.
-- `assets/malheiro.js` — JS **gerado** com HTML incorporado (não editar manualmente).
-- `configuracao.html` — variáveis que o cliente edita no editor HTML/Rodapé.
-- `scripts/build.mjs` — gera JS e snippets de publicação sem dependências npm.
-- `dist/desenvolvimento-cabecalho.html`, `dist/desenvolvimento-rodape.html` — instalação vinculada ao GitHub Pages.
-- `dist/producao-cabecalho.html`, `dist/producao-rodape.html` — cópia final sem dependências do GitHub.
-- `index.html` — preview isolado para testar o componente.
-- `tests.smoke.mjs` — validações estáticas básicas.
+## Links de teste e próximos passos
+O JS CDN já foi importado em `legado/cdn/malheiroshoww-estabilizado-original.js`. A versão candidata mínima está em `homologacao/assets/`, a home correspondente em `homologacao/html/home.html`, e a análise técnica em `auditoria/05-INTEGRACAO-JS-TEMA-E-HOMOLOGACAO.md`. Conferir HTTP 200 e CSS/JS antes da instalação isolada, sem duplicar scripts. Ainda não é uma correção de CLS validada.
 
-## Edição no Cursor
+## HTML/Cabeçalho importado (22/10)
+- Backup dos códigos ativos de Cabeçalho: `legado/cabecalho/html-cabecalho-original.html`.
+- QuizChat anexo preservado: `legado/cabecalho/quizchat-anexo-original.html`. A home já contém markup e JavaScript do QuizChat; **não instalar o anexo pela segunda vez**.
+- Ajuste mínimo e conservador, ainda NÃO validado em loja: `homologacao/html/cabecalho-sem-fade-arriscado.html`; somente segundo `<style>` do fade/blur foi removido (973 caracteres). CSS crítico, URLs originais e regras do topo foram preservados.
+- CSS adicional linkado em `https://cdn.awsli.com.br/1351/1351790/arquivos/csscompactadoo.css` não foi baixado nesta auditoria, portanto não está inventariado internamente.
+- Detalhes: `auditoria/06-CABECALHO-QUIZ-CLS.md`.
+- Teste: `node Malheiro/scripts/validar-cabecalho.mjs`.
 
-Abra o repositório `fwragenciadigital/fwrtema`. Altere HTML em `src/components/`, JS em `src/runtime.js`, CSS em `assets/malheiro.css` e variáveis em `configuracao.html`.
 
-Na raiz do repositório:
-
-```bash
-node Malheiro/scripts/build.mjs
-node --check Malheiro/assets/malheiro.js
-node --test Malheiro/tests.smoke.mjs
-```
-
-Depois de validar, faça commit/push dos arquivos, **incluindo os gerados**. O GitHub Pages pode publicar automaticamente a versão da branch configurada.
-
-## Desenvolvimento conectado
-
-1. Ative GitHub Pages em `fwragenciadigital/fwrtema` → Settings → Pages, branch `master`, pasta `/(root)`.
-2. Em **Visual > Incluir código HTML > Modo avançado** da Loja Integrada, insira o conteúdo de `dist/desenvolvimento-cabecalho.html` como **HTML/Cabeçalho**.
-3. Crie outro bloco **HTML/Rodapé** com `dist/desenvolvimento-rodape.html`.
-4. Ative `malheiroAtivo = true` e `beneficiosAtivo = true` apenas após preparar um lugar reservado para o componente.
-5. Revise as mudanças numa loja de homologação antes de habilitar na loja real.
-
-O exemplo usa um **slot criado no HTML antes do JS**:
-
-```html
-<div data-malheiro-slot="beneficios"></div>
-```
-
-Se o componente ficar acima da dobra, esse slot deve ser parte do **HTML inicial**, e o CSS com altura reservada precisa carregar no cabeçalho. **Criar a seção apenas pelo JS do rodapé pode elevar o CLS**; não é correto prometer CLS zero nesse cenário. A reserva exemplificada tem 92px desktop / 186px mobile, que precisam ser reavaliados quando o conteúdo mudar.
-
-Não existe inserção automática em qualquer posição do DOM nesta versão inicial: o modo padrão exige um slot dedicado para diminuir o risco de deslocamento da página.
-
-## Entrega final sem GitHub
-
-1. Execute o build com as últimas alterações e mantenha backup das configurações de produção.
-2. Cole `dist/producao-cabecalho.html` em **HTML/Cabeçalho** (CSS embutido).
-3. Cole `dist/producao-rodape.html` em **HTML/Rodapé** (settings editáveis + JS e HTML incorporados).
-4. Remova os **dois** códigos externos de desenvolvimento. Não mantenha dev e produção juntos.
-5. Inspecione a rede e confirme que nada é carregado de `fwragenciadigital.github.io`, que não há duplicação e que o checkout funciona normalmente.
-
-A cópia final é independente **dos arquivos do projeto no GitHub**. Links para imagens ou serviços de terceiros que forem adicionados futuramente continuam sendo dependências externas e precisam ser tratados separadamente.
-
-## Checklist de cada componente
-
-- Alternância via settings e falha segura quando desativado
-- HTML sem scripts inline; textos editáveis aplicados com `textContent` (sem HTML arbitrário)
-- CSS prefixado, sem seletores globais conflitantes
-- Responsivo, acessível, imagens dimensionadas, animações respeitando movimento reduzido
-- Slot com reserva real de espaço, principalmente acima da dobra
-- Evita manipulações repetidas do DOM e dependências desnecessárias
-- Testes em mobile/desktop e verificação de CLS, LCP e INP em ambiente real
-- Sem tokens, segredos ou dados de clientes no GitHub
-
-## Restrições da Loja Integrada
-
-O painel aceita códigos personalizados no **cabeçalho** e **rodapé** em lojas com plano/tema compatível; o novo tema padrão não oferece a opção. Não há acesso via FTP ou aos arquivos internos do tema; o checkout não aceita estes scripts. A publicação via painel pode levar até 15 minutos.
-
-- [Documentação oficial: código HTML/JavaScript](https://ajuda.lojaintegrada.com.br/pt-BR/articles/911875-como-inserir-um-codigo-html-e-javascript)
-- [Google Search Central: Core Web Vitals](https://developers.google.com/search/docs/appearance/core-web-vitals)
+## Escopo CSS fechado — 22/10/2026
+- Fonte compactada completa: `legado/css/csscompactadoo-original.css` (241.530 caracteres; preservadas as URLs AWS).
+- Relatório técnico combinado de CSS compactado, CSS secundário, HTML/Cabeçalho e JS do tema: `auditoria/08-CSS-COMPACTADO-ANALISE-INTEGRADA.md`.
+- Experimento de Owl (**não publicar sem trace**): `homologacao/experimentos/csscompactadoo-owl-reserva-fluxo.css`; remove `display:none` inicial de `.produtos-carrossel` e **pode piorar CLS se os filhos empilharem antes do Owl**.
+- Experimento de header sticky desktop (**alternativo** ao prepaint fixed): `homologacao/experimentos/cabecalho-sticky-sem-salto.html`; mantém o header no fluxo e remove padding-top artificial >=993px. Sem teste de rolagem/DOM real.
+- Testes automatizados: `node Malheiro/scripts/validar-csscompactadoo.mjs` + demais scripts de CLS.
+- Particularidade tablet: compactado faz `#cabecalho.fixed { margin-top:-60px }` entre 768..992px; mobile <=767 já usa fixed desde CSS, com reserva de 124px.
+- **Status:** quatro fontes principais entregues e auditadas, mas CLS real não está provadamente corrigido; não realizar deploy ou merge por enquanto.

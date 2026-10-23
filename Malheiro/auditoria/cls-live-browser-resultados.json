@@ -1,0 +1,357 @@
+{
+  "date": "2026-10-22T17:11:43.023Z",
+  "source": "real storefront via locally installed Chrome; single lab runs; NOT CrUX",
+  "site": "https://www.farmaciamalheiro.com.br/",
+  "results": [
+    {
+      "viewport": "1366x768",
+      "variant": "original",
+      "htmlModified": false,
+      "jsReplaced": false,
+      "documentStatus": 200,
+      "cls": 0.995277,
+      "events": [
+        {
+          "t": 1276,
+          "value": 0.00008490903506701122,
+          "sources": [
+            {
+              "selector": "undefined",
+              "oldY": 286.171875,
+              "newY": 286.171875
+            },
+            {
+              "selector": "li",
+              "oldY": 273,
+              "newY": 273
+            },
+            {
+              "selector": "li",
+              "oldY": 273,
+              "newY": 273
+            },
+            {
+              "selector": "li",
+              "oldY": 273,
+              "newY": 273
+            }
+          ]
+        },
+        {
+          "t": 1793,
+          "value": 0.0017020368665286386,
+          "sources": [
+            {
+              "selector": "button#qc-trigger",
+              "oldY": 616,
+              "newY": 616
+            },
+            {
+              "selector": "undefined",
+              "oldY": 616,
+              "newY": 617
+            },
+            {
+              "selector": "undefined",
+              "oldY": 286.171875,
+              "newY": 287.109375
+            },
+            {
+              "selector": "li",
+              "oldY": 273,
+              "newY": 273
+            }
+          ]
+        },
+        {
+          "t": 2130,
+          "value": 0.9934895833333334,
+          "sources": [
+            {
+              "selector": "div",
+              "oldY": 85,
+              "newY": 5
+            },
+            {
+              "selector": "div#barraNewsletter",
+              "oldY": 463,
+              "newY": 0
+            },
+            {
+              "selector": "div#corpo",
+              "oldY": 303,
+              "newY": 0
+            }
+          ]
+        }
+      ],
+      "errors": [
+        "pageerror: Failed to fetch",
+        "pageerror: Failed to fetch",
+        "pageerror: Failed to fetch",
+        "pageerror: Failed to fetch"
+      ],
+      "geometry": {
+        "headerPosition": "fixed",
+        "headerHeight": 85,
+        "bodyPaddingTop": "85px",
+        "contentTop": 5,
+        "hasOwl": true
+      }
+    },
+    {
+      "viewport": "1366x768",
+      "variant": "header-prepaint",
+      "htmlModified": true,
+      "jsReplaced": true,
+      "documentStatus": 200,
+      "cls": 0.943084,
+      "events": [
+        {
+          "t": 620,
+          "value": 0.002872480313040608,
+          "sources": [
+            {
+              "selector": "button#qc-trigger",
+              "oldY": 642,
+              "newY": 616
+            }
+          ]
+        },
+        {
+          "t": 790,
+          "value": 0.00008490903506701122,
+          "sources": [
+            {
+              "selector": "undefined",
+              "oldY": 201.171875,
+              "newY": 201.171875
+            },
+            {
+              "selector": "li",
+              "oldY": 188,
+              "newY": 188
+            },
+            {
+              "selector": "li",
+              "oldY": 188,
+              "newY": 188
+            },
+            {
+              "selector": "li",
+              "oldY": 188,
+              "newY": 188
+            }
+          ]
+        },
+        {
+          "t": 1244,
+          "value": 0.017815532627779004,
+          "sources": [
+            {
+              "selector": "div",
+              "oldY": 611,
+              "newY": 737
+            },
+            {
+              "selector": "ul",
+              "oldY": 640,
+              "newY": 637
+            },
+            {
+              "selector": "ul",
+              "oldY": 640,
+              "newY": 637
+            },
+            {
+              "selector": "button#qc-trigger",
+              "oldY": 616,
+              "newY": 616
+            }
+          ]
+        },
+        {
+          "t": 1628,
+          "value": 0.9223115696681308,
+          "sources": [
+            {
+              "selector": "div#barraNewsletter",
+              "oldY": 195,
+              "newY": 0
+            },
+            {
+              "selector": "div",
+              "oldY": 0,
+              "newY": 0
+            },
+            {
+              "selector": "div#rodape",
+              "oldY": 559,
+              "newY": 0
+            },
+            {
+              "selector": "div#corpo",
+              "oldY": 35,
+              "newY": 0
+            }
+          ]
+        }
+      ],
+      "errors": [
+        "pageerror: Failed to fetch",
+        "pageerror: Failed to fetch",
+        "pageerror: Failed to fetch",
+        "pageerror: Failed to fetch"
+      ],
+      "geometry": {
+        "headerPosition": "fixed",
+        "headerHeight": 85,
+        "bodyPaddingTop": "85px",
+        "contentTop": 5,
+        "hasOwl": true
+      }
+    },
+    {
+      "viewport": "390x844",
+      "variant": "original",
+      "htmlModified": false,
+      "jsReplaced": false,
+      "documentStatus": 200,
+      "cls": 0.866771,
+      "events": [
+        {
+          "t": 1535,
+          "value": 0.0009298982502639203,
+          "sources": [
+            {
+              "selector": "button#qc-trigger",
+              "oldY": 718,
+              "newY": 692
+            }
+          ]
+        },
+        {
+          "t": 2446,
+          "value": 0.00004286456722526218,
+          "sources": [
+            {
+              "selector": "strong",
+              "oldY": 204,
+              "newY": 204
+            }
+          ]
+        },
+        {
+          "t": 2731,
+          "value": 0.8657977883096366,
+          "sources": [
+            {
+              "selector": "div#rodape",
+              "oldY": 237,
+              "newY": 0
+            },
+            {
+              "selector": "ul",
+              "oldY": 0,
+              "newY": 24
+            },
+            {
+              "selector": "div",
+              "oldY": 23,
+              "newY": 23
+            },
+            {
+              "selector": "div#corpo",
+              "oldY": 194,
+              "newY": 0
+            }
+          ]
+        }
+      ],
+      "errors": [
+        "pageerror: Failed to fetch",
+        "pageerror: Failed to fetch",
+        "pageerror: Failed to fetch",
+        "pageerror: Failed to fetch"
+      ],
+      "geometry": {
+        "headerPosition": "fixed",
+        "headerHeight": 120,
+        "bodyPaddingTop": "124px",
+        "contentTop": 124,
+        "hasOwl": false
+      }
+    },
+    {
+      "viewport": "390x844",
+      "variant": "header-prepaint",
+      "htmlModified": true,
+      "jsReplaced": true,
+      "documentStatus": 200,
+      "cls": 0.865841,
+      "events": [
+        {
+          "t": 371,
+          "value": 0.0009298982502639203,
+          "sources": [
+            {
+              "selector": "button#qc-trigger",
+              "oldY": 718,
+              "newY": 692
+            }
+          ]
+        },
+        {
+          "t": 1619,
+          "value": 0.00004286456722526218,
+          "sources": [
+            {
+              "selector": "strong",
+              "oldY": 204,
+              "newY": 204
+            }
+          ]
+        },
+        {
+          "t": 1909,
+          "value": 0.8657977883096366,
+          "sources": [
+            {
+              "selector": "div#rodape",
+              "oldY": 237,
+              "newY": 0
+            },
+            {
+              "selector": "ul",
+              "oldY": 0,
+              "newY": 24
+            },
+            {
+              "selector": "div",
+              "oldY": 23,
+              "newY": 23
+            },
+            {
+              "selector": "div#corpo",
+              "oldY": 194,
+              "newY": 0
+            }
+          ]
+        }
+      ],
+      "errors": [
+        "pageerror: Failed to fetch",
+        "pageerror: Failed to fetch",
+        "pageerror: Failed to fetch",
+        "pageerror: Failed to fetch"
+      ],
+      "geometry": {
+        "headerPosition": "fixed",
+        "headerHeight": 120,
+        "bodyPaddingTop": "124px",
+        "contentTop": 124,
+        "hasOwl": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,2410 @@
+<style>
+  #fm-categorias,#fm-categorias *{box-sizing:border-box}
+  #fm-categorias{max-width:1720px;width:100%;margin:36px auto 48px;padding:0 18px;font-family:Montserrat; color:#102c53}
+  #fm-categorias .fm-head{display:flex;justify-content:space-between;align-items:center;gap:16px;margin:0 0 20px;text-align:center;flex-direction: column;}
+  #fm-categorias .fm-head-copy{min-width:0}
+  #fm-categorias .fm-eyebrow{display:block;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#45658c;margin:0 0 7px}
+  #fm-categorias .fm-heading{font-family:Montserrat;font-size:clamp(22px,2.1vw,26px);line-height:1.18;letter-spacing:-.025em;font-weight:800;color:#102d55;margin:0 0 7px;text-transform: uppercase;}
+  #fm-categorias .fm-description{font-size:14px;line-height:1.5;color:#586679;margin:0}
+  #fm-categorias .fm-controls{display:flex;align-items:center;gap:8px;flex-shrink:0}
+  #fm-categorias .fm-control{width:38px;height:38px;display:grid;place-items:center;border:1px solid #d9e4f1;border-radius:50%;background:#fff;color:#174a8e;font:700 23px/1 Arial,Helvetica,sans-serif;cursor:pointer;padding:0}
+  #fm-categorias .fm-control:focus-visible{outline:3px solid #1366b7;outline-offset:2px}
+  #fm-categorias .fm-control:hover{background:#eef4fd}
+  #fm-categorias .fm-track{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 75px)/5);gap:16px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:#b9cbe1 transparent;margin:0;padding:2px 0 12px;list-style:none}
+  #fm-categorias .fm-track::-webkit-scrollbar{height:5px}
+  #fm-categorias .fm-track::-webkit-scrollbar-thumb{border-radius:8px;background:#b9cbe1}
+  #fm-categorias .fm-item{min-width:0;margin:0;padding:0;list-style:none;scroll-snap-align:start}
+  #fm-categorias .fm-card{display:block;height:100%;overflow:hidden;border:1px solid #e6edf5;border-radius:13px;background:#fff;box-shadow:0 2px 10px rgba(11,37,72,.055);text-decoration:none!important;color:#123c70!important;transition:box-shadow .2s ease,transform .2s ease}
+  #fm-categorias .fm-card img{display:block;width:100%!important;height:auto!important;max-width:100%!important;aspect-ratio:9/16;object-fit:cover;margin:0!important;padding:0;border:0;border-radius:0}
+  #fm-categorias .fm-foot{display:flex;gap:8px;align-items:center;justify-content:space-between;min-height:52px;padding:12px 13px;background:#fff;text-align:left}
+  #fm-categorias .fm-name{font:700 18px/1.25 Montserrat;color:#123c70;min-width:0}
+  #fm-categorias .fm-arrow{display:grid;place-items:center;flex:0 0 27px;width:27px;height:27px;background:#eef4fd;border-radius:50%;font:700 19px/1 Arial,Helvetica,sans-serif;color:#174a8e}
+  #fm-categorias .fm-mobile-hint{display:none}
+  #fm-categorias .fm-card:focus-visible{outline:3px solid #1366b7;outline-offset:3px}
+  @media(hover:hover) and (pointer:fine){#fm-categorias .fm-card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(11,37,72,.11)}#fm-categorias .fm-card:hover .fm-arrow{background:#dceafc}}
+  @media(max-width:1120px){#fm-categorias .fm-track{grid-auto-columns:calc((100% - 32px)/3)}}
+  @media(max-width:780px){#fm-categorias .fm-track{grid-auto-columns:calc((100% - 16px)/2)}}
+  @media(max-width:600px){
+   #fm-categorias{padding:0 14px;margin:26px auto 32px}
+   #fm-categorias .fm-head{margin-bottom:14px;align-items:center;gap:8px}
+   #fm-categorias .fm-control{width:34px;height:34px;font-size:20px}
+   #fm-categorias .fm-heading{font-size:24px}
+   #fm-categorias .fm-description{font-size:13px}
+   #fm-categorias .fm-mobile-hint{display:block;margin:8px 0 0;color:#45658c;font-size:12px}
+   #fm-categorias .fm-track{grid-auto-columns:min(320px,78vw);gap:12px}
+   #fm-categorias .fm-foot{min-height:50px}
+   #fm-categorias .fm-name{font-size:15px}
+  }
+  @media(max-width:350px){#fm-categorias .fm-track{grid-auto-columns:83vw}}
+  @media(prefers-reduced-motion:reduce){#fm-categorias .fm-card{transition:none}#fm-categorias .fm-card:hover{transform:none}#fm-categorias .fm-track{scroll-behavior:auto}}
+  </style>
+  <section id="fm-categorias" aria-labelledby="fm-cat-titulo">
+    <header class="fm-head">
+      <div class="fm-head-copy">
+        <h2 class="fm-heading" id="fm-cat-titulo">Explore nossas categorias</h2>
+        <p class="fm-description">Encontre produtos para cada necessidade e fase da vida.</p>
+      </div>
+      <div class="fm-controls" aria-label="Controles do carrossel">
+        <button class="fm-control fm-prev" type="button" aria-label="Ver categorias anteriores">‹</button>
+        <button class="fm-control fm-next" type="button" aria-label="Ver próximas categorias">›</button>
+      </div>
+    </header>
+    <nav aria-label="Categorias de produtos da Farmácia Malheiro">
+      <ul class="fm-track" aria-label="Arraste para navegar pelas sete categorias">
+      <li class="fm-item"><a class="fm-card" href="https://www.farmaciamalheiro.com.br/vitaminas-e-mineirais" aria-label="Ver produtos de Vitaminas e Minerais">
+        <img src="https://cdn.awsli.com.br/1351/1351790/arquivos/malheiro-vitaminas-e-mineirais.webp" alt="Mulher sorrindo em cozinha iluminada com vitaminas e frutas cítricas" width="810" height="1440" loading="eager" decoding="async" fetchpriority="high">
+        <span class="fm-foot"><span class="fm-name">Vitaminas e Minerais</span><span class="fm-arrow" aria-hidden="true">›</span></span>
+      </a></li>
+      <li class="fm-item"><a class="fm-card" href="https://www.farmaciamalheiro.com.br/saude" aria-label="Ver produtos de Saúde">
+        <img src="https://cdn.awsli.com.br/1351/1351790/arquivos/malheiro-saude.webp" alt="Homem sorrindo em ambiente acolhedor com chá e suplemento" width="810" height="1440" loading="lazy" decoding="async">
+        <span class="fm-foot"><span class="fm-name">Saúde</span><span class="fm-arrow" aria-hidden="true">›</span></span>
+      </a></li>
+      <li class="fm-item"><a class="fm-card" href="https://www.farmaciamalheiro.com.br/emagrecimento" aria-label="Ver produtos de Peso">
+        <img src="https://cdn.awsli.com.br/1351/1351790/arquivos/malheiro-peso.webp" alt="Mulher sorrindo com vitamina verde e alimentos frescos" width="810" height="1440" loading="lazy" decoding="async">
+        <span class="fm-foot"><span class="fm-name">Peso</span><span class="fm-arrow" aria-hidden="true">›</span></span>
+      </a></li>
+      <li class="fm-item"><a class="fm-card" href="https://www.farmaciamalheiro.com.br/beleza" aria-label="Ver produtos de Beleza">
+        <img src="https://cdn.awsli.com.br/1351/1351790/arquivos/malheiro-beleza.webp" alt="Mulher em ambiente de autocuidado com suplemento e água" width="810" height="1440" loading="lazy" decoding="async">
+        <span class="fm-foot"><span class="fm-name">Beleza</span><span class="fm-arrow" aria-hidden="true">›</span></span>
+      </a></li>
+      <li class="fm-item"><a class="fm-card" href="https://www.farmaciamalheiro.com.br/performance-esportiva" aria-label="Ver produtos de Performance">
+        <img src="https://cdn.awsli.com.br/1351/1351790/arquivos/malheiro-performance.webp" alt="Atleta após o treino na academia ao lado de suplementos" width="810" height="1440" loading="lazy" decoding="async">
+        <span class="fm-foot"><span class="fm-name">Performance</span><span class="fm-arrow" aria-hidden="true">›</span></span>
+      </a></li>
+      <li class="fm-item"><a class="fm-card" href="https://www.farmaciamalheiro.com.br/40" aria-label="Ver produtos de 40+">
+        <img src="https://cdn.awsli.com.br/1351/1351790/arquivos/malheiro-40-mais.webp" alt="Mulher madura caminhando em trilha nas montanhas ao amanhecer" width="810" height="1440" loading="lazy" decoding="async">
+        <span class="fm-foot"><span class="fm-name">40+</span><span class="fm-arrow" aria-hidden="true">›</span></span>
+      </a></li>
+      <li class="fm-item"><a class="fm-card" href="https://www.farmaciamalheiro.com.br/60" aria-label="Ver produtos de 60+">
+        <img src="https://cdn.awsli.com.br/1351/1351790/arquivos/malheiro-60-mais.webp" alt="Casal sênior sorrindo durante café da manhã ao ar livre" width="810" height="1440" loading="lazy" decoding="async">
+        <span class="fm-foot"><span class="fm-name">60+</span><span class="fm-arrow" aria-hidden="true">›</span></span>
+      </a></li>
+      </ul>
+    </nav>
+  </section>
+  
+  <script>
+  (function(){
+    /* Posicionamento centralizado na rotina única após .secao-banners. */
+    function ativarCarrossel(){
+      var sec=document.getElementById('fm-categorias');
+      if(!sec || sec.dataset.fmCarousel) return;
+      sec.dataset.fmCarousel='1';
+      var track=sec.querySelector('.fm-track');
+      var itens=Array.prototype.slice.call(sec.querySelectorAll('.fm-item'));
+      var anterior=sec.querySelector('.fm-prev');
+      var proximo=sec.querySelector('.fm-next');
+      if(!track || itens.length<2) return;
+  
+      var visivel=true, comMouse=false, comFoco=false, arrastando=false;
+      var ultimaInteracao=0;
+      var reduzMovimento=window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
+      var intervalo=4800; // Troque para 6000 para passar a cada 6 segundos
+      var pausaManual=12000; // Aguarda 12s após uma interação manual
+  
+      function larguraMaxima(){return Math.max(0,track.scrollWidth-track.clientWidth);}
+      function posicao(item){
+        return track.scrollLeft+item.getBoundingClientRect().left-track.getBoundingClientRect().left;
+      }
+      function mover(para){
+        track.scrollTo({left:Math.max(0,Math.min(larguraMaxima(),para)),behavior:reduzMovimento && reduzMovimento.matches?'auto':'smooth'});
+      }
+      function navegar(direcao){
+        var atual=track.scrollLeft, limite=larguraMaxima();
+        if(limite<4) return;
+        if(direcao>0){
+          if(atual>=limite-5){mover(0);return;}
+          for(var i=0;i<itens.length;i++){
+            var destino=posicao(itens[i]);
+            if(destino>atual+5){mover(destino);return;}
+          }
+          mover(0);
+        }else{
+          if(atual<=5){mover(limite);return;}
+          for(var j=itens.length-1;j>=0;j--){
+            var voltar=posicao(itens[j]);
+            if(voltar<atual-5){mover(voltar);return;}
+          }
+          mover(0);
+        }
+      }
+      function interromper(){ultimaInteracao=Date.now();}
+      if(anterior) anterior.addEventListener('click',function(){interromper();navegar(-1);});
+      if(proximo) proximo.addEventListener('click',function(){interromper();navegar(1);});
+      track.addEventListener('pointerdown',function(){arrastando=true;interromper();});
+      document.addEventListener('pointerup',function(){arrastando=false;});
+      document.addEventListener('pointercancel',function(){arrastando=false;});
+      track.addEventListener('wheel',interromper,{passive:true});
+      track.addEventListener('keydown',interromper);
+      sec.addEventListener('mouseenter',function(){comMouse=true;});
+      sec.addEventListener('mouseleave',function(){comMouse=false;});
+      sec.addEventListener('focusin',function(){comFoco=true;interromper();});
+      sec.addEventListener('focusout',function(){comFoco=false;});
+      if('IntersectionObserver' in window){
+        new IntersectionObserver(function(e){visivel=e[0].isIntersecting;},{threshold:0.15}).observe(sec);
+      }
+      window.setInterval(function(){
+        if((reduzMovimento && reduzMovimento.matches) || document.hidden || !visivel || comMouse || comFoco || arrastando || Date.now()-ultimaInteracao<pausaManual) return;
+        navegar(1);
+      },intervalo);
+    }
+    function iniciar(){ativarCarrossel();}
+    if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',iniciar);}else{iniciar();}
+  })();
+  (function () {
+    function posicionarCategorias() {
+      const banner = document.querySelector('.secao-banners');
+      const categorias = document.querySelector('#fm-categorias');
+  
+      if (!banner || !categorias) return false;
+  
+      // Posiciona imediatamente após o banner principal
+      if (banner.nextElementSibling !== categorias) {
+        banner.insertAdjacentElement('afterend', categorias);
+      }
+  
+      return true;
+    }
+  
+    function iniciar() {
+      if (posicionarCategorias()) return;
+  
+      // Aguarda o banner caso seja carregado posteriormente
+      const observer = new MutationObserver(() => {
+        if (posicionarCategorias()) observer.disconnect();
+      });
+  
+      observer.observe(document.body, {
+        childList: true,
+        subtree: true
+      });
+  
+      setTimeout(() => observer.disconnect(), 12000);
+    }
+  
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', iniciar);
+    } else {
+      iniciar();
+    }
+  })();
+  </script>
+
+<div class="disable lista-one">
+
+  <div class="fwr-cat-hero-list"><!-- LINHA 1 -->
+    <section
+      class="fwr-cat-hero"
+      data-bg="https://cdn.awsli.com.br/1351/1351790/arquivos/bg-performance.jpg"
+      data-cat-title="PERFORMANCE<br>ESPORTIVA"
+      data-cat-text=""
+      data-cat-url="/performance-esportiva"
+      data-product-url="https://www.farmaciamalheiro.com.br/magnesio-quelato-150-mg-capsulas"
+      data-product-id="88785444"
+      data-product-img="https://cdn.awsli.com.br/1351/1351790/arquivos/performance.png"
+      data-eager="1"
+    >
+      <img
+        class="fwr-cat-hero__bg"
+        src="https://cdn.awsli.com.br/1351/1351790/arquivos/bg-performance.jpg"
+        alt=""
+        width="862"
+        height="305"
+        fetchpriority="high"
+        decoding="async"
+      >
+
+      <div class="fwr-cat-hero__inner" aria-label="Categoria em destaque">
+        <div class="fwr-cat-hero__left">
+          <h2 class="fwr-cat-hero__title">PERFORMANCE<br>ESPORTIVA</h2>
+          <p class="fwr-cat-hero__text"></p>
+
+          <a class="fwr-cat-hero__cta" href="/performance-esportiva" aria-label="Ver todos os produtos de Performance Esportiva">
+            VER TODOS
+          </a>
+        </div>
+
+        <article class="fwr-cat-hero__card" aria-busy="true">
+          <a class="fwr-cat-hero__pimglink" href="https://www.farmaciamalheiro.com.br/magnesio-quelato-150-mg-capsulas" aria-label="Abrir produto">
+            <img
+              class="fwr-cat-hero__pimg"
+              src="https://cdn.awsli.com.br/1351/1351790/arquivos/performance.png"
+              alt="magnesio-quelato-150"
+              width="287"
+              height="232"
+              loading="lazy"
+              decoding="async"
+            >
+          </a>
+
+          <div class="fwr-cat-hero__pinfo">
+            <a class="fwr-cat-hero__plink" href="https://www.farmaciamalheiro.com.br/magnesio-quelato-150-mg-capsulas">
+              <p class="fwr-cat-hero__pname">Carregando…</p>
+            </a>
+
+            <div class="fwr-cat-hero__pricebox" aria-label="Preço e parcelamento">
+              <span class="fwr-cat-hero__from">A partir de</span>
+              <strong class="fwr-cat-hero__price">—</strong>
+              <span class="fwr-cat-hero__inst">&nbsp;</span>
+            </div>
+          </div>
+
+          <a class="fwr-cat-hero__buyy" href="https://www.farmaciamalheiro.com.br/magnesio-quelato-150-mg-capsulas" aria-label="Adicionar ao carrinho">
+            <span class="sr-only">Adicionar ao carrinho</span>
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false">
+              <path fill="currentColor" d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2Zm10 0c-1.1 0-1.99.9-1.99 2S15.9 22 17 22s2-.9 2-2-.9-2-2-2ZM7.16 14h9.93c.75 0 1.4-.41 1.74-1.03l3.24-5.88A1 1 0 0 0 21.2 5H6.21L5.27 3H2v2h2l3.6 7.59-1.35 2.44A2 2 0 0 0 8 18h12v-2H8l1.16-2Z"/>
+            </svg>
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <!-- LINHA 2 -->
+    <section
+      class="fwr-cat-hero"
+      data-bg="https://cdn.awsli.com.br/1351/1351790/arquivos/bg-beleza.jpg"
+      data-cat-title="AUTO CUIDADO<br>E BELEZA"
+      data-cat-text=""
+      data-cat-url="/beleza"
+      data-product-url="https://www.farmaciamalheiro.com.br/coenzima-q10-100mg-capsulas"
+      data-product-id="78371612"
+      data-product-img="https://cdn.awsli.com.br/1351/1351790/arquivos/beleza.png"
+    >
+      <img
+        class="fwr-cat-hero__bg"
+        src="https://cdn.awsli.com.br/1351/1351790/arquivos/bg-beleza.jpg"
+        alt="coenzima-q10-100mg"
+        width="862"
+        height="305"
+        loading="lazy"
+        decoding="async"
+      >
+
+      <div class="fwr-cat-hero__inner" aria-label="Categoria em destaque">
+        <div class="fwr-cat-hero__left">
+          <h2 class="fwr-cat-hero__title">AUTO CUIDADO<br>E BELEZA</h2>
+          <p class="fwr-cat-hero__text"></p>
+
+          <a class="fwr-cat-hero__cta" href="/beleza" aria-label="Ver todos os produtos de Auto Cuidado e Beleza">
+            VER TODOS
+          </a>
+        </div>
+
+        <article class="fwr-cat-hero__card" aria-busy="true">
+          <a class="fwr-cat-hero__pimglink" href="https://www.farmaciamalheiro.com.br/coenzima-q10-100mg-capsulas" aria-label="Abrir produto">
+            <img
+              class="fwr-cat-hero__pimg"
+              src="https://cdn.awsli.com.br/1351/1351790/arquivos/beleza.png"
+              alt="coenzima-q10-100mg"
+              width="287"
+              height="232"
+              loading="lazy"
+              decoding="async"
+            >
+          </a>
+
+          <div class="fwr-cat-hero__pinfo">
+            <a class="fwr-cat-hero__plink" href="https://www.farmaciamalheiro.com.br/coenzima-q10-100mg-capsulas">
+              <p class="fwr-cat-hero__pname">Carregando…</p>
+            </a>
+
+            <div class="fwr-cat-hero__pricebox" aria-label="Preço e parcelamento">
+              <span class="fwr-cat-hero__from">A partir de</span>
+              <strong class="fwr-cat-hero__price">—</strong>
+              <span class="fwr-cat-hero__inst">&nbsp;</span>
+            </div>
+          </div>
+
+          <a class="fwr-cat-hero__buyy" href="https://www.farmaciamalheiro.com.br/coenzima-q10-100mg-capsulas" aria-label="Adicionar ao carrinho">
+            <span class="sr-only">Adicionar ao carrinho</span>
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false">
+              <path fill="currentColor" d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2Zm10 0c-1.1 0-1.99.9-1.99 2S15.9 22 17 22s2-.9 2-2-.9-2-2-2ZM7.16 14h9.93c.75 0 1.4-.41 1.74-1.03l3.24-5.88A1 1 0 0 0 21.2 5H6.21L5.27 3H2v2h2l3.6 7.59-1.35 2.44A2 2 0 0 0 8 18h12v-2H8l1.16-2Z"/>
+            </svg>
+          </a>
+        </article>
+      </div>
+    </section>
+  </div>
+
+  <!-- Vitaminas -->
+    <section class="fwr-vita" data-parallax="0.18" aria-label="Vitrine de vitaminas">
+      <!-- Fundo -->
+      <div class="fwr-vita__bg bg-60" aria-hidden="true">
+        <img
+          class="fwr-vita__bgimg"
+          src="https://cdn.awsli.com.br/1351/1351790/arquivos/fundo1.jpg"
+          alt=""
+          width="1909"
+          height="1265"
+          decoding="async"
+          fetchpriority="high"
+        />
+      </div>
+    
+      <div class="fwr-vita__inner">
+        <!-- Head -->
+        <header class="fwr-vita__head">
+          <!-- SEO: use H2 (assumindo que a página já tem H1) -->
+          <h2 class="fwr-vita__title">VITAMINAS</h2>
+          <p class="fwr-vita__text">
+            Com a rotina intensa, alimentação irregular e estresse, muitas vezes não conseguimos obter todos os nutrientes necessários apenas pela dieta. As vitaminas auxiliam no funcionamento equilibrado do organismo, contribuindo para energia, imunidade, sistema nervoso, humor, sono e desempenho mental.Quando utilizadas com orientação profissional, ajudam a manter o equilíbrio nutricional e o bem-estar. A manipulação permite personalizar doses e combinações conforme as necessidades individuais, promovendo um cuidado mais direcionado e seguro.
+          </p>
+        </header>
+    
+        <!-- Grid 2x2 -->
+        <div class="fwr-vita__grid">
+          <!-- Card 1 -->
+          <article class="fwr-vita-card" style="--rot:-14deg;">
+            <div class="fwr-vita-card__body">
+              <h3 class="fwr-vita-card__title">Vitamina D3 10.000 UI + K2MK7 120 mcg: Suporte à Saúde Óssea e Equilíbrio do Organismo</h3>
+    
+              <ul class="fwr-vita-card__list" role="list">
+                <li>
+                  <span class="fwr-ic fwr-ic--bolt" aria-hidden="true"></span>
+                  Contribui para a saúde óssea
+                </li>
+                <li>
+                  <span class="fwr-ic fwr-ic--brain" aria-hidden="true"></span>
+                  Auxilia no aproveitamento do cálcio
+                </li>
+                <li>
+                  <span class="fwr-ic fwr-ic--leaf" aria-hidden="true"></span>
+                  Participa do funcionamento do sistema imunológico
+                </li>
+              </ul>
+    
+              <div class="fwr-vita-card__actions">
+                <a class="fwr-vita-card__btnn" href="https://www.farmaciamalheiro.com.br/vitamina-d3-10000-ui-vitamina-k2-mk7-120mcg-capsulas">comprar</a>
+              </div>
+            </div>
+    
+            <a class="fwr-vita-card__media" href="https://www.farmaciamalheiro.com.br/vitamina-d3-10000-ui-vitamina-k2-mk7-120mcg-capsulas">
+              <img
+                class="fwr-vita-card__img"
+                src="https://cdn.awsli.com.br/1351/1351790/arquivos/vitaminas-d3.png"
+                alt="Vitamina D3 10.000 UI + K2MK7 120 mcg"
+                width="334"
+                height="357"
+                loading="lazy"
+                decoding="async"
+              />
+            </a>
+          </article>
+    
+          <!-- Card 2 -->
+          <article class="fwr-vita-card" style="--rot:12deg;">
+            <div class="fwr-vita-card__body">
+              <h3 class="fwr-vita-card__title">Complexo B Concentrado: Energia, Disposição e Suporte ao Sistema Nervoso</h3>
+    
+              <ul class="fwr-vita-card__list" role="list">
+                <li>
+                  <span class="fwr-ic fwr-ic--heart" aria-hidden="true"></span>
+                  Auxilia na produção de energia
+                </li>
+                <li>
+                  <span class="fwr-ic fwr-ic--brain" aria-hidden="true"></span>
+                  Contribui para o funcionamento do sistema nervoso
+                </li>
+                <li>
+                  <span class="fwr-ic fwr-ic--shield" aria-hidden="true"></span>
+                  Participa do metabolismo dos nutrientes
+                </li>
+              </ul>
+    
+              <div class="fwr-vita-card__actions">
+                <a class="fwr-vita-card__btnn" href="https://www.farmaciamalheiro.com.br/vitamina-d3-10000-ui-vitamina-k2-mk7-120mcg-capsulas">comprar</a>
+              </div>
+            </div>
+    
+            <a class="fwr-vita-card__media" href="https://www.farmaciamalheiro.com.br/vitamina-d3-10000-ui-vitamina-k2-mk7-120mcg-capsulas">
+              <img
+                class="fwr-vita-card__img"
+                src="https://cdn.awsli.com.br/1351/1351790/arquivos/vitaminas-complexob.png"
+                alt="Complexo B Concentrado"
+                width="334"
+                height="357"
+                loading="lazy"
+                decoding="async"
+              />
+            </a>
+          </article>
+    
+          <!-- Card 3 -->
+          <article class="fwr-vita-card" style="--rot:0deg;">
+            <div class="fwr-vita-card__body">
+              <h3 class="fwr-vita-card__title">Metilcobalamina 1.000 mcg Sublingual: Suporte Neurológico e Energia Celular</h3>
+    
+              <ul class="fwr-vita-card__list" role="list">
+                <li>
+                  <span class="fwr-ic fwr-ic--bolt" aria-hidden="true"></span>
+                  Contribui para o funcionamento do sistema nervoso
+                </li>
+                <li>
+                  <span class="fwr-ic fwr-ic--target" aria-hidden="true"></span>
+                  Participa da formação de células sanguíneas
+                </li>
+                <li>
+                  <span class="fwr-ic fwr-ic--gear" aria-hidden="true"></span>
+                  Auxilia no metabolismo energético
+                </li>
+              </ul>
+    
+              <div class="fwr-vita-card__actions">
+                <a class="fwr-vita-card__btnn" href="https://www.farmaciamalheiro.com.br/produto/metilcobalamina-1000-mcg-capsulas-sublinguais.html">comprar</a>
+              </div>
+            </div>
+    
+            <a class="fwr-vita-card__media" href="https://www.farmaciamalheiro.com.br/produto/metilcobalamina-1000-mcg-capsulas-sublinguais.html">
+              <img
+                class="fwr-vita-card__img"
+                src="https://cdn.awsli.com.br/1351/1351790/arquivos/vitaminas-metil.png"
+                alt="Metilcobalamina 1.000 mcg Sublingual"
+                width="334"
+                height="357"
+                loading="lazy"
+                decoding="async"
+              />
+            </a>
+          </article>
+    
+          <!-- Card 4 -->
+          <article class="fwr-vita-card" style="--rot:18deg;">
+            <div class="fwr-vita-card__body">
+              <h3 class="fwr-vita-card__title">Metilcobalamina + Metilfolato + Piridoxina</h3>
+    
+              <ul class="fwr-vita-card__list" role="list">
+                <li>
+                  <span class="fwr-ic fwr-ic--moon" aria-hidden="true"></span>
+                  Contribui para o funcionamento do sistema nervoso
+                </li>
+                <li>
+                  <span class="fwr-ic fwr-ic--brain" aria-hidden="true"></span>
+                  Participa do metabolismo da homocisteína
+                </li>
+                <li>
+                  <span class="fwr-ic fwr-ic--leaf" aria-hidden="true"></span>
+                  Auxilia na produção de energia
+                </li>
+              </ul>
+    
+              <div class="fwr-vita-card__actions">
+                <a class="fwr-vita-card__btnn" href="https://www.farmaciamalheiro.com.br/metilcobalamina-metilfolato-vitamina-b6-ativa-p5p-suporte-avancado-de-energia-humor-e-clareza-mental">comprar</a>
+              </div>
+            </div>
+    
+            <a class="fwr-vita-card__media" href="https://www.farmaciamalheiro.com.br/metilcobalamina-metilfolato-vitamina-b6-ativa-p5p-suporte-avancado-de-energia-humor-e-clareza-mental">
+              <img
+                class="fwr-vita-card__img"
+                src="https://cdn.awsli.com.br/1351/1351790/arquivos/vitaminas-metil2.png"
+                alt="Metilcobalamina + Metilfolato + Piridoxina"
+                width="334"
+                height="357"
+                loading="lazy"
+                decoding="async"
+              />
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+</div>
+
+
+<script>
+  jQuery(function($){
+    $('.lista-one').insertAfter('#corpo');
+  });
+</script>
+
+
+<div class="disable lista-two">
+
+  <div class="fwr-cat-hero-list">
+    <!-- LINHA 1 -->
+    <section
+      class="fwr-cat-hero"
+      data-bg="https://cdn.awsli.com.br/1351/1351790/arquivos/bg-saude.jpg"
+      data-cat-title="CUIDADO COM<br>A SAÚDE"
+      data-cat-text=""
+      data-cat-url="/saude"
+      data-product-url="https://www.farmaciamalheiro.com.br/produto/metilcobalamina-1000-mcg-capsulas-sublinguais.html"
+      data-product-id="130154765"
+      data-product-img="https://cdn.awsli.com.br/1351/1351790/arquivos/saude.png"
+      data-eager="1"
+    >
+      <img
+        class="fwr-cat-hero__bg"
+        src="https://cdn.awsli.com.br/1351/1351790/arquivos/bg-saude.jpg"
+        alt="metilcobalamina-1000-mcg"
+        width="862"
+        height="305"
+        fetchpriority="high"
+        decoding="async"
+      >
+  
+      <div class="fwr-cat-hero__inner" aria-label="Categoria em destaque">
+        <div class="fwr-cat-hero__left">
+          <h2 class="fwr-cat-hero__title">CUIDADO COM<br>A SAÚDE</h2>
+          <p class="fwr-cat-hero__text"></p>
+  
+          <a class="fwr-cat-hero__cta" href="/saude" aria-label="Ver todos os produtos de Performance Esportiva">
+            VER TODOS
+          </a>
+        </div>
+  
+        <article class="fwr-cat-hero__card" aria-busy="true">
+          <a class="fwr-cat-hero__pimglink" href="https://www.farmaciamalheiro.com.br/produto/metilcobalamina-1000-mcg-capsulas-sublinguais.html" aria-label="Abrir produto">
+            <img
+              class="fwr-cat-hero__pimg"
+              src="https://cdn.awsli.com.br/1351/1351790/arquivos/saude.png"
+              alt="Produto em destaque"
+              width="287"
+              height="232"
+              loading="lazy"
+              decoding="async"
+            >
+          </a>
+  
+          <div class="fwr-cat-hero__pinfo">
+            <a class="fwr-cat-hero__plink" href="https://www.farmaciamalheiro.com.br/produto/metilcobalamina-1000-mcg-capsulas-sublinguais.html">
+              <p class="fwr-cat-hero__pname">Carregando…</p>
+            </a>
+  
+            <div class="fwr-cat-hero__pricebox" aria-label="Preço e parcelamento">
+              <span class="fwr-cat-hero__from">A partir de</span>
+              <strong class="fwr-cat-hero__price">—</strong>
+              <span class="fwr-cat-hero__inst">&nbsp;</span>
+            </div>
+          </div>
+  
+          <a class="fwr-cat-hero__buyy" href="https://www.farmaciamalheiro.com.br/produto/metilcobalamina-1000-mcg-capsulas-sublinguais.html" aria-label="Adicionar ao carrinho">
+            <span class="sr-only">Adicionar ao carrinho</span>
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false">
+              <path fill="currentColor" d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2Zm10 0c-1.1 0-1.99.9-1.99 2S15.9 22 17 22s2-.9 2-2-.9-2-2-2ZM7.16 14h9.93c.75 0 1.4-.41 1.74-1.03l3.24-5.88A1 1 0 0 0 21.2 5H6.21L5.27 3H2v2h2l3.6 7.59-1.35 2.44A2 2 0 0 0 8 18h12v-2H8l1.16-2Z"/>
+            </svg>
+          </a>
+        </article>
+      </div>
+    </section>
+  
+    <!-- LINHA 2 -->
+    <section
+      class="fwr-cat-hero"
+      data-bg="https://cdn.awsli.com.br/1351/1351790/arquivos/bg-peso.jpg"
+      data-cat-title="GERENCIAMENTO<br>DE PESO"
+      data-cat-text=""
+      data-cat-url="/emagrecimento"
+      data-product-url="https://www.farmaciamalheiro.com.br/picolinato-de-cromo-200-mg-capsulas"
+      data-product-id="89370820"
+      data-product-img="https://cdn.awsli.com.br/1351/1351790/arquivos/peso.png"
+    >
+      <img
+        class="fwr-cat-hero__bg"
+        src="https://cdn.awsli.com.br/1351/1351790/arquivos/bg-peso.jpg"
+        alt=""
+        width="862"
+        height="305"
+        loading="lazy"
+        decoding="async"
+      >
+  
+      <div class="fwr-cat-hero__inner" aria-label="Categoria em destaque">
+        <div class="fwr-cat-hero__left">
+          <h2 class="fwr-cat-hero__title">GERENCIAMENTO<br>DE PESO</h2>
+          <p class="fwr-cat-hero__text"></p>
+  
+          <a class="fwr-cat-hero__cta" href="/emagrecimento" aria-label="Ver todos os produtos de Auto Cuidado e Beleza">
+            VER TODOS
+          </a>
+        </div>
+  
+        <article class="fwr-cat-hero__card" aria-busy="true">
+          <a class="fwr-cat-hero__pimglink" href="https://www.farmaciamalheiro.com.br/picolinato-de-cromo-200-mg-capsulas" aria-label="Abrir produto">
+            <img
+              class="fwr-cat-hero__pimg"
+              src="https://cdn.awsli.com.br/1351/1351790/arquivos/peso.png"
+              alt="Produto em destaque"
+              width="287"
+              height="232"
+              loading="lazy"
+              decoding="async"
+            >
+          </a>
+  
+          <div class="fwr-cat-hero__pinfo">
+            <a class="fwr-cat-hero__plink" href="https://www.farmaciamalheiro.com.br/picolinato-de-cromo-200-mg-capsulas">
+              <p class="fwr-cat-hero__pname">Carregando…</p>
+            </a>
+  
+            <div class="fwr-cat-hero__pricebox" aria-label="Preço e parcelamento">
+              <span class="fwr-cat-hero__from">A partir de</span>
+              <strong class="fwr-cat-hero__price">—</strong>
+              <span class="fwr-cat-hero__inst">&nbsp;</span>
+            </div>
+          </div>
+  
+          <a class="fwr-cat-hero__buyy" href="https://www.farmaciamalheiro.com.br/picolinato-de-cromo-200-mg-capsulas" aria-label="Adicionar ao carrinho">
+            <span class="sr-only">Adicionar ao carrinho</span>
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false">
+              <path fill="currentColor" d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2Zm10 0c-1.1 0-1.99.9-1.99 2S15.9 22 17 22s2-.9 2-2-.9-2-2-2ZM7.16 14h9.93c.75 0 1.4-.41 1.74-1.03l3.24-5.88A1 1 0 0 0 21.2 5H6.21L5.27 3H2v2h2l3.6 7.59-1.35 2.44A2 2 0 0 0 8 18h12v-2H8l1.16-2Z"/>
+            </svg>
+          </a>
+        </article>
+      </div>
+    </section>
+   </div>
+   
+  <section class="fwr-vita mais" data-parallax="0.18" aria-label="Vitrine de vitaminas">
+    <!-- Fundo -->
+    <div class="fwr-vita__bg" aria-hidden="true">
+      <img
+        class="fwr-vita__bgimg"
+        src="https://cdn.awsli.com.br/1351/1351790/arquivos/fundo2.jpg"
+        alt=""
+        width="1909"
+        height="1265"
+        decoding="async"
+        fetchpriority="high"
+      />
+    </div>
+  
+    <div class="fwr-vita__inner">
+      <!-- Head -->
+      <header class="fwr-vita__head">
+        <!-- SEO: use H2 (assumindo que a página já tem H1) -->
+        <h2 class="fwr-vita__title">PRODUTOS 60+</h2>
+        <p class="fwr-vita__text">
+          Com o avanço da idade, manter autonomia, disposição e bem-estar se torna essencial. A partir dos 60 anos, o organismo passa a ter novas necessidades, tornando importante o suporte nutricional adequado no dia a dia. Esta categoria reúne suplementos voltados para saúde óssea, memória, sistema cardiovascular, imunidade e vitalidade, contribuindo para um envelhecimento mais ativo e equilibrado, sempre respeitando as necessidades individuais.
+        </p>
+      </header>
+  
+      <!-- Grid 2x2 -->
+      <div class="fwr-vita__grid">
+        <!-- Card 1 -->
+        <article class="fwr-vita-card" style="--rot:-14deg;">
+          <div class="fwr-vita-card__body">
+            <h3 class="fwr-vita-card__title">Mix de Magnésio (Taurato, Dimalato e Glicina): Suporte Muscular, Cardíaco e Bem-Estar</h3>
+  
+            <ul class="fwr-vita-card__list" role="list">
+              <li>
+                <span class="fwr-ic fwr-ic--bolt" aria-hidden="true"></span>
+                Contribui para a função muscular
+              </li>
+              <li>
+                <span class="fwr-ic fwr-ic--brain" aria-hidden="true"></span>
+                Auxilia no funcionamento do sistema nervoso
+              </li>
+              <li>
+                <span class="fwr-ic fwr-ic--leaf" aria-hidden="true"></span>
+                Participa da saúde cardiovascular
+              </li>
+            </ul>
+  
+            <div class="fwr-vita-card__actions">
+              <a class="fwr-vita-card__btnn" href="https://www.farmaciamalheiro.com.br/produto/mix-de-magnesio-taurato-malato-quelato-capsulas.html">comprar</a>
+            </div>
+          </div>
+  
+          <a class="fwr-vita-card__media" href="https://www.farmaciamalheiro.com.br/produto/mix-de-magnesio-taurato-malato-quelato-capsulas.html">
+            <img
+              class="fwr-vita-card__img"
+              src="https://cdn.awsli.com.br/1351/1351790/arquivos/mix-magnesio.png"
+              alt="Mix de Magnésio (Taurato, Dimalato e Glicina): Suporte Muscular, Cardíaco e Bem-Estar"
+              width="334"
+              height="357"
+              loading="lazy"
+              decoding="async"
+            />
+          </a>
+        </article>
+  
+        <!-- Card 2 -->
+        <article class="fwr-vita-card" style="--rot:12deg;">
+          <div class="fwr-vita-card__body">
+            <h3 class="fwr-vita-card__title">Vitamina D3 10.000 UI + K2 200 mcg: Suporte à Saúde Óssea e Equilíbrio do Organismo</h3>
+  
+            <ul class="fwr-vita-card__list" role="list">
+              <li>
+                <span class="fwr-ic fwr-ic--heart" aria-hidden="true"></span>
+                Contribui para a saúde óssea
+              </li>
+              <li>
+                <span class="fwr-ic fwr-ic--brain" aria-hidden="true"></span>
+                Auxilia no aproveitamento do cálcio
+              </li>
+              <li>
+                <span class="fwr-ic fwr-ic--shield" aria-hidden="true"></span>
+                Participa do funcionamento do sistema imunológico
+              </li>
+            </ul>
+  
+            <div class="fwr-vita-card__actions">
+              <a class="fwr-vita-card__btnn" href="https://www.farmaciamalheiro.com.br/vitamina-d3-10000-ui-vitamina-k2-mk7-200mcg-capsulas">comprar</a>
+            </div>
+          </div>
+  
+          <a class="fwr-vita-card__media" href="https://www.farmaciamalheiro.com.br/vitamina-d3-10000-ui-vitamina-k2-mk7-200mcg-capsulas">
+            <img
+              class="fwr-vita-card__img"
+              src="https://cdn.awsli.com.br/1351/1351790/arquivos/d3.png"
+              alt="Vitamina D3 10.000 UI + K2 200 mcg: Suporte à Saúde Óssea e Equilíbrio do Organismo"
+              width="334"
+              height="357"
+              loading="lazy"
+              decoding="async"
+            />
+          </a>
+        </article>
+  
+        <!-- Card 3 -->
+        <article class="fwr-vita-card" style="--rot:0deg;">
+          <div class="fwr-vita-card__body">
+            <h3 class="fwr-vita-card__title">Composto Energia e Vitalidade: Suporte à Disposição e Função Celular</h3>
+  
+            <ul class="fwr-vita-card__list" role="list">
+              <li>
+                <span class="fwr-ic fwr-ic--bolt" aria-hidden="true"></span>
+                Auxilia na produção de energia
+              </li>
+              <li>
+                <span class="fwr-ic fwr-ic--target" aria-hidden="true"></span>
+                Contribui para o funcionamento celular
+              </li>
+              <li>
+                <span class="fwr-ic fwr-ic--gear" aria-hidden="true"></span>
+                Participa do metabolismo energético
+              </li>
+            </ul>
+  
+            <div class="fwr-vita-card__actions">
+              <a class="fwr-vita-card__btnn" href="https://www.farmaciamalheiro.com.br/composto-energia-e-vitalidade-maxima-malheiro">comprar</a>
+            </div>
+          </div>
+  
+          <a class="fwr-vita-card__media" href="https://www.farmaciamalheiro.com.br/composto-energia-e-vitalidade-maxima-malheiro">
+            <img
+              class="fwr-vita-card__img"
+              src="https://cdn.awsli.com.br/1351/1351790/arquivos/composto.png"
+              alt="Composto Energia e Vitalidade: Suporte à Disposição e Função Celular"
+              width="334"
+              height="357"
+              loading="lazy"
+              decoding="async"
+            />
+          </a>
+        </article>
+  
+        <!-- Card 4 -->
+        <article class="fwr-vita-card" style="--rot:18deg;">
+          <div class="fwr-vita-card__body">
+            <h3 class="fwr-vita-card__title">Ômega 3 Neural Rico em DHA – MEG-3: Suporte Cognitivo e Saúde do Coração</h3>
+  
+            <ul class="fwr-vita-card__list" role="list">
+              <li>
+                <span class="fwr-ic fwr-ic--moon" aria-hidden="true"></span>
+                Contribui para a saúde cerebral
+              </li>
+              <li>
+                <span class="fwr-ic fwr-ic--brain" aria-hidden="true"></span>
+                Auxilia nas funções cognitivas
+              </li>
+              <li>
+                <span class="fwr-ic fwr-ic--leaf" aria-hidden="true"></span>
+                Participa da saúde cardiovascular
+              </li>
+            </ul>
+  
+            <div class="fwr-vita-card__actions">
+              <a class="fwr-vita-card__btnn" href="https://www.farmaciamalheiro.com.br/produto/omega-3-concentrado-rico-em-dha-neural-60-capsulas.html">comprar</a>
+            </div>
+          </div>
+  
+          <a class="fwr-vita-card__media" href="https://www.farmaciamalheiro.com.br/produto/omega-3-concentrado-rico-em-dha-neural-60-capsulas.html">
+            <img
+              class="fwr-vita-card__img"
+              src="https://cdn.awsli.com.br/1351/1351790/arquivos/omega3.png"
+              alt="Ômega 3 Neural Rico em DHA – MEG-3: Suporte Cognitivo e Saúde do Coração"
+              width="334"
+              height="357"
+              loading="lazy"
+              decoding="async"
+            />
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+  (function(){
+    if (window.__FWR_CAT_HERO__) return;
+    window.__FWR_CAT_HERO__ = true;
+  
+    const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
+  
+    const strip = (s) => (s || '')
+      .replace(/<[^>]+>/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+  
+    const absUrl = (u) => {
+      try { return new URL(u, location.origin).toString(); }
+      catch(e){ return ''; }
+    };
+  
+    // LI: /carrinho/produto/adicionar?{ID}=QTD
+    function cartHref(productId, qty=1){
+      return `/carrinho/produto/adicionar?${encodeURIComponent(productId)}=${encodeURIComponent(qty)}`;
+    }
+  
+    function parseBRLToNumber(brl){
+      // "R$ 1.234,56" -> 1234.56
+      const raw = String(brl || '').replace(/[^\d.,]/g, '');
+      if (!raw) return NaN;
+      return Number(raw.replace(/\./g, '').replace(',', '.'));
+    }
+  
+    function fmtBRL(n){
+      try {
+        return n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+      } catch(e){
+        return 'R$ ' + (Math.round(n * 100) / 100).toFixed(2).replace('.', ',');
+      }
+    }
+  
+    /* ===== MENOR PREÇO DAS VARIAÇÕES ===== */
+  
+    function getAllJsonLdObjects(doc){
+      const nodes = Array.from(doc.querySelectorAll('script[type="application/ld+json"]'));
+      const out = [];
+  
+      for (const n of nodes){
+        const raw = (n.textContent || '').trim();
+        if (!raw) continue;
+  
+        try{
+          const parsed = JSON.parse(raw);
+  
+          const pushDeep = (obj) => {
+            if (!obj) return;
+            if (Array.isArray(obj)) {
+              obj.forEach(pushDeep);
+              return;
+            }
+            out.push(obj);
+            if (obj['@graph']) pushDeep(obj['@graph']);
+          };
+  
+          pushDeep(parsed);
+        }catch(e){}
+      }
+  
+      return out;
+    }
+  
+    function collectOfferPricesFromJsonLd(doc){
+      const objs = getAllJsonLdObjects(doc);
+      const prices = [];
+  
+      const walk = (node) => {
+        if (!node || typeof node !== 'object') return;
+  
+        // AggregateOffer
+        if (node.lowPrice != null) {
+          const lp = Number(String(node.lowPrice).replace(',', '.'));
+          if (Number.isFinite(lp) && lp > 0) prices.push(lp);
+        }
+  
+        // Offer simples
+        if (node.price != null) {
+          const p = Number(String(node.price).replace(',', '.'));
+          if (Number.isFinite(p) && p > 0) prices.push(p);
+        }
+  
+        // Product -> offers
+        if (node.offers) {
+          if (Array.isArray(node.offers)) node.offers.forEach(walk);
+          else walk(node.offers);
+        }
+  
+        // recursão em estruturas internas
+        for (const k in node){
+          if (!Object.prototype.hasOwnProperty.call(node, k)) continue;
+          const v = node[k];
+          if (v && typeof v === 'object') walk(v);
+        }
+      };
+  
+      objs.forEach(walk);
+  
+      return [...new Set(prices.filter(v => v > 0 && v < 100000))].sort((a,b) => a - b);
+    }
+  
+    function collectOfferPricesFromMicrodata(doc){
+      const prices = [];
+  
+      // microdata clássico
+      doc.querySelectorAll('[itemprop="price"]').forEach((el) => {
+        const content = el.getAttribute('content');
+        const text = content || el.textContent || '';
+        const m = String(text).match(/\d+(?:[.,]\d+)?/);
+        if (!m) return;
+        const n = Number(m[0].replace(',', '.'));
+        if (Number.isFinite(n) && n > 0) prices.push(n);
+      });
+  
+      // data-attributes comuns em temas
+      doc.querySelectorAll('[data-price],[data-preco],[data-price-value]').forEach((el) => {
+        const cand = el.getAttribute('data-price') || el.getAttribute('data-preco') || el.getAttribute('data-price-value') || '';
+        const m = String(cand).match(/\d+(?:[.,]\d+)?/);
+        if (!m) return;
+        const n = Number(m[0].replace(',', '.'));
+        if (Number.isFinite(n) && n > 0) prices.push(n);
+      });
+  
+      return [...new Set(prices.filter(v => v > 0 && v < 100000))].sort((a,b) => a - b);
+    }
+  
+    function collectInstallments(text){
+      const results = [];
+      const re = /até\s+(\d+)\s*x\s+de\s+(R\$\s?\d{1,3}(?:\.\d{3})*,\d{2})(?:\s+sem\s+juros)?/gi;
+      let m;
+  
+      while ((m = re.exec(text)) !== null){
+        const qty = Number(m[1]);
+        const eachTxt = m[2];
+        const each = parseBRLToNumber(eachTxt);
+        const semJuros = /sem\s+juros/i.test(m[0]);
+  
+        if (!Number.isFinite(qty) || !Number.isFinite(each)) continue;
+  
+        results.push({
+          qty,
+          each,
+          total: qty * each,
+          text: `até ${qty}x de ${eachTxt}${semJuros ? ' sem juros' : ''}`
+        });
+      }
+  
+      return results;
+    }
+  
+    function extractPriceAndInstallments(doc){
+      const text = strip(doc.body ? doc.body.innerHTML : '');
+  
+      // 1) JSON-LD (melhor opção)
+      let allPrices = collectOfferPricesFromJsonLd(doc);
+  
+      // 2) microdata
+      if (!allPrices.length) {
+        allPrices = collectOfferPricesFromMicrodata(doc);
+      }
+  
+      // 3) fallback por regex
+      if (!allPrices.length) {
+        const brls = [...text.matchAll(/R\$\s?\d{1,3}(?:\.\d{3})*,\d{2}/g)]
+          .map(m => parseBRLToNumber(m[0]))
+          .filter(v => Number.isFinite(v) && v >= 5 && v < 100000)
+          .sort((a,b) => a - b);
+  
+        allPrices = brls;
+      }
+  
+      const price = allPrices.length ? Math.min(...allPrices) : NaN;
+  
+      // Parcelamento mais compatível com o menor preço
+      let inst = '';
+      const installments = collectInstallments(text);
+  
+      if (installments.length) {
+        if (Number.isFinite(price)) {
+          installments.sort((a,b) => {
+            const d1 = Math.abs(a.total - price);
+            const d2 = Math.abs(b.total - price);
+            if (d1 !== d2) return d1 - d2;
+            if (a.qty !== b.qty) return b.qty - a.qty;
+            return a.each - b.each;
+          });
+          inst = installments[0].text;
+        } else {
+          inst = installments[0].text;
+        }
+      }
+  
+      return { price, inst };
+    }
+  
+    async function hydrate(section){
+      const bg = section.getAttribute('data-bg') || '';
+      const catTitle = section.getAttribute('data-cat-title') || '';
+      const catText = section.getAttribute('data-cat-text') || '';
+      const catUrl = section.getAttribute('data-cat-url') || '#';
+      const productUrl = section.getAttribute('data-product-url') || '';
+      const productId = section.getAttribute('data-product-id') || '';
+      const productImg = section.getAttribute('data-product-img') || '';
+  
+      // conteúdo estático
+      const bgEl = section.querySelector('.fwr-cat-hero__bg');
+      if (bgEl && bg) bgEl.src = bg;
+  
+      const titleEl = section.querySelector('.fwr-cat-hero__title');
+      if (titleEl && catTitle) titleEl.innerHTML = catTitle;
+  
+      const textEl = section.querySelector('.fwr-cat-hero__text');
+      if (textEl){
+        textEl.textContent = catText || '';
+        if (!catText || !String(catText).trim()) textEl.style.display = 'none';
+      }
+  
+      const ctaEl = section.querySelector('.fwr-cat-hero__cta');
+      if (ctaEl){
+        ctaEl.href = catUrl;
+        ctaEl.setAttribute('aria-label', `Ver todos os produtos de ${strip(catTitle)}`);
+      }
+  
+      // links + mockup
+      const pUrlAbs = absUrl(productUrl);
+      const pLink = section.querySelector('.fwr-cat-hero__plink');
+      const pImgLink = section.querySelector('.fwr-cat-hero__pimglink');
+  
+      if (pLink && pUrlAbs) pLink.href = pUrlAbs;
+      if (pImgLink && pUrlAbs) pImgLink.href = pUrlAbs;
+  
+      const pImg = section.querySelector('.fwr-cat-hero__pimg');
+      if (pImg && productImg) pImg.src = productImg;
+  
+      // botão carrinho (LI)
+      const buy = section.querySelector('.fwr-cat-hero__buy');
+      if (buy && productId) {
+        buy.href = cartHref(productId, 1);
+      }
+  
+      const card = section.querySelector('.fwr-cat-hero__card');
+      if (!pUrlAbs){
+        if (card) card.setAttribute('aria-busy', 'false');
+        return;
+      }
+  
+      try{
+        const res = await fetch(pUrlAbs, { credentials: 'same-origin' });
+        const html = await res.text();
+        const doc = new DOMParser().parseFromString(html, 'text/html');
+  
+        const { price, inst } = extractPriceAndInstallments(doc);
+  
+        // Nome do produto
+        const h1 = doc.querySelector('h1');
+        const name = strip(h1 ? h1.textContent : doc.title);
+  
+        const nameEl = section.querySelector('.fwr-cat-hero__pname');
+        if (nameEl) nameEl.textContent = name || 'Produto';
+  
+        const priceEl = section.querySelector('.fwr-cat-hero__price');
+        if (priceEl) priceEl.textContent = Number.isFinite(price) ? fmtBRL(price) : 'Consulte';
+  
+        const instEl = section.querySelector('.fwr-cat-hero__inst');
+        if (instEl) instEl.textContent = inst || ' ';
+  
+      } catch(e){
+        // mantém placeholders
+      } finally {
+        if (card) card.setAttribute('aria-busy', 'false');
+      }
+    }
+  
+    function boot(){
+      const sections = $$('.fwr-cat-hero');
+      if (!sections.length) return;
+  
+      const eager = sections.filter(s => s.getAttribute('data-eager') === '1');
+      const lazy  = sections.filter(s => s.getAttribute('data-eager') !== '1');
+  
+      eager.forEach(hydrate);
+  
+      if ('IntersectionObserver' in window){
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach((e) => {
+            if (!e.isIntersecting) return;
+            io.unobserve(e.target);
+            hydrate(e.target);
+          });
+        }, { rootMargin: '220px 0px' });
+  
+        lazy.forEach(s => io.observe(s));
+      } else {
+        lazy.forEach(hydrate);
+      }
+    }
+  
+    if (document.readyState === 'loading'){
+      document.addEventListener('DOMContentLoaded', boot, { once: true });
+    } else {
+      boot();
+    }
+  })();
+  </script>
+  
+  <script>
+  (function(){
+    "use strict";
+  
+    var section = document.querySelector(".fwr-vita");
+    if (!section) return;
+  
+    var bgImg = section.querySelector(".fwr-vita__bgimg");
+    if (!bgImg) return;
+  
+    var mq = window.matchMedia("(min-width: 981px)");
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+  
+    var ticking = false;
+  
+    function clamp(n, a, b){ return Math.max(a, Math.min(b, n)); }
+  
+    function update(){
+      ticking = false;
+      if (!mq.matches || reduce.matches) {
+        section.style.setProperty("--fwr-parallax", "0px");
+        return;
+      }
+  
+      var rect = section.getBoundingClientRect();
+      var vh = window.innerHeight || document.documentElement.clientHeight;
+  
+      // se não está perto do viewport, não gasta
+      if (rect.bottom < -200 || rect.top > vh + 200) return;
+  
+      var strength = parseFloat(section.getAttribute("data-parallax") || "0.18");
+      strength = isNaN(strength) ? 0.18 : strength;
+  
+      // delta do centro do bloco em relação ao centro da viewport
+      var mid = rect.top + rect.height / 2;
+      var delta = mid - vh / 2;
+      var max = (vh + rect.height) / 2;
+  
+      var p = clamp(delta / max, -1, 1);
+      var px = (-p) * 52 * strength; // 52px é a amplitude base
+  
+      section.style.setProperty("--fwr-parallax", px.toFixed(2) + "px");
+    }
+  
+    function onScroll(){
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(update);
+    }
+  
+    // “fixo” no mobile = sem parallax (estático)
+    function onResize(){
+      onScroll();
+    }
+  
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onResize, { passive: true });
+  
+    // reage ao breakpoint
+    if (typeof mq.addEventListener === "function") mq.addEventListener("change", onResize);
+    else if (typeof mq.addListener === "function") mq.addListener(onResize);
+  
+    if (typeof reduce.addEventListener === "function") reduce.addEventListener("change", onResize);
+    else if (typeof reduce.addListener === "function") reduce.addListener(onResize);
+  })();
+  </script>
+
+<div class="disable videos-box">
+  <section class="fwr-vc" aria-label="Vídeos em destaque">
+  <div class="fwr-vc-modal" hidden aria-hidden="true">
+    <div class="fwr-vc-modal__backdrop" data-vc-close></div>
+  
+    <div class="fwr-vc-modal__panel" role="dialog" aria-modal="true" aria-label="Vídeo do produto" tabindex="-1">
+      <button class="fwr-vc-modal__close" type="button" aria-label="Fechar" data-vc-close>×</button>
+  
+      <button class="fwr-vc-modal__nav fwr-vc-modal__nav--prev" type="button" aria-label="Vídeo anterior" data-vc-prev>‹</button>
+      <button class="fwr-vc-modal__nav fwr-vc-modal__nav--next" type="button" aria-label="Próximo vídeo" data-vc-next>›</button>
+  
+      <div class="fwr-vc-modal__videoWrap">
+        <div class="fwr-vc-modal__ratio">
+          <iframe
+            class="fwr-vc-modal__iframe"
+            title="Vídeo do produto"
+            allow="autoplay; fullscreen; picture-in-picture"
+            referrerpolicy="strict-origin-when-cross-origin"
+          ></iframe>
+        </div>
+  
+        <div class="fwr-vc-modal__overlay">
+          <div class="fwr-vc-modal__overlayTop">
+            <div class="fwr-vc-modal__title" data-vc-title>—</div>
+            <button class="fwr-vc-modal__sound" type="button" data-vc-sound aria-label="Ativar som">🔊 Som</button>
+          </div>
+  
+          <div class="fwr-vc-modal__from" data-vc-from>Carregando preço…</div>
+          <div class="fwr-vc-modal__inst" data-vc-inst></div>
+  
+          <div class="fwr-vc-modal__overlayBottom">
+            <a class="fwr-vc-modal__btn fwr-vc-modal__btn--primary" href="#" data-vc-buy>Comprar</a>
+            <button class="fwr-vc-modal__btn fwr-vc-modal__btn--ghost" type="button" data-vc-close>Fechar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="fwr-vc__viewport" data-vc-viewport>
+      <ul class="fwr-vc__track" role="list">
+        <!-- CARD 1 (EXEMPLO COM AS SUAS URLs) -->
+        <li class="fwr-vc__slide">
+          <article
+            class="fwr-vc__card"
+            data-vimeo-url="https://player.vimeo.com/video/1168638874?autoplay=true&muted=true&autopause=0&controls=false&loop=true&byline=false&title=0&sidedock=0"
+            data-product-url="https://www.farmaciamalheiro.com.br/produto/magnesio-dimalato-500-mg-capsulas.html"
+            data-product-id="78070890"
+          >
+            <button class="fwr-vc__thumb" type="button" data-vc-open aria-label="Abrir vídeo">
+              <img
+                class="fwr-vc__img"
+                src="https://cdn.awsli.com.br/1351/1351790/arquivos/post1.png"
+                alt="Magnésio Dimalato 500 mg"
+                width="579"
+                height="792"
+                loading="lazy"
+                decoding="async"
+              />
+              <span class="fwr-vc__overlay" aria-hidden="true">
+                <span class="fwr-vc__otop">VITAMINAS</span>
+                <span class="fwr-vc__osub">ESSENCIAIS</span>
+              </span>
+            </button>
+  
+            <a class="fwr-vc__cta" href="#" data-vc-buybtn>COMPRAR AGORA</a>
+          </article>
+        </li>
+  
+        <!-- CARD 2 -->
+        <li class="fwr-vc__slide">
+          <article
+            class="fwr-vc__card"
+            data-vimeo-url="https://player.vimeo.com/video/1168638874?autoplay=true&muted=true&autopause=0&controls=false&loop=true&byline=false&title=0&sidedock=0"
+            data-product-url="https://www.farmaciamalheiro.com.br/produto/magnesio-dimalato-500-mg-capsulas.html"
+            data-product-id="78371612"
+          >
+            <button class="fwr-vc__thumb" type="button" data-vc-open aria-label="Abrir vídeo">
+              <img class="fwr-vc__img" src="https://cdn.awsli.com.br/1351/1351790/arquivos/post2.png" alt="3 tipos de magnésio" width="579" height="792" loading="lazy" decoding="async" />
+              <span class="fwr-vc__overlay fwr-vc__overlay--light" aria-hidden="true">
+                <span class="fwr-vc__otop fwr-vc__otop--big">3</span>
+                <span class="fwr-vc__osub fwr-vc__osub--big">tipos de magnésio</span>
+                <span class="fwr-vc__onote">em um único produto</span>
+              </span>
+            </button>
+            <a class="fwr-vc__cta" href="/carrinho/produto/adicionar?78371612=1">COMPRAR AGORA</a>
+          </article>
+        </li>
+  
+        <!-- CARD 3 -->
+        <li class="fwr-vc__slide">
+          <article
+            class="fwr-vc__card"
+            data-vimeo-url="https://player.vimeo.com/video/1168638874?autoplay=true&muted=true&autopause=0&controls=false&loop=true&byline=false&title=0&sidedock=0"
+            data-product-url="https://www.farmaciamalheiro.com.br/produto/magnesio-dimalato-500-mg-capsulas.html"
+            data-product-id="77240773"
+          >
+            <button class="fwr-vc__thumb" type="button" data-vc-open aria-label="Abrir vídeo">
+              <img class="fwr-vc__img" src="https://cdn.awsli.com.br/1351/1351790/arquivos/post3.png" alt="Vitamina D3 + K2" width="579" height="792" loading="lazy" decoding="async" />
+              <span class="fwr-vc__overlay fwr-vc__overlay--dark" aria-hidden="true">
+                <span class="fwr-vc__otop">VITAMINA D3</span>
+                <span class="fwr-vc__osub">+ VITAMINA K2</span>
+              </span>
+            </button>
+            <a class="fwr-vc__cta" href="/carrinho/produto/adicionar?77240773=1">COMPRAR AGORA</a>
+          </article>
+        </li>
+      </ul>
+    </div>
+  </section>
+  
+  <!-- MODAL -->
+  <div class="fwr-vc-modal" hidden aria-hidden="true">
+    <div class="fwr-vc-modal__backdrop" data-vc-close></div>
+  
+    <div class="fwr-vc-modal__panel" role="dialog" aria-modal="true" aria-label="Vídeo do produto" tabindex="-1">
+      <button class="fwr-vc-modal__close" type="button" aria-label="Fechar" data-vc-close>×</button>
+  
+      <button class="fwr-vc-modal__nav fwr-vc-modal__nav--prev" type="button" aria-label="Vídeo anterior" data-vc-prev>‹</button>
+      <button class="fwr-vc-modal__nav fwr-vc-modal__nav--next" type="button" aria-label="Próximo vídeo" data-vc-next>›</button>
+  
+      <div class="fwr-vc-modal__videoWrap">
+        <div class="fwr-vc-modal__ratio">
+          <iframe
+            class="fwr-vc-modal__iframe"
+            title="Vídeo do produto"
+            allow="autoplay; fullscreen; picture-in-picture"
+            referrerpolicy="strict-origin-when-cross-origin"
+          ></iframe>
+        </div>
+  
+        <!-- Overlay do modal (nome/preço/parcelas/botões) -->
+        <div class="fwr-vc-modal__overlay">
+          <div class="fwr-vc-modal__overlayTop">
+            <div class="fwr-vc-modal__title" data-vc-title>—</div>
+          </div>
+  
+          <div class="fwr-vc-modal__from" data-vc-from>Carregando preço…</div>
+          <div class="fwr-vc-modal__inst" data-vc-inst></div>
+  
+          <div class="fwr-vc-modal__overlayBottom">
+            <a class="fwr-vc-modal__btn fwr-vc-modal__btn--primary" href="#" data-vc-buy>Comprar</a>
+            <button class="fwr-vc-modal__btn fwr-vc-modal__btn--ghost" type="button" data-vc-close>Fechar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="disable box-new-sobre">
+    <section class="banner-tarja-central fwr-about" aria-label="Sobre a Farmácia Malheiro e vídeos">
+      <div class="fwr-about__box">
+        <div class="fwr-wrap fwr-about__grid">
+    
+          <div class="fwr-about__copy">
+            <div class="fwr-about__logoPill" aria-hidden="true">
+              <img src="//cdn.awsli.com.br/1351/1351790/arquivos/farmacia_malheiro_final.png" alt="">
+            </div>
+    
+            <h2 class="fwr-vhidden">Farmácia Malheiro — Tradição desde 1982</h2>
+    
+            <div class="fwr-about__text">
+              <p>
+                Cuidar da saúde das pessoas exige mais do que conhecimento técnico — exige verdade, respeito e presença.
+                É com esse propósito que nasceu, em 1982, a Farmácia Malheiro, em Diadema (SP).
+              </p>
+    
+              <p>
+                Fundada pelo casal Dr. José Roberto Malheiro e Dra. Shirlei Akemi Hasimoto, ambos farmacêuticos,
+                a farmácia surgiu como uma drogaria de bairro, movida pelo desejo genuíno de transformar vidas com
+                responsabilidade e atenção ao ser humano.
+              </p>
+    
+              <p class="fwr-muted">
+                Ao longo dos anos, a Farmácia Malheiro cresceu e passou a oferecer também manipulação personalizada,
+                com segurança, rastreabilidade e respeito às normas mais rigorosas da Anvisa.
+              </p>
+    
+              <ul class="fwr-about__bullets">
+                <li>Laboratório próprio de Alopatia e Homeopatia seguindo normas técnicas atuais.</li>
+                <li>Cuidado em cada formulação, com farmacêuticos e técnicos responsáveis por cada cápsula.</li>
+                <li>Ativos de qualidade, de distribuidores certificados — matérias-primas com laudo.</li>
+              </ul>
+            </div>
+          </div>
+    
+          <div class="fwr-about__videos" aria-label="Vídeos institucionais">
+            <button
+              class="fwr-vthumb"
+              type="button"
+              data-fwr-vimeo-url="https://player.vimeo.com/video/1168636378?autoplay=true&muted=true&autopause=0&controls=false&loop=true&byline=false&title=0&sidedock=0"
+              data-fwr-vimeo-title="Farmácia Malheiro — Nossa história"
+            >
+              <img src="https://cdn.awsli.com.br/1351/1351790/arquivos/loja1.jpg" alt="Vídeo: Farmácia Malheiro — Nossa história" width="900" height="1200" loading="lazy" decoding="async">
+              <span class="fwr-vthumb__play" aria-hidden="true"></span>
+            </button>
+    
+            <button
+              class="fwr-vthumb"
+              type="button"
+              data-fwr-vimeo-url="https://player.vimeo.com/video/1168638109?autoplay=true&muted=true&autopause=0&controls=false&loop=true&byline=false&title=0&sidedock=0"
+              data-fwr-vimeo-title="Farmácia Malheiro — Atendimento"
+            >
+              <img src="https://cdn.awsli.com.br/1351/1351790/arquivos/loja2.jpg" alt="Vídeo: Farmácia Malheiro — Atendimento" width="900" height="1200" loading="lazy" decoding="async">
+              <span class="fwr-vthumb__play" aria-hidden="true"></span>
+            </button>
+    
+            <button
+              class="fwr-vthumb"
+              type="button"
+              data-fwr-vimeo-url="https://player.vimeo.com/video/1168638874?autoplay=true&muted=true&autopause=0&controls=false&loop=true&byline=false&title=0&sidedock=0"
+              data-fwr-vimeo-title="Farmácia Malheiro — Manipulação"
+            >
+              <img src="https://cdn.awsli.com.br/1351/1351790/arquivos/loja3.jpg" alt="Vídeo: Farmácia Malheiro — Manipulação" width="900" height="1200" loading="lazy" decoding="async">
+              <span class="fwr-vthumb__play" aria-hidden="true"></span>
+            </button>
+          </div>
+    
+        </div>
+      </div>
+    </section>
+    
+    <section class="insta-footer fwr-insta" aria-label="Instagram da Farmácia Malheiro">
+      <div class="fwr-wrap">
+        <div class="fwr-insta__box">
+          <div class="fwr-insta__grid">
+            <aside class="fwr-insta__follow">
+              <h3>SIGA-NOS<br><span>no instagram</span></h3>
+              <a class="fwr-insta__handle" href="https://www.instagram.com/farmaciamalheiro/" target="_blank" rel="noopener">
+                @farmaciamalheiro
+              </a>
+            </aside>
+    
+            <div class="fwr-insta__feed" aria-label="Últimas postagens do Instagram">
+              <script src="https://cdn.lightwidget.com/widgets/lightwidget.js" async></script>
+              <iframe
+                class="lightwidget-widget fwr-insta__iframe"
+                src="https://cdn.lightwidget.com/widgets/d1f4f7eb1f625e419e74ec481a131a5a.html"
+                scrolling="no"
+                allowtransparency="true"
+                loading="lazy"
+                title="Instagram Farmácia Malheiro">
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <div class="fwr-vimeo-modal" hidden aria-hidden="true">
+      <div class="fwr-vimeo-modal__backdrop" data-fwr-vimeo-close></div>
+    
+      <div class="fwr-vimeo-modal__panel" role="dialog" aria-modal="true" aria-label="Vídeo" tabindex="-1">
+        <button class="fwr-vimeo-modal__close" type="button" aria-label="Fechar" data-fwr-vimeo-close>×</button>
+    
+        <div class="fwr-vimeo-modal__ratio">
+          <iframe class="fwr-vimeo-modal__iframe" title="Vídeo" allow="autoplay; fullscreen; picture-in-picture"></iframe>
+    
+          <div class="fwr-vimeo-modal__overlay">
+            <div class="fwr-vimeo-modal__top">
+              <div class="fwr-vimeo-modal__title" data-fwr-vimeo-title>—</div>
+              <button class="fwr-vimeo-modal__sound" type="button" data-fwr-vimeo-sound aria-label="Ativar som">🔊 Som</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+<script>
+    (function () {
+  "use strict";
+  if (window.__FWR_VIMEO_ABOUT__) return;
+  window.__FWR_VIMEO_ABOUT__ = true;
+
+  function qs(sel, root){ return (root||document).querySelector(sel); }
+  function qsa(sel, root){ return Array.from((root||document).querySelectorAll(sel)); }
+
+  var modal = qs(".fwr-vimeo-modal");
+  if (!modal) return;
+
+  var iframe = qs(".fwr-vimeo-modal__iframe", modal);
+  var panel  = qs(".fwr-vimeo-modal__panel", modal);
+  var titleEl= qs("[data-fwr-vimeo-title]", modal);
+  var soundBtn = qs("[data-fwr-vimeo-sound]", modal);
+  var closeEls = qsa("[data-fwr-vimeo-close]", modal);
+
+  var activeTrigger = null;
+  var lastFocus = null;
+  var soundOn = false;
+
+  function normalizeVimeo(url, wantSound){
+    var raw = String(url||"").trim().replace(/&amp;/g,"&");
+    if (!raw) return "";
+
+    try{
+      var u = new URL(raw);
+      u.searchParams.set("autoplay","1");
+      u.searchParams.set("autopause","0");
+      u.searchParams.set("controls","0");
+      u.searchParams.set("loop","1");
+      u.searchParams.set("byline","0");
+      u.searchParams.set("title","0");
+      u.searchParams.set("portrait","0");
+      u.searchParams.set("muted", wantSound ? "0" : "1");
+      return u.toString();
+    }catch(e){
+      return raw;
+    }
+  }
+
+  function setSound(on){
+    soundOn = !!on;
+    if (soundBtn){
+      soundBtn.textContent = soundOn ? "🔇 Mudo" : "🔊 Som";
+      soundBtn.setAttribute("aria-label", soundOn ? "Ativar mudo" : "Ativar som");
+    }
+    if (activeTrigger){
+      var u = activeTrigger.getAttribute("data-fwr-vimeo-url") || "";
+      iframe.removeAttribute("src");
+      iframe.setAttribute("src", normalizeVimeo(u, soundOn));
+    }
+  }
+
+  function openModal(trigger){
+    activeTrigger = trigger;
+    lastFocus = document.activeElement;
+
+    var u = trigger.getAttribute("data-fwr-vimeo-url") || "";
+    var t = trigger.getAttribute("data-fwr-vimeo-title") || "Vídeo";
+    if (titleEl) titleEl.textContent = t;
+
+    modal.hidden = false;
+    modal.removeAttribute("hidden");
+    modal.setAttribute("aria-hidden","false");
+    document.body.style.overflow = "hidden";
+
+    iframe.removeAttribute("src");
+    iframe.setAttribute("src", normalizeVimeo(u, false));
+    setSound(false);
+
+    setTimeout(function(){ try { panel.focus(); } catch(e){} }, 0);
+  }
+
+  function closeModal(){
+    modal.hidden = true;
+    modal.setAttribute("hidden","");
+    modal.setAttribute("aria-hidden","true");
+    document.body.style.overflow = "";
+    iframe.removeAttribute("src");
+    activeTrigger = null;
+
+    if (lastFocus && typeof lastFocus.focus === "function"){
+      try { lastFocus.focus(); } catch(e){}
+    }
+  }
+
+  document.addEventListener("click", function(e){
+    var trg = e.target.closest("[data-fwr-vimeo-url]");
+    if (trg){
+      e.preventDefault();
+      openModal(trg);
+      return;
+    }
+
+    if (!modal.hidden){
+      var c = e.target.closest("[data-fwr-vimeo-close]");
+      if (c){
+        e.preventDefault();
+        closeModal();
+        return;
+      }
+    }
+
+    var s = e.target.closest("[data-fwr-vimeo-sound]");
+    if (s && !modal.hidden){
+      e.preventDefault();
+      setSound(!soundOn);
+      return;
+    }
+  }, true);
+
+  document.addEventListener("keydown", function(e){
+    if (modal.hidden) return;
+    if (e.key === "Escape"){ e.preventDefault(); closeModal(); }
+  });
+})();
+</script>
+
+(function () {
+  "use strict";
+  if (window.__FWR_VC_HARDENED__) return;
+  window.__FWR_VC_HARDENED__ = true;
+
+  function qs(sel, root){ return (root||document).querySelector(sel); }
+  function qsa(sel, root){ return Array.from((root||document).querySelectorAll(sel)); }
+  function abs(u){ try { return new URL(u, location.origin).toString(); } catch(e){ return ""; } }
+  function strip(s){ return String(s||"").replace(/\s+/g," ").trim(); }
+
+  function normalizeVimeo(input, wantSound){
+    var raw = String(input||"").trim();
+    if (!raw) return "";
+
+    raw = raw.replace(/&amp;/g, "&");
+
+    if (/^\d+$/.test(raw)){
+      return "https://player.vimeo.com/video/" + raw +
+        "?autoplay=1&muted=" + (wantSound ? "0" : "1") +
+        "&autopause=0&controls=0&loop=1&byline=0&title=0&portrait=0";
+    }
+
+    try{
+      var u = new URL(raw);
+      u.searchParams.set("autoplay","1");
+      u.searchParams.set("autopause","0");
+      u.searchParams.set("controls","0");
+      u.searchParams.set("loop","1");
+      u.searchParams.set("byline","0");
+      u.searchParams.set("title","0");
+      u.searchParams.set("portrait","0");
+      u.searchParams.set("muted", wantSound ? "0" : "1");
+      return u.toString();
+    }catch(e){
+      return raw;
+    }
+  }
+
+  function parseMoneyBR(v){
+    var s = String(v||"").replace(/[^\d.,]/g,"");
+    if (!s) return NaN;
+    return Number(s.replace(/\./g,"").replace(",","."));
+  }
+
+  function fmtBRL(n){
+    try { return n.toLocaleString("pt-BR",{style:"currency",currency:"BRL"}); }
+    catch(e){ return "R$ " + (Math.round(n*100)/100).toFixed(2).replace(".",","); }
+  }
+
+  function extractFromAndInst(text){
+    var t = String(text||"");
+    var ap = [];
+    var reAp = /A\s*partir\s*de\s*R\$\s*([\d\.]+,\d{2})/gi;
+    var m;
+    while((m=reAp.exec(t))!==null){
+      var n = parseMoneyBR(m[1]);
+      if (Number.isFinite(n)) ap.push(n);
+    }
+    var min = ap.length ? Math.min.apply(null, ap) : NaN;
+
+    var region = t;
+    var idx = t.search(/A\s*partir\s*de\s*R\$/i);
+    if (idx>=0) region = t.slice(idx, idx+700);
+
+    var inst = "";
+    var mi = region.match(/até\s*(\d+)\s*x\s*de\s*R\$\s*([\d\.]+,\d{2})(?:\s*sem\s*juros)?/i)
+          || t.match(/até\s*(\d+)\s*x\s*de\s*R\$\s*([\d\.]+,\d{2})(?:\s*sem\s*juros)?/i);
+    if (mi){
+      inst = "até " + mi[1] + "x de R$ " + mi[2] + (/\bsem\s+juros\b/i.test(mi[0]) ? " sem juros" : "");
+    }
+
+    return {
+      fromText: Number.isFinite(min) ? ("A partir de " + fmtBRL(min)) : "Consulte o preço",
+      instText: inst
+    };
+  }
+
+  function findCheapestAddLink(doc){
+    var links = Array.from(doc.querySelectorAll('a[href*="/carrinho/produto/"][href$="/adicionar"]'));
+    if (!links.length) return "";
+
+    var best = { price: Infinity, href: "" };
+
+    links.forEach(function(a){
+      var href = a.getAttribute("href") || "";
+      if (!href) return;
+
+      var scope = a.closest("div, li, form, section, article") || a.parentElement;
+      var scopeText = scope ? (scope.textContent || "") : "";
+      var matches = scopeText.match(/R\$\s*[\d\.]+,\d{2}/g) || [];
+      var nums = matches.map(parseMoneyBR).filter(Number.isFinite);
+      var variantPrice = nums.length ? Math.max.apply(null, nums) : NaN;
+
+      if (Number.isFinite(variantPrice) && variantPrice < best.price){
+        best.price = variantPrice;
+        best.href = href;
+      }
+    });
+
+    var chosen = best.href || (links[0].getAttribute("href") || "");
+    if (!chosen) return "";
+    try { return new URL(chosen, location.origin).toString(); }
+    catch(e){ return chosen; }
+  }
+
+  var cache = new Map();
+  async function fetchProductData(productUrl){
+    var url = abs(productUrl);
+    if (!url) return { name:"Produto", fromText:"Consulte o preço", instText:"", addHref:"" };
+    if (cache.has(url)) return cache.get(url);
+
+    var res = await fetch(url, { credentials: "same-origin" });
+    var html = await res.text();
+    var doc = new DOMParser().parseFromString(html, "text/html");
+
+    var h1 = doc.querySelector("h1");
+    var name = strip(h1 ? h1.textContent : doc.title) || "Produto";
+
+    var bodyText = strip(doc.body ? doc.body.textContent : "");
+    var ex = extractFromAndInst(bodyText);
+
+    var addHref = findCheapestAddLink(doc);
+
+    var out = { name:name, fromText:ex.fromText, instText:ex.instText, addHref:addHref };
+    cache.set(url, out);
+    return out;
+  }
+
+  function ensureModal(){
+    var modal = qs(".fwr-vc-modal");
+    if (modal) return modal;
+
+    modal = document.createElement("div");
+    modal.className = "fwr-vc-modal";
+    modal.hidden = true;
+    modal.setAttribute("aria-hidden","true");
+    modal.innerHTML =
+      '<div class="fwr-vc-modal__backdrop" data-vc-close></div>' +
+      '<div class="fwr-vc-modal__panel" role="dialog" aria-modal="true" aria-label="Vídeo do produto" tabindex="-1">' +
+        '<button class="fwr-vc-modal__close" type="button" aria-label="Fechar" data-vc-close>×</button>' +
+        '<div class="fwr-vc-modal__videoWrap">' +
+          '<div class="fwr-vc-modal__ratio">' +
+            '<iframe class="fwr-vc-modal__iframe" title="Vídeo do produto" allow="autoplay; fullscreen; picture-in-picture"></iframe>' +
+          '</div>' +
+          '<div class="fwr-vc-modal__overlay">' +
+            '<div class="fwr-vc-modal__overlayTop">' +
+              '<div class="fwr-vc-modal__title" data-vc-title>—</div>' +
+              '<button class="fwr-vc-modal__sound" type="button" data-vc-sound aria-label="Ativar som">🔊 Som</button>' +
+            '</div>' +
+            '<div class="fwr-vc-modal__from" data-vc-from>Carregando preço…</div>' +
+            '<div class="fwr-vc-modal__inst" data-vc-inst></div>' +
+            '<div class="fwr-vc-modal__overlayBottom">' +
+              '<a class="fwr-vc-modal__btn fwr-vc-modal__btn--primary" href="#" data-vc-buy>Comprar</a>' +
+              '<button class="fwr-vc-modal__btn fwr-vc-modal__btn--ghost" type="button" data-vc-close>Fechar</button>' +
+            '</div>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+    document.body.appendChild(modal);
+    return modal;
+  }
+
+  var modal = ensureModal();
+  var iframe = qs(".fwr-vc-modal__iframe", modal);
+  var panel  = qs(".fwr-vc-modal__panel", modal);
+  var titleEl= qs("[data-vc-title]", modal);
+  var fromEl = qs("[data-vc-from]", modal);
+  var instEl = qs("[data-vc-inst]", modal);
+  var buyEl  = qs("[data-vc-buy]", modal);
+  var soundBtn = qs("[data-vc-sound]", modal);
+
+  var lastFocus = null;
+  var activeCard = null;
+  var soundOn = false;
+
+  function setSoundUI(){
+    if (!soundBtn) return;
+    soundBtn.textContent = soundOn ? "🔇 Mudo" : "🔊 Som";
+    soundBtn.setAttribute("aria-label", soundOn ? "Ativar mudo" : "Ativar som");
+  }
+
+  function setPlayerFromCard(card){
+    var vimeo = card.getAttribute("data-vimeo-url") || card.getAttribute("data-vimeo-id") || "";
+    var src = normalizeVimeo(vimeo, soundOn);
+
+    iframe.removeAttribute("src");
+    iframe.setAttribute("src", src);
+    iframe.setAttribute("allow", "autoplay; fullscreen; picture-in-picture");
+    iframe.setAttribute("allowfullscreen","");
+  }
+
+  function openModalFromCard(card){
+    activeCard = card;
+    lastFocus = document.activeElement;
+
+    modal.hidden = false;
+    modal.removeAttribute("hidden");
+    modal.setAttribute("aria-hidden","false");
+    document.body.style.overflow = "hidden";
+
+    soundOn = false;
+    setSoundUI();
+    setPlayerFromCard(card);
+
+    var purl = card.getAttribute("data-product-url") || "";
+    if (titleEl) titleEl.textContent = "Carregando…";
+    if (fromEl) fromEl.textContent = "Carregando preço…";
+    if (instEl) instEl.textContent = "";
+
+    fetchProductData(purl).then(function(p){
+      if (titleEl) titleEl.textContent = p.name || "Produto";
+      if (fromEl) fromEl.textContent = p.fromText || "Consulte o preço";
+      if (instEl) instEl.textContent = p.instText || "";
+      if (buyEl) buyEl.href = p.addHref || "#";
+    });
+
+    if (buyEl){
+      buyEl.onclick = function(ev){
+        ev.preventDefault();
+        fetchProductData(purl).then(function(p){
+          if (p.addHref) location.href = p.addHref;
+        });
+      };
+    }
+
+    setTimeout(function(){ try { panel.focus(); } catch(e){} }, 0);
+  }
+
+  function closeModal(){
+    modal.hidden = true;
+    modal.setAttribute("hidden","");
+    modal.setAttribute("aria-hidden","true");
+    document.body.style.overflow = "";
+    iframe.removeAttribute("src");
+    activeCard = null;
+    soundOn = false;
+    setSoundUI();
+
+    if (lastFocus && typeof lastFocus.focus === "function"){
+      try { lastFocus.focus(); } catch(e){}
+    }
+  }
+
+  document.addEventListener("click", function(e){
+    var close = e.target.closest("[data-vc-close]");
+    if (close && !modal.hidden){
+      e.preventDefault();
+      closeModal();
+      return;
+    }
+
+    var openBtn = e.target.closest("[data-vc-open]");
+    if (openBtn){
+      e.preventDefault();
+      var card = openBtn.closest(".fwr-vc__card");
+      if (card) openModalFromCard(card);
+      return;
+    }
+
+    var buyBtn = e.target.closest("[data-vc-buybtn]");
+    if (buyBtn){
+      e.preventDefault();
+      var card2 = buyBtn.closest(".fwr-vc__card");
+      if (!card2) return;
+      var purl2 = card2.getAttribute("data-product-url") || "";
+      fetchProductData(purl2).then(function(p){
+        if (p.addHref) location.href = p.addHref;
+      });
+      return;
+    }
+
+    var sb = e.target.closest("[data-vc-sound]");
+    if (sb && !modal.hidden){
+      e.preventDefault();
+      if (!activeCard) return;
+
+      soundOn = !soundOn;
+      setSoundUI();
+      setPlayerFromCard(activeCard);
+      return;
+    }
+  }, true);
+
+  document.addEventListener("keydown", function(e){
+    if (modal.hidden) return;
+    if (e.key === "Escape"){ e.preventDefault(); closeModal(); }
+  });
+
+})();
+
+(function(){
+  "use strict";
+  if (window.__FWR_BENEFITS_FLEX__) return;
+  window.__FWR_BENEFITS_FLEX__ = true;
+
+  var mq = window.matchMedia("(max-width: 980px)");
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+  var inited = false;
+  var originalHTML = null;
+
+  function init(){
+    var el = document.querySelector("[data-fwr-benefits]");
+    if (!el) return;
+
+    if (!originalHTML) originalHTML = el.innerHTML;
+
+    // precisa de jQuery + flexslider
+    if (!window.jQuery || !window.jQuery.fn || !window.jQuery.fn.flexslider) return;
+
+    if (!mq.matches || reduce.matches){
+      destroy(el);
+      return;
+    }
+
+    if (inited) return;
+
+    window.jQuery(el).flexslider({
+      animation: "slide",
+      animationLoop: true,
+      slideshow: true,
+      slideshowSpeed: 2400,
+      animationSpeed: 520,
+      controlNav: false,
+      directionNav: false,
+      touch: true,
+      keyboard: false,
+      pauseOnHover: false,
+      pauseOnAction: false
+    });
+
+    inited = true;
+  }
+
+  function destroy(el){
+    if (!inited) return;
+    // forma mais segura: restaurar markup original (remove wrappers/clones do flexslider)
+    if (originalHTML) el.innerHTML = originalHTML;
+    inited = false;
+  }
+
+  function boot(){
+    init();
+    // retry curto (às vezes flexslider carrega depois)
+    var tries = 0;
+    var t = setInterval(function(){
+      tries++;
+      init();
+      if (inited || tries > 20) clearInterval(t);
+    }, 250);
+  }
+
+  boot();
+  if (mq.addEventListener) mq.addEventListener("change", init);
+  else mq.addListener(init);
+
+  if (reduce.addEventListener) reduce.addEventListener("change", init);
+  else reduce.addListener(init);
+})();
+
+<style>
+  .sr-only{position:absolute!important;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  :root{
+    --qz-bg:#fff; --qz-border:#eaeaea; --qz-bot:#f5f7fb; --qz-user:#dff4ff;
+    --qz-text:#1a1a1a; --qz-accent:#0aa2ff; --qc-z:9999;
+  }
+  .qc-trigger{
+    position:fixed; right:16px; bottom:calc(88px + env(safe-area-inset-bottom));
+    z-index:var(--qc-z);
+    display:flex; align-items:center; gap:8px;
+    background:var(--qz-accent); color:#fff; border:0; border-radius:999px;
+    padding:5px 7px; box-shadow:0 8px 24px rgba(0,0,0,.18); cursor:pointer;
+    transition:transform .12s ease, box-shadow .12s ease;
+  }
+  .qc-trigger:hover{ transform:translateY(-1px); box-shadow:0 12px 30px rgba(0,0,0,.22) }
+  .qc-trigger__icon{ display:inline-grid; place-items:center; width:26px; height:26px; border-radius:999px; background:#fff2 }
+  .qc-trigger__label{ font-weight:600; font-size:12px }
+  .qc-backdrop{
+    position:fixed; inset:0; background:rgba(0,0,0,.35);
+    z-index:calc(var(--qc-z) - 1);
+    pointer-events:auto;
+  }
+  .qc-drawer{
+    position:fixed; top:0; right:0; height:100vh; width:min(92vw, 380px);
+    background:#fff; z-index:var(--qc-z);
+    box-shadow:-8px 0 24px rgba(0,0,0,.18);
+    transform:translateX(100%); transition:transform .2s ease;
+    display:flex; flex-direction:column;
+    pointer-events:auto;
+  }
+  .qc-drawer[aria-hidden="false"]{ transform:translateX(0) }
+  .qc-drawer, .qc-drawer *{ pointer-events:auto; }
+
+  .qc-header{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:12px 14px; border-bottom:1px solid var(--qz-border);
+  }
+  .qc-header h3{ margin:0; font-size:1rem }
+  .qc-close{ border:1px solid var(--qz-border); background:#fff; border-radius:8px; padding:6px 10px; cursor:pointer }
+  .quizchat{ padding:12px; background:var(--qz-bg) }
+  .quizchat__wrap{
+    min-height:260px;
+    max-height:calc(100vh - 170px);
+    overflow:auto;
+    display:flex; flex-direction:column; gap:8px;
+  }
+  .quizchat__msg{ max-width:86%; border-radius:14px; padding:10px 12px; line-height:1.35; color:var(--qz-text) }
+  .quizchat__msg--bot{ background:var(--qz-bot); border:1px solid var(--qz-border); align-self:flex-start }
+  .quizchat__msg--user{ background:var(--qz-user); border:1px solid #cfefff; align-self:flex-end }
+  .quizchat__quick{ display:flex; flex-wrap:wrap; gap:8px; margin-top:2px }
+  .quizchat__btn{ border:1px solid var(--qz-border); background:#fff; border-radius:999px; padding:8px 12px; cursor:pointer;
+    transition:transform .12s, box-shadow .12s; }
+  .quizchat__btn:hover{ transform:translateY(-1px); box-shadow:0 2px 8px rgba(0,0,0,.06) }
+  .quizchat__btn[aria-pressed="true"]{ background:var(--qz-accent); color:#fff; border-color:var(--qz-accent) }
+  .quizchat__cta{ display:inline-flex; align-items:center; gap:8px; border-radius:10px; padding:10px 14px;
+    border:1px solid var(--qz-accent); color:#fff; background:var(--qz-accent); text-decoration:none }
+  .quizchat__footer{ display:flex; justify-content:flex-end; margin-top:8px }
+  .quizchat__restart{ border:1px solid var(--qz-border); background:#fff; border-radius:8px; padding:8px 10px; cursor:pointer }
+  .quizchat__typing{ display:inline-flex; gap:4px }
+  .quizchat__dot{ width:6px; height:6px; background:#bbb; border-radius:999px; display:inline-block; animation:qzblink 1s infinite }
+  .quizchat__dot:nth-child(2){ animation-delay:.15s } .quizchat__dot:nth-child(3){ animation-delay:.3s }
+  @keyframes qzblink{ 0%,80%,100%{opacity:.25} 40%{opacity:1} }
+
+  @media (max-width:480px){
+    .qc-drawer{ width:100vw }
+    .qc-trigger__label{ display:none }
+  }
+</style>
+
+<button id="qc-trigger" class="qc-trigger" aria-haspopup="dialog" aria-controls="qc-drawer" aria-expanded="false">
+  <span class="qc-trigger__icon">💊</span>
+  <span class="qc-trigger__label">Ache seu suplemento</span>
+</button>
+
+<div id="qc-backdrop" class="qc-backdrop" hidden></div>
+
+<aside id="qc-drawer" class="qc-drawer" role="dialog" aria-modal="true" aria-labelledby="qc-title" hidden aria-hidden="true">
+  <header class="qc-header">
+    <h3 id="qc-title">Assistente Farmacêutico Malheiro</h3>
+    <button id="qc-close" class="qc-close" aria-label="Fechar">×</button>
+  </header>
+
+  <section id="quiz-caps" class="quizchat" aria-labelledby="quizc-title">
+    <h4 id="quizc-title" class="sr-only">Quiz em cápsulas</h4>
+    <div class="quizchat__wrap" role="region" aria-live="polite">
+      <noscript>Ative o JavaScript para usar o assistente.</noscript>
+    </div>
+    <div class="quizchat__footer">
+      <button type="button" class="quizchat__restart" aria-label="Reiniciar quiz">Reiniciar</button>
+    </div>
+  </section>
+</aside>
+
+<div class="banner-central-marcas">
+  <div class="titulo-categoria">
+    <strong>Destaques</strong>
+    <span>Selecionados para você!</span>
+  </div>
+  <div class="conteiner">
+      <div class="flexslider carousel">
+        <ul class="slides newslides">
+          <li>
+              <a href="https://www.farmaciamalheiro.com.br/coenzima-q10-100mg-capsulas"> <!--Link do Banner-->
+                  <img src="https://cdn.awsli.com.br/1351/1351790/arquivos/1-coenzima.svg" alt="Coenzima Q10"/>
+                  <h3>Coenzima Q10 100mg</h3>
+              </a>
+          </li>
+          <li>
+              <a href="https://www.farmaciamalheiro.com.br/produto/metilcobalamina-1000-mcg-capsulas-sublinguais.html"> <!--Link do Banner-->
+                  <img src="https://cdn.awsli.com.br/1351/1351790/arquivos/2-metil-cat.svg" alt="Magnésio L Treonato"/>
+                  <h3>Metilcobalamina</h3>
+              </a>
+          </li>
+          <li>
+              <a href="https://www.farmaciamalheiro.com.br/tribullus-terrestris-500mg-capsulas"> <!--Link do Banner-->
+                  <img src="https://cdn.awsli.com.br/1351/1351790/arquivos/3-tribus.svg" alt="Metilcobalamina" />
+                  <h3>Tribulus Terrestris 500 mg</h3>
+              </a>
+          </li>
+          <li>
+              <a href="https://www.farmaciamalheiro.com.br/vitamina-d3-10000-ui-capsulas-2020-11-18-12-39-19"> <!--Link do Banner-->
+                  <img src="https://cdn.awsli.com.br/1351/1351790/arquivos/4-vita.svg" alt="Tribulus Terrestris" />
+                  <h3>Vitamina D3 10.000 UI</h3>
+              </a>
+          </li>
+          <li>
+              <a href="https://www.farmaciamalheiro.com.br/magnesio-l-treonato-500-mg-capsulas"> <!--Link do Banner-->
+                  <img src="https://cdn.awsli.com.br/1351/1351790/arquivos/5-magnesio.svg" alt="Vitamina D+"/>
+                  <h3>Magnésio L Treonato 500 mg</h3>
+              </a>
+          </li>
+                      <li>
+              <a href="https://www.farmaciamalheiro.com.br/carbonato-de-calcio-600mg-vitamina-d3-400ui-capsulas"> <!--Link do Banner-->
+                  <img src="https://cdn.awsli.com.br/1351/1351790/arquivos/6-carbonato.svg" alt="Coenzima Q10"/>
+                  <h3>Carbonato de Cálcio + Vitamina D3</h3>
+              </a>
+          </li>
+          <li>
+              <a href="https://www.farmaciamalheiro.com.br/zinco-quelato-50mg-capsulas"> <!--Link do Banner-->
+                  <img src="https://cdn.awsli.com.br/1351/1351790/arquivos/7-zinco.svg" alt="Magnésio L Treonato"/>
+                  <h3>Zinco Quelato 50 mg</h3>
+              </a>
+          </li>
+        </ul>
+      </div>
+  </div>
+</div>
+
+<script>
+$(window).load(function() {
+$('.flexslider').flexslider({
+  animation: "slide",
+  animationLoop: true,
+  itemWidth: 181,
+  itemMargin: 6,
+  maxItems: 6
+});
+});
+</script>
+
+<!-- Trustvox -->
+<script type="text/javascript" src="//colt.trustvox.com.br/colt.min.js"></script> 
+<script>
+  var _trustvox_colt = _trustvox_colt || [];
+  _trustvox_colt.push(['_storeId', '113472'], ['_limit', '7']);
+</script>
+<!-- /Trustvox -->
+<div id="_trustvox_colt"></div>
+
+<script defer>
+(function(){
+  'use strict';
+
+  const WHATS_NUMBER = "5511912576135";
+  const UTM = "utm_source=quiz&utm_medium=drawer&utm_campaign=malheiro_quiz";
+  const INCLUDE_PAGE_URL = true; 
+  const OPEN_WHATS_NEW_TAB = true;
+
+  const MAPA = {
+    ossea_articular: {
+      rotulo: "Óssea/Articular",
+      produtos: [
+        { nome:"Vitamina D3 10.000 UI + Vitamina K2MK7 120 mcg", url:"https://www.farmaciamalheiro.com.br/vitamina-d3-10000-ui-vitamina-k2-mk7-120mcg-capsulas" },
+        { nome:"Magnésio Quelado 500 mg", url:"https://www.farmaciamalheiro.com.br/magnesio-quelato-150-mg-capsulas" },
+        { nome:"Magnésio Dimalato 500 mg", url:"https://www.farmaciamalheiro.com.br/produto/magnesio-dimalato-500-mg-capsulas.html" }
+      ]
+    },
+    cardiovascular: {
+      rotulo: "Cardiovascular",
+      produtos: [
+        { nome:"Vitamina D3 10.000 UI + Vitamina K2MK7 200 mcg", url:"https://www.farmaciamalheiro.com.br/vitamina-d3-10000-ui-vitamina-k2-mk7-200mcg-capsulas" },
+        { nome:"Coenzima Q10 100 mg", url:"https://www.farmaciamalheiro.com.br/coenzima-q10-100mg-capsulas" },
+        { nome:"Vitamina B12 (Metilcobalamina)", url:"https://www.farmaciamalheiro.com.br/metilcobalamina-1000-mcg-capsulas" }
+      ]
+    },
+    mental_foco: {
+      rotulo: "Foco & Concentração",
+      produtos: [
+        { nome:"Mag L Treonato 500 mg", url:"https://www.farmaciamalheiro.com.br/kit-memoria-omega-3-neural-mag-l-treonato-coenzima" },
+        { nome:"Bacopa monnieri 500 mg", url:"https://www.farmaciamalheiro.com.br/bacopa-monnieri-500-mg-capsulas" },
+        { nome:"Mix de magnésios (Treonato)", url:"https://www.farmaciamalheiro.com.br/mix-de-magnesio-treonato-dimalato-quelado-capsulas" }
+      ]
+    },
+    energia_vitalidade: {
+      rotulo: "Energia & Vitalidade",
+      produtos: [
+        { nome:"Coenzima Q10 200 mg", url:"https://www.farmaciamalheiro.com.br/coenzima-q10-200mg-capsulas" },
+        { nome:"Complexo B concentrado", url:"https://www.farmaciamalheiro.com.br/complexo-b-concentrado-60-capsulas" },
+        { nome:"Tribulus terrestris", url:"https://www.farmaciamalheiro.com.br/tribullus-terrestris-500mg-capsulas" }
+      ]
+    },
+    memoria_concentracao: {
+      rotulo: "Memória",
+      produtos: [
+        { nome:"Mix de magnésios (Treonato)", url:"https://www.farmaciamalheiro.com.br/mix-de-magnesio-treonato-dimalato-quelado-capsulas" }
+      ]
+    },
+    termogenico: {
+      rotulo: "Termogênico",
+      produtos: [
+        { nome:"Thermomax com cafeína", url:"https://www.farmaciamalheiro.com.br/termogenico-malheiro-com-cafeina-cafeina-capsiate-picolinato-de-cromo-farmacia-malheiro" }
+      ]
+    }
+  };
+
+
+  function withUtm(url){
+    try{
+      const u = new URL(url, location.origin);
+      UTM.split('&').forEach(pair=>{
+        const [k,v] = pair.split('=');
+        if(k && v && !u.searchParams.has(k)) u.searchParams.set(k, v);
+      });
+      return u.toString();
+    }catch(e){
+      if(!UTM) return url;
+      return url + (url.includes('?') ? '&' : '?') + UTM;
+    }
+  }
+
+  function clarityEvent(name, data){
+    try{
+      if(window.clarity){
+        if(data && typeof data === 'object'){
+          Object.entries(data).forEach(([k,v]) => window.clarity('set', k, v));
+        }
+        window.clarity('event', name);
+      }
+    }catch(e){}
+  }
+
+  function ga4Event(name, params){
+    try{
+      if(typeof window.gtag === 'function'){
+        window.gtag('event', name, params || {});
+      }
+    }catch(e){}
+  }
+
+  function buildWhatsUrl(goalLabel, products){
+    const topNames = (products || []).slice(0, 3).map(p=>p.nome).join(", ");
+    const page = INCLUDE_PAGE_URL ? "\n\nPágina: " + location.href : "";
+    const msg =
+`Olá! Vim através do quiz, estou em dúvida qual o melhor produto para "${goalLabel}".
+Sugestões que apareceram pra mim: ${topNames}.${page}`;
+
+    const text = encodeURIComponent(msg);
+    return `https://wa.me/${WHATS_NUMBER}?text=${text}`;
+  }
+
+  const trigger  = document.getElementById('qc-trigger');
+  const drawer   = document.getElementById('qc-drawer');
+  const backdrop = document.getElementById('qc-backdrop');
+  const closeBtn = document.getElementById('qc-close');
+
+  function openDrawer(){
+    drawer.hidden = false;
+    backdrop.hidden = false;
+    drawer.setAttribute('aria-hidden','false');
+    trigger.setAttribute('aria-expanded','true');
+    document.documentElement.style.overflow = 'hidden';
+    clarityEvent('quiz_drawer_open');
+    ga4Event('quiz_drawer_open');
+    initQuizOnce();
+    closeBtn && closeBtn.focus();
+  }
+
+  function closeDrawer(){
+    drawer.setAttribute('aria-hidden','true');
+    trigger.setAttribute('aria-expanded','false');
+    setTimeout(()=>{ drawer.hidden = true; backdrop.hidden = true; }, 200);
+    document.documentElement.style.overflow = '';
+    clarityEvent('quiz_drawer_close');
+    ga4Event('quiz_drawer_close');
+  }
+
+  trigger.addEventListener('click', openDrawer);
+  closeBtn.addEventListener('click', closeDrawer);
+  backdrop.addEventListener('click', closeDrawer);
+  window.addEventListener('keydown', (e)=>{ if(e.key==='Escape' && drawer.hidden===false) closeDrawer(); });
+
+  // ========= Chat =========
+  let booted = false;
+  function initQuizOnce(){ if(booted) return; booted = true; initQuiz(); }
+
+  function initQuiz(){
+    const elRoot  = document.getElementById('quiz-caps');
+    const elWrap  = elRoot.querySelector('.quizchat__wrap');
+    const elReset = elRoot.querySelector('.quizchat__restart');
+
+    let lastGoal = null;
+
+    function addMsg(html, who='bot'){
+      const div = document.createElement('div');
+      div.className = `quizchat__msg quizchat__msg--${who}`;
+      div.innerHTML = html;
+      elWrap.appendChild(div);
+      elWrap.scrollTop = elWrap.scrollHeight;
+      return div;
+    }
+    function addTyping(){
+      const div = addMsg(`<span class="quizchat__typing" aria-hidden="true">
+        <span class="quizchat__dot"></span><span class="quizchat__dot"></span><span class="quizchat__dot"></span>
+      </span>`, 'bot');
+      div.setAttribute('data-typing','1');
+      return div;
+    }
+    function removeTyping(){
+      const t = elWrap.querySelector('[data-typing="1"]');
+      if(t) t.remove();
+    }
+    function quickReplies(options, onPick){
+      const row = document.createElement('div'); row.className = 'quizchat__quick';
+      options.forEach(opt=>{
+        const b = document.createElement('button');
+        b.type = 'button'; b.className = 'quizchat__btn';
+        b.textContent = opt.rotulo;
+        b.addEventListener('click', ()=>{ b.setAttribute('aria-pressed','true'); onPick(opt); });
+        row.appendChild(b);
+      });
+      elWrap.appendChild(row);
+      elWrap.scrollTop = elWrap.scrollHeight;
+    }
+
+    // Força navegação (evita PJAX/handlers bloquearem clique)
+    function bindNavLinks(scope){
+      scope.querySelectorAll('a.qc-go').forEach(a=>{
+        a.addEventListener('click', (e)=>{
+          e.preventDefault();
+          const u = a.getAttribute('data-url') || a.href;
+          const type = a.getAttribute('data-type') || 'link';
+
+          // tracking
+          clarityEvent('quiz_click', { quiz_click_type: type, quiz_goal_label: (lastGoal||'') });
+          ga4Event('quiz_click', { click_type: type, goal: (lastGoal||'') });
+
+          // fecha drawer antes de navegar (mobile-friendly)
+          try{ closeDrawer(); }catch(_){}
+
+          if(type === 'whatsapp'){
+            if(OPEN_WHATS_NEW_TAB){
+              window.open(u, '_blank', 'noopener');
+            }else{
+              window.location.href = u;
+            }
+          }else{
+            window.location.href = u;
+          }
+        }, { passive:false });
+      });
+    }
+
+    function start(){
+      lastGoal = null;
+      elWrap.innerHTML = '';
+      clarityEvent('quiz_caps_start');
+      ga4Event('quiz_caps_start');
+
+      addMsg('Oi! Eu te ajudo a encontrar sua suplementação em <b>cápsulas</b> 💊✨');
+      const t = addTyping();
+      setTimeout(()=>{
+        removeTyping(t);
+        addMsg('Qual objetivo você quer priorizar hoje?');
+        quickReplies([
+          { id:'ossea_articular', rotulo:'🦴 Óssea/Articular' },
+          { id:'cardiovascular',  rotulo:'❤️ Cardiovascular' },
+          { id:'mental_foco',     rotulo:'🧠 Foco & Concentração' },
+          { id:'energia_vitalidade', rotulo:'⚡ Energia & Vitalidade' },
+          { id:'memoria_concentracao', rotulo:'📚 Memória' },
+          { id:'termogenico',     rotulo:'🔥 Termogênico' }
+        ], onPick);
+      }, 320);
+    }
+
+    function onPick(opt){
+      const bloco = MAPA[opt.id];
+      lastGoal = bloco && bloco.rotulo ? bloco.rotulo : opt.rotulo;
+
+      addMsg(opt.rotulo, 'user');
+      clarityEvent('quiz_caps_goal', {quiz_goal: opt.id, quiz_goal_label: lastGoal});
+      ga4Event('quiz_caps_goal', {goal_id: opt.id, goal_label: lastGoal});
+
+      const t = addTyping();
+      setTimeout(()=>{
+        removeTyping(t);
+
+        const itens = (bloco.produtos||[]).map(p=>{
+          const url = withUtm(p.url || '');
+          const safeUrl = String(url).replace(/"/g, '&quot;');
+          return `<li>• ${p.nome} — <a href="${safeUrl}" class="qc-go" data-type="product" data-url="${safeUrl}" rel="nofollow">ver</a></li>`;
+        }).join('');
+
+        // WhatsApp dinâmico
+        const whatsUrl = buildWhatsUrl(lastGoal, bloco.produtos);
+        const safeWhats = String(whatsUrl).replace(/"/g, '&quot;');
+
+        const html = `
+          <p>Fechado! Para <b>${bloco.rotulo}</b>, recomendo:</p>
+          <ul>${itens}</ul>
+          <p>
+            <a class="quizchat__cta qc-go"
+               href="${safeWhats}"
+               data-url="${safeWhats}"
+               data-type="whatsapp"
+               rel="noopener">
+              Dúvida? Clique e fale com o farmacêutico
+            </a>
+          </p>
+          <small style="opacity:.8">*Sugestão orientativa. Em caso de dúvida, consulte um profissional.</small>
+        `;
+
+        const msg = addMsg(html, 'bot');
+        bindNavLinks(msg);
+
+        clarityEvent('quiz_caps_complete', {quiz_goal: opt.id, quiz_goal_label: lastGoal});
+        ga4Event('quiz_caps_complete', {goal_id: opt.id, goal_label: lastGoal});
+      }, 340);
+    }
+
+    elReset.addEventListener('click', start);
+    start();
+  }
+
+})();
+</script>

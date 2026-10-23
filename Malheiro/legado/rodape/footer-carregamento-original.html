@@ -1,0 +1,94 @@
+<script>
+(function () {
+  'use strict';
+
+  function ready(fn) {
+    if (document.readyState !== 'loading') fn();
+    else document.addEventListener('DOMContentLoaded', fn, { once: true });
+  }
+
+  function idle(fn) {
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(fn, { timeout: 1200 });
+    } else {
+      setTimeout(fn, 100);
+    }
+  }
+
+  function visible(el, multiplier) {
+    var rect = el.getBoundingClientRect();
+    return rect.top < window.innerHeight * (multiplier || 1.2) && rect.bottom > -80;
+  }
+
+  function area(el) {
+    var rect = el.getBoundingClientRect();
+    return rect.width * rect.height;
+  }
+
+  function optimizeImages() {
+    var imgs = Array.prototype.slice.call(document.querySelectorAll('img'));
+
+    if (!imgs.length) return;
+
+    var topImages = imgs
+      .filter(function (img) {
+        var rect = img.getBoundingClientRect();
+        return rect.width > 120 && rect.height > 80 && rect.top < window.innerHeight * 1.25;
+      })
+      .sort(function (a, b) {
+        return area(b) - area(a);
+      });
+
+    var mainImage = topImages[0];
+
+    if (mainImage) {
+      mainImage.setAttribute('fetchpriority', 'high');
+      mainImage.setAttribute('loading', 'eager');
+      mainImage.setAttribute('decoding', 'async');
+      mainImage.dataset.fwrPriority = '1';
+    }
+
+    imgs.forEach(function (img) {
+      if (img.dataset.fwrPriority === '1') return;
+
+      img.setAttribute('decoding', 'async');
+
+      if (!visible(img, 1.35)) {
+        img.setAttribute('loading', 'lazy');
+        img.setAttribute('fetchpriority', 'low');
+      }
+    });
+  }
+
+  function optimizeMedia() {
+    document.querySelectorAll('iframe').forEach(function (iframe) {
+      if (!visible(iframe, 1.25)) {
+        iframe.setAttribute('loading', 'lazy');
+      }
+    });
+
+    document.querySelectorAll('video').forEach(function (video) {
+      if (!visible(video, 1.25)) {
+        video.setAttribute('preload', 'none');
+        try { video.pause(); } catch (e) {}
+      }
+    });
+  }
+
+  ready(function () {
+    optimizeImages();
+
+    idle(function () {
+      optimizeImages();
+      optimizeMedia();
+    });
+  });
+
+  window.addEventListener('load', function () {
+    setTimeout(function () {
+      optimizeImages();
+      optimizeMedia();
+    }, 1000);
+  });
+})();
+</script>

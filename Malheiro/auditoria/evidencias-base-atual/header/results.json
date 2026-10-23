@@ -1,0 +1,2606 @@
+{
+  "date": "2026-10-22T23:22:25.139Z",
+  "mode": "fresh incognito contexts; no network/CPU throttling; cold cache; 10s after DOMContentLoaded; lab NOT CrUX",
+  "results": [
+    {
+      "width": 1366,
+      "run": 1,
+      "candidate": false,
+      "header": true,
+      "replaced": false,
+      "status": 200,
+      "cls": 0.3820548720880637,
+      "asset": {
+        "url": "https://cdn.awsli.com.br/1351/1351790/arquivos/end-home-malheiro-ablation-cls.js",
+        "status": 200,
+        "sha256": "d007502952ecd40ae6c70c9d0177b23e40b5645523a0c2e30b6119a6eac3382d",
+        "benefitsFlex": false,
+        "instagram": false
+      },
+      "errors": [
+        "Failed to fetch",
+        "Failed to fetch",
+        "Failed to fetch"
+      ],
+      "shifts": [
+        {
+          "t": 692.9000000003725,
+          "value": 0.00034352110160341785,
+          "sources": [
+            {
+              "selector": "div",
+              "previous": {
+                "x": 757.65625,
+                "y": 508,
+                "width": 184,
+                "height": 43,
+                "top": 508,
+                "right": 941.65625,
+                "bottom": 551,
+                "left": 757.65625
+              },
+              "current": {
+                "x": 757.65625,
+                "y": 518,
+                "width": 184,
+                "height": 43,
+                "top": 518,
+                "right": 941.65625,
+                "bottom": 561,
+                "left": 757.65625
+              }
+            },
+            {
+              "selector": "div",
+              "previous": {
+                "x": 1090.984375,
+                "y": 508,
+                "width": 184,
+                "height": 43,
+                "top": 508,
+                "right": 1274.984375,
+                "bottom": 551,
+                "left": 1090.984375
+              },
+              "current": {
+                "x": 1090.984375,
+                "y": 518,
+                "width": 184,
+                "height": 43,
+                "top": 518,
+                "right": 1274.984375,
+                "bottom": 561,
+                "left": 1090.984375
+              }
+            },
+            {
+              "selector": "div",
+              "previous": {
+                "x": 91,
+                "y": 508,
+                "width": 184,
+                "height": 43,
+                "top": 508,
+                "right": 275,
+                "bottom": 551,
+                "left": 91
+              },
+              "current": {
+                "x": 91,
+                "y": 518,
+                "width": 184,
+                "height": 43,
+                "top": 518,
+                "right": 275,
+                "bottom": 561,
+                "left": 91
+              }
+            },
+            {
+              "selector": "div",
+              "previous": {
+                "x": 424.328125,
+                "y": 508,
+                "width": 184,
+                "height": 43,
+                "top": 508,
+                "right": 608.328125,
+                "bottom": 551,
+                "left": 424.328125
+              },
+              "current": {
+                "x": 424.328125,
+                "y": 518,
+                "width": 184,
+                "height": 43,
+                "top": 518,
+                "right": 608.328125,
+                "bottom": 561,
+                "left": 424.328125
+              }
+            },
+            {
+              "selector": "ul.nivel-um",
+              "previous": {
+                "x": 33,
+                "y": 201.171875,
+                "width": 507.890625,
+                "height": 15,
+                "top": 201.171875,
+                "right": 540.890625,
+                "bottom": 216.171875,
+                "left": 33
+              },
+              "current": {
+                "x": 33,
+                "y": 201.171875,
+                "width": 517.296875,
+                "height": 15,
+                "top": 201.171875,
+                "right": 550.296875,
+                "bottom": 216.171875,
+                "left": 33
+              }
+            }
+          ]
+        },
+        {
+          "t": 928.3000000007451,
+          "value": 0.0008662741196959999,
+          "sources": [
+            {
+              "selector": "button#qc-trigger.qc-trigger",
+              "previous": {
+                "x": 1134.96875,
+                "y": 692,
+                "width": 231.03125,
+                "height": 108,
+                "top": 692,
+                "right": 1366,
+                "bottom": 800,
+                "left": 1134.96875
+              },
+              "current": {
+                "x": 1141.96875,
+                "y": 692,
+                "width": 224.03125,
+                "height": 108,
+                "top": 692,
+                "right": 1366,
+                "bottom": 800,
+                "left": 1141.96875
+              }
+            },
+            {
+              "selector": "ul.nivel-um",
+              "previous": {
+                "x": 33,
+                "y": 201.171875,
+                "width": 517.296875,
+                "height": 14,
+                "top": 201.171875,
+                "right": 550.296875,
+                "bottom": 215.171875,
+                "left": 33
+              },
+              "current": {
+                "x": 33,
+                "y": 202.109375,
+                "width": 493.265625,
+                "height": 14,
+                "top": 202.109375,
+                "right": 526.265625,
+                "bottom": 216.109375,
+                "left": 33
+              }
+            },
+            {
+              "selector": "li.categoria-id-4186926.com-filho.borda-principal",
+              "previous": {
+                "x": 363.578125,
+                "y": 188,
+                "width": 101.703125,
+                "height": 44,
+                "top": 188,
+                "right": 465.28125,
+                "bottom": 232,
+                "left": 363.578125
+              },
+              "current": {
+                "x": 348.859375,
+                "y": 188,
+                "width": 95.1875,
+                "height": 44,
+                "top": 188,
+                "right": 444.046875,
+                "bottom": 232,
+                "left": 348.859375
+              }
+            },
+            {
+              "selector": "li.categoria-id-4186921.com-filho.borda-principal",
+              "previous": {
+                "x": 300.765625,
+                "y": 188,
+                "width": 59.65625,
+                "height": 44,
+                "top": 188,
+                "right": 360.421875,
+                "bottom": 232,
+                "left": 300.765625
+              },
+              "current": {
+                "x": 288.609375,
+                "y": 188,
+                "width": 56.90625,
+                "height": 44,
+                "top": 188,
+                "right": 345.515625,
+                "bottom": 232,
+                "left": 288.609375
+              }
+            },
+            {
+              "selector": "li.categoria-id-4186914.com-filho.borda-principal",
+              "previous": {
+                "x": 190.09375,
+                "y": 188,
+                "width": 57.140625,
+                "height": 44,
+                "top": 188,
+                "right": 247.234375,
+                "bottom": 232,
+                "left": 190.09375
+              },
+              "current": {
+                "x": 180.421875,
+                "y": 188,
+                "width": 54.71875,
+                "height": 44,
+                "top": 188,
+                "right": 235.140625,
+                "bottom": 232,
+                "left": 180.421875
+              }
+            }
+          ]
+        },
+        {
+          "t": 1314.300000000745,
+          "value": 0.3808450768667643,
+          "sources": [
+            {
+              "selector": "div#corpo",
+              "previous": {
+                "x": 0,
+                "y": 35,
+                "width": 1366,
+                "height": 809,
+                "top": 35,
+                "right": 1366,
+                "bottom": 844,
+                "left": 0
+              },
+              "current": {
+                "x": 0,
+                "y": 555.234375,
+                "width": 1366,
+                "height": 288.765625,
+                "top": 555.234375,
+                "right": 1366,
+                "bottom": 844,
+                "left": 0
+              }
+            },
+            {
+              "selector": "div.conteiner.cabecalho-conteiner",
+              "previous": {
+                "x": 13,
+                "y": 0,
+                "width": 1340,
+                "height": 242,
+                "top": 0,
+                "right": 1353,
+                "bottom": 242,
+                "left": 13
+              },
+              "current": {
+                "x": 0,
+                "y": 0,
+                "width": 1366,
+                "height": 85,
+                "top": 0,
+                "right": 1366,
+                "bottom": 85,
+                "left": 0
+              }
+            },
+            {
+              "selector": "div.listagem-item.prod-id-84180724.prod-cat-4186914",
+              "previous": {
+                "x": 41.6875,
+                "y": 707.6875,
+                "width": 288.625,
+                "height": 136.3125,
+                "top": 707.6875,
+                "right": 330.3125,
+                "bottom": 844,
+                "left": 41.6875
+              },
+              "current": {
+                "x": 0,
+                "y": 0,
+                "width": 0,
+                "height": 0,
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+              }
+            },
+            {
+              "selector": "div.listagem-item.prod-id-78371612.prod-cat-4186914",
+              "previous": {
+                "x": 375.015625,
+                "y": 707.6875,
+                "width": 288.625,
+                "height": 136.3125,
+                "top": 707.6875,
+                "right": 663.640625,
+                "bottom": 844,
+                "left": 375.015625
+              },
+              "current": {
+                "x": 0,
+                "y": 0,
+                "width": 0,
+                "height": 0,
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+              }
+            },
+            {
+              "selector": "div.listagem-item.prod-id-130154765.prod-cat-23334452",
+              "previous": {
+                "x": 708.34375,
+                "y": 707.6875,
+                "width": 288.625,
+                "height": 136.3125,
+                "top": 707.6875,
+                "right": 996.96875,
+                "bottom": 844,
+                "left": 708.34375
+              },
+              "current": {
+                "x": 0,
+                "y": 0,
+                "width": 0,
+                "height": 0,
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+              }
+            }
+          ]
+        }
+      ],
+      "geometry": [
+        {
+          "t": 296.80000000074506,
+          "headerPosition": null,
+          "bodyPadding": "0px",
+          "owl": false,
+          "base": false
+        },
+        {
+          "t": 436.80000000074506,
+          "headerPosition": "fixed",
+          "headerHeight": 242,
+          "mainTop": 5,
+          "bodyPadding": "85px",
+          "listHeight": 1239,
+          "owl": false,
+          "base": false
+        },
+        {
+          "t": 690,
+          "headerPosition": "fixed",
+          "headerHeight": 242,
+          "mainTop": 5,
+          "bodyPadding": "85px",
+          "listHeight": 1239,
+          "owl": false,
+          "base": true
+        },
+        {
+          "t": 1310.0999999996275,
+          "headerPosition": "fixed",
+          "headerHeight": 85,
+          "mainTop": 5,
+          "bodyPadding": "85px",
+          "listHeight": 1239,
+          "owl": false,
+          "base": true
+        }
+      ],
+      "lcp": {
+        "t": 1620,
+        "selector": "img",
+        "url": "https://cdn.awsli.com.br/1920x1920/1351/1351790/banner/outubro_rosa_desktop-1-bz2txh3aum.jpg"
+      },
+      "state": {
+        "state": "mounted"
+      },
+      "duplicateQuiz": 2,
+      "rawCodeText": false,
+      "visibleProducts": 8,
+      "qc": true,
+      "categories": true,
+      "quizError": "locator.click: Timeout 3000ms exceeded.",
+      "headerAfterScroll": {
+        "top": 0,
+        "position": "fixed"
+      },
+      "cartPresent": false
+    },
+    {
+      "width": 1366,
+      "run": 2,
+      "candidate": false,
+      "header": true,
+      "replaced": false,
+      "status": 200,
+      "cls": 0.38203630496301433,
+      "asset": {
+        "url": "https://cdn.awsli.com.br/1351/1351790/arquivos/end-home-malheiro-ablation-cls.js",
+        "status": 200,
+        "sha256": "d007502952ecd40ae6c70c9d0177b23e40b5645523a0c2e30b6119a6eac3382d",
+        "benefitsFlex": false,
+        "instagram": false
+      },
+      "errors": [
+        "Failed to fetch",
+        "Failed to fetch",
+        "Failed to fetch"
+      ],
+      "shifts": [
+        {
+          "t": 477.8999999985099,
+          "value": 0.00007726319778609552,
+          "sources": [
+            {
+              "selector": "ul.nivel-um",
+              "previous": {
+                "x": 33,
+                "y": 201.171875,
+                "width": 507.890625,
+                "height": 15,
+                "top": 201.171875,
+                "right": 540.890625,
+                "bottom": 216.171875,
+                "left": 33
+              },
+              "current": {
+                "x": 33,
+                "y": 201.171875,
+                "width": 517.296875,
+                "height": 15,
+                "top": 201.171875,
+                "right": 550.296875,
+                "bottom": 216.171875,
+                "left": 33
+              }
+            },
+            {
+              "selector": "li.categoria-id-4186926.com-filho.borda-principal",
+              "previous": {
+                "x": 358.203125,
+                "y": 188,
+                "width": 100.359375,
+                "height": 44,
+                "top": 188,
+                "right": 458.5625,
+                "bottom": 232,
+                "left": 358.203125
+              },
+              "current": {
+                "x": 363.578125,
+                "y": 188,
+                "width": 101.703125,
+                "height": 44,
+                "top": 188,
+                "right": 465.28125,
+                "bottom": 232,
+                "left": 363.578125
+              }
+            },
+            {
+              "selector": "li.categoria-id-4186921.com-filho.borda-principal",
+              "previous": {
+                "x": 296.734375,
+                "y": 188,
+                "width": 58.3125,
+                "height": 44,
+                "top": 188,
+                "right": 355.046875,
+                "bottom": 232,
+                "left": 296.734375
+              },
+              "current": {
+                "x": 300.765625,
+                "y": 188,
+                "width": 59.65625,
+                "height": 44,
+                "top": 188,
+                "right": 360.421875,
+                "bottom": 232,
+                "left": 300.765625
+              }
+            },
+            {
+              "selector": "li.categoria-id-22013977.com-filho.borda-principal",
+              "previous": {
+                "x": 502.734375,
+                "y": 188,
+                "width": 38.15625,
+                "height": 44,
+                "top": 188,
+                "right": 540.890625,
+                "bottom": 232,
+                "left": 502.734375
+              },
+              "current": {
+                "x": 510.796875,
+                "y": 188,
+                "width": 39.5,
+                "height": 44,
+                "top": 188,
+                "right": 550.296875,
+                "bottom": 232,
+                "left": 510.796875
+              }
+            },
+            {
+              "selector": "li.categoria-id-20382821.com-filho.borda-principal",
+              "previous": {
+                "x": 461.71875,
+                "y": 188,
+                "width": 37.859375,
+                "height": 44,
+                "top": 188,
+                "right": 499.578125,
+                "bottom": 232,
+                "left": 461.71875
+              },
+              "current": {
+                "x": 468.4375,
+                "y": 188,
+                "width": 39.203125,
+                "height": 44,
+                "top": 188,
+                "right": 507.640625,
+                "bottom": 232,
+                "left": 468.4375
+              }
+            }
+          ]
+        },
+        {
+          "t": 559.7999999988824,
+          "value": 0.0002476907787679505,
+          "sources": [
+            {
+              "selector": "div",
+              "previous": {
+                "x": 91,
+                "y": 508,
+                "width": 184,
+                "height": 43,
+                "top": 508,
+                "right": 275,
+                "bottom": 551,
+                "left": 91
+              },
+              "current": {
+                "x": 91,
+                "y": 518,
+                "width": 184,
+                "height": 43,
+                "top": 518,
+                "right": 275,
+                "bottom": 561,
+                "left": 91
+              }
+            },
+            {
+              "selector": "div",
+              "previous": {
+                "x": 424.328125,
+                "y": 508,
+                "width": 184,
+                "height": 43,
+                "top": 508,
+                "right": 608.328125,
+                "bottom": 551,
+                "left": 424.328125
+              },
+              "current": {
+                "x": 424.328125,
+                "y": 518,
+                "width": 184,
+                "height": 43,
+                "top": 518,
+                "right": 608.328125,
+                "bottom": 561,
+                "left": 424.328125
+              }
+            },
+            {
+              "selector": "div",
+              "previous": {
+                "x": 757.65625,
+                "y": 508,
+                "width": 184,
+                "height": 43,
+                "top": 508,
+                "right": 941.65625,
+                "bottom": 551,
+                "left": 757.65625
+              },
+              "current": {
+                "x": 757.65625,
+                "y": 518,
+                "width": 184,
+                "height": 43,
+                "top": 518,
+                "right": 941.65625,
+                "bottom": 561,
+                "left": 757.65625
+              }
+            },
+            {
+              "selector": "div",
+              "previous": {
+                "x": 1090.984375,
+                "y": 508,
+                "width": 184,
+                "height": 43,
+                "top": 508,
+                "right": 1274.984375,
+                "bottom": 551,
+                "left": 1090.984375
+              },
+              "current": {
+                "x": 1090.984375,
+                "y": 518,
+                "width": 184,
+                "height": 43,
+                "top": 518,
+                "right": 1274.984375,
+                "bottom": 561,
+                "left": 1090.984375
+              }
+            }
+          ]
+        },
+        {
+          "t": 912.5,
+          "value": 0.0008662741196959999,
+          "sources": [
+            {
+              "selector": "button#qc-trigger.qc-trigger",
+              "previous": {
+                "x": 1134.96875,
+                "y": 692,
+                "width": 231.03125,
+                "height": 108,
+                "top": 692,
+                "right": 1366,
+                "bottom": 800,
+                "left": 1134.96875
+              },
+              "current": {
+                "x": 1141.96875,
+                "y": 692,
+                "width": 224.03125,
+                "height": 108,
+                "top": 692,
+                "right": 1366,
+                "bottom": 800,
+                "left": 1141.96875
+              }
+            },
+            {
+              "selector": "ul.nivel-um",
+              "previous": {
+                "x": 33,
+                "y": 201.171875,
+                "width": 517.296875,
+                "height": 14,
+                "top": 201.171875,
+                "right": 550.296875,
+                "bottom": 215.171875,
+                "left": 33
+              },
+              "current": {
+                "x": 33,
+                "y": 202.109375,
+                "width": 493.265625,
+                "height": 14,
+                "top": 202.109375,
+                "right": 526.265625,
+                "bottom": 216.109375,
+                "left": 33
+              }
+            },
+            {
+              "selector": "li.categoria-id-4186926.com-filho.borda-principal",
+              "previous": {
+                "x": 363.578125,
+                "y": 188,
+                "width": 101.703125,
+                "height": 44,
+                "top": 188,
+                "right": 465.28125,
+                "bottom": 232,
+                "left": 363.578125
+              },
+              "current": {
+                "x": 348.859375,
+                "y": 188,
+                "width": 95.1875,
+                "height": 44,
+                "top": 188,
+                "right": 444.046875,
+                "bottom": 232,
+                "left": 348.859375
+              }
+            },
+            {
+              "selector": "li.categoria-id-4186921.com-filho.borda-principal",
+              "previous": {
+                "x": 300.765625,
+                "y": 188,
+                "width": 59.65625,
+                "height": 44,
+                "top": 188,
+                "right": 360.421875,
+                "bottom": 232,
+                "left": 300.765625
+              },
+              "current": {
+                "x": 288.609375,
+                "y": 188,
+                "width": 56.90625,
+                "height": 44,
+                "top": 188,
+                "right": 345.515625,
+                "bottom": 232,
+                "left": 288.609375
+              }
+            },
+            {
+              "selector": "li.categoria-id-4186914.com-filho.borda-principal",
+              "previous": {
+                "x": 190.09375,
+                "y": 188,
+                "width": 57.140625,
+                "height": 44,
+                "top": 188,
+                "right": 247.234375,
+                "bottom": 232,
+                "left": 190.09375
+              },
+              "current": {
+                "x": 180.421875,
+                "y": 188,
+                "width": 54.71875,
+                "height": 44,
+                "top": 188,
+                "right": 235.140625,
+                "bottom": 232,
+                "left": 180.421875
+              }
+            }
+          ]
+        },
+        {
+          "t": 1283.5999999996275,
+          "value": 0.3808450768667643,
+          "sources": [
+            {
+              "selector": "div#corpo",
+              "previous": {
+                "x": 0,
+                "y": 35,
+                "width": 1366,
+                "height": 809,
+                "top": 35,
+                "right": 1366,
+                "bottom": 844,
+                "left": 0
+              },
+              "current": {
+                "x": 0,
+                "y": 555.234375,
+                "width": 1366,
+                "height": 288.765625,
+                "top": 555.234375,
+                "right": 1366,
+                "bottom": 844,
+                "left": 0
+              }
+            },
+            {
+              "selector": "div.conteiner.cabecalho-conteiner",
+              "previous": {
+                "x": 13,
+                "y": 0,
+                "width": 1340,
+                "height": 242,
+                "top": 0,
+                "right": 1353,
+                "bottom": 242,
+                "left": 13
+              },
+              "current": {
+                "x": 0,
+                "y": 0,
+                "width": 1366,
+                "height": 85,
+                "top": 0,
+                "right": 1366,
+                "bottom": 85,
+                "left": 0
+              }
+            },
+            {
+              "selector": "div.listagem-item.prod-id-84180724.prod-cat-4186914",
+              "previous": {
+                "x": 41.6875,
+                "y": 707.6875,
+                "width": 288.625,
+                "height": 136.3125,
+                "top": 707.6875,
+                "right": 330.3125,
+                "bottom": 844,
+                "left": 41.6875
+              },
+              "current": {
+                "x": 0,
+                "y": 0,
+                "width": 0,
+                "height": 0,
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+              }
+            },
+            {
+              "selector": "div.listagem-item.prod-id-78371612.prod-cat-4186914",
+              "previous": {
+                "x": 375.015625,
+                "y": 707.6875,
+                "width": 288.625,
+                "height": 136.3125,
+                "top": 707.6875,
+                "right": 663.640625,
+                "bottom": 844,
+                "left": 375.015625
+              },
+              "current": {
+                "x": 0,
+                "y": 0,
+                "width": 0,
+                "height": 0,
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+              }
+            },
+            {
+              "selector": "div.listagem-item.prod-id-130154765.prod-cat-23334452",
+              "previous": {
+                "x": 708.34375,
+                "y": 707.6875,
+                "width": 288.625,
+                "height": 136.3125,
+                "top": 707.6875,
+                "right": 996.96875,
+                "bottom": 844,
+                "left": 708.34375
+              },
+              "current": {
+                "x": 0,
+                "y": 0,
+                "width": 0,
+                "height": 0,
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+              }
+            }
+          ]
+        }
+      ],
+      "geometry": [
+        {
+          "t": 246.19999999925494,
+          "headerPosition": null,
+          "bodyPadding": "0px",
+          "owl": false,
+          "base": false
+        },
+        {
+          "t": 356.09999999962747,
+          "headerPosition": "fixed",
+          "headerHeight": 242,
+          "mainTop": 5,
+          "bodyPadding": "85px",
+          "listHeight": 1239,
+          "owl": false,
+          "base": false
+        },
+        {
+          "t": 557.6999999992549,
+          "headerPosition": "fixed",
+          "headerHeight": 242,
+          "mainTop": 5,
+          "bodyPadding": "85px",
+          "listHeight": 1239,
+          "owl": false,
+          "base": true
+        },
+        {
+          "t": 1280,
+          "headerPosition": "fixed",
+          "headerHeight": 85,
+          "mainTop": 5,
+          "bodyPadding": "85px",
+          "listHeight": 1239,
+          "owl": false,
+          "base": true
+        }
+      ],
+      "lcp": {
+        "t": 1524,
+        "selector": "img",
+        "url": "https://cdn.awsli.com.br/1920x1920/1351/1351790/banner/outubro_rosa_desktop-1-bz2txh3aum.jpg"
+      },
+      "state": {
+        "state": "mounted"
+      },
+      "duplicateQuiz": 2,
+      "rawCodeText": false,
+      "visibleProducts": 8,
+      "qc": true,
+      "categories": true
+    },
+    {
+      "width": 1366,
+      "run": 3,
+      "candidate": false,
+      "header": true,
+      "replaced": false,
+      "status": 200,
+      "cls": 0.38465012591137354,
+      "asset": {
+        "url": "https://cdn.awsli.com.br/1351/1351790/arquivos/end-home-malheiro-ablation-cls.js",
+        "status": 200,
+        "sha256": "d007502952ecd40ae6c70c9d0177b23e40b5645523a0c2e30b6119a6eac3382d",
+        "benefitsFlex": false,
+        "instagram": false
+      },
+      "errors": [
+        "Failed to fetch",
+        "Failed to fetch",
+        "Failed to fetch"
+      ],
+      "shifts": [
+        {
+          "t": 224.09999999962747,
+          "value": 0.002613820948359226,
+          "sources": [
+            {
+              "selector": "button#qc-trigger.qc-trigger",
+              "previous": {
+                "x": 1300.09375,
+                "y": 718,
+                "width": 65.90625,
+                "height": 82,
+                "top": 718,
+                "right": 1366,
+                "bottom": 800,
+                "left": 1300.09375
+              },
+              "current": {
+                "x": 1135.09375,
+                "y": 692,
+                "width": 230.90625,
+                "height": 108,
+                "top": 692,
+                "right": 1366,
+                "bottom": 800,
+                "left": 1135.09375
+              }
+            }
+          ]
+        },
+        {
+          "t": 381.59999999962747,
+          "value": 0.00007726319778609552,
+          "sources": [
+            {
+              "selector": "ul.nivel-um",
+              "previous": {
+                "x": 33,
+                "y": 201.171875,
+                "width": 507.890625,
+                "height": 15,
+                "top": 201.171875,
+                "right": 540.890625,
+                "bottom": 216.171875,
+                "left": 33
+              },
+              "current": {
+                "x": 33,
+                "y": 201.171875,
+                "width": 517.296875,
+                "height": 15,
+                "top": 201.171875,
+                "right": 550.296875,
+                "bottom": 216.171875,
+                "left": 33
+              }
+            },
+            {
+              "selector": "li.categoria-id-4186926.com-filho.borda-principal",
+              "previous": {
+                "x": 358.203125,
+                "y": 188,
+                "width": 100.359375,
+                "height": 44,
+                "top": 188,
+                "right": 458.5625,
+                "bottom": 232,
+                "left": 358.203125
+              },
+              "current": {
+                "x": 363.578125,
+                "y": 188,
+                "width": 101.703125,
+                "height": 44,
+                "top": 188,
+                "right": 465.28125,
+                "bottom": 232,
+                "left": 363.578125
+              }
+            },
+            {
+              "selector": "li.categoria-id-4186921.com-filho.borda-principal",
+              "previous": {
+                "x": 296.734375,
+                "y": 188,
+                "width": 58.3125,
+                "height": 44,
+                "top": 188,
+                "right": 355.046875,
+                "bottom": 232,
+                "left": 296.734375
+              },
+              "current": {
+                "x": 300.765625,
+                "y": 188,
+                "width": 59.65625,
+                "height": 44,
+                "top": 188,
+                "right": 360.421875,
+                "bottom": 232,
+                "left": 300.765625
+              }
+            },
+            {
+              "selector": "li.categoria-id-22013977.com-filho.borda-principal",
+              "previous": {
+                "x": 502.734375,
+                "y": 188,
+                "width": 38.15625,
+                "height": 44,
+                "top": 188,
+                "right": 540.890625,
+                "bottom": 232,
+                "left": 502.734375
+              },
+              "current": {
+                "x": 510.796875,
+                "y": 188,
+                "width": 39.5,
+                "height": 44,
+                "top": 188,
+                "right": 550.296875,
+                "bottom": 232,
+                "left": 510.796875
+              }
+            },
+            {
+              "selector": "li.categoria-id-20382821.com-filho.borda-principal",
+              "previous": {
+                "x": 461.71875,
+                "y": 188,
+                "width": 37.859375,
+                "height": 44,
+                "top": 188,
+                "right": 499.578125,
+                "bottom": 232,
+                "left": 461.71875
+              },
+              "current": {
+                "x": 468.4375,
+                "y": 188,
+                "width": 39.203125,
+                "height": 44,
+                "top": 188,
+                "right": 507.640625,
+                "bottom": 232,
+                "left": 468.4375
+              }
+            }
+          ]
+        },
+        {
+          "t": 502.09999999962747,
+          "value": 0.0002476907787679505,
+          "sources": [
+            {
+              "selector": "div",
+              "previous": {
+                "x": 91,
+                "y": 508,
+                "width": 184,
+                "height": 43,
+                "top": 508,
+                "right": 275,
+                "bottom": 551,
+                "left": 91
+              },
+              "current": {
+                "x": 91,
+                "y": 518,
+                "width": 184,
+                "height": 43,
+                "top": 518,
+                "right": 275,
+                "bottom": 561,
+                "left": 91
+              }
+            },
+            {
+              "selector": "div",
+              "previous": {
+                "x": 424.328125,
+                "y": 508,
+                "width": 184,
+                "height": 43,
+                "top": 508,
+                "right": 608.328125,
+                "bottom": 551,
+                "left": 424.328125
+              },
+              "current": {
+                "x": 424.328125,
+                "y": 518,
+                "width": 184,
+                "height": 43,
+                "top": 518,
+                "right": 608.328125,
+                "bottom": 561,
+                "left": 424.328125
+              }
+            },
+            {
+              "selector": "div",
+              "previous": {
+                "x": 757.65625,
+                "y": 508,
+                "width": 184,
+                "height": 43,
+                "top": 508,
+                "right": 941.65625,
+                "bottom": 551,
+                "left": 757.65625
+              },
+              "current": {
+                "x": 757.65625,
+                "y": 518,
+                "width": 184,
+                "height": 43,
+                "top": 518,
+                "right": 941.65625,
+                "bottom": 561,
+                "left": 757.65625
+              }
+            },
+            {
+              "selector": "div",
+              "previous": {
+                "x": 1090.984375,
+                "y": 508,
+                "width": 184,
+                "height": 43,
+                "top": 508,
+                "right": 1274.984375,
+                "bottom": 551,
+                "left": 1090.984375
+              },
+              "current": {
+                "x": 1090.984375,
+                "y": 518,
+                "width": 184,
+                "height": 43,
+                "top": 518,
+                "right": 1274.984375,
+                "bottom": 561,
+                "left": 1090.984375
+              }
+            }
+          ]
+        },
+        {
+          "t": 680.1999999992549,
+          "value": 0.0008662741196959999,
+          "sources": [
+            {
+              "selector": "button#qc-trigger.qc-trigger",
+              "previous": {
+                "x": 1134.96875,
+                "y": 692,
+                "width": 231.03125,
+                "height": 108,
+                "top": 692,
+                "right": 1366,
+                "bottom": 800,
+                "left": 1134.96875
+              },
+              "current": {
+                "x": 1141.96875,
+                "y": 692,
+                "width": 224.03125,
+                "height": 108,
+                "top": 692,
+                "right": 1366,
+                "bottom": 800,
+                "left": 1141.96875
+              }
+            },
+            {
+              "selector": "ul.nivel-um",
+              "previous": {
+                "x": 33,
+                "y": 201.171875,
+                "width": 517.296875,
+                "height": 14,
+                "top": 201.171875,
+                "right": 550.296875,
+                "bottom": 215.171875,
+                "left": 33
+              },
+              "current": {
+                "x": 33,
+                "y": 202.109375,
+                "width": 493.265625,
+                "height": 14,
+                "top": 202.109375,
+                "right": 526.265625,
+                "bottom": 216.109375,
+                "left": 33
+              }
+            },
+            {
+              "selector": "li.categoria-id-4186926.com-filho.borda-principal",
+              "previous": {
+                "x": 363.578125,
+                "y": 188,
+                "width": 101.703125,
+                "height": 44,
+                "top": 188,
+                "right": 465.28125,
+                "bottom": 232,
+                "left": 363.578125
+              },
+              "current": {
+                "x": 348.859375,
+                "y": 188,
+                "width": 95.1875,
+                "height": 44,
+                "top": 188,
+                "right": 444.046875,
+                "bottom": 232,
+                "left": 348.859375
+              }
+            },
+            {
+              "selector": "li.categoria-id-4186921.com-filho.borda-principal",
+              "previous": {
+                "x": 300.765625,
+                "y": 188,
+                "width": 59.65625,
+                "height": 44,
+                "top": 188,
+                "right": 360.421875,
+                "bottom": 232,
+                "left": 300.765625
+              },
+              "current": {
+                "x": 288.609375,
+                "y": 188,
+                "width": 56.90625,
+                "height": 44,
+                "top": 188,
+                "right": 345.515625,
+                "bottom": 232,
+                "left": 288.609375
+              }
+            },
+            {
+              "selector": "li.categoria-id-4186914.com-filho.borda-principal",
+              "previous": {
+                "x": 190.09375,
+                "y": 188,
+                "width": 57.140625,
+                "height": 44,
+                "top": 188,
+                "right": 247.234375,
+                "bottom": 232,
+                "left": 190.09375
+              },
+              "current": {
+                "x": 180.421875,
+                "y": 188,
+                "width": 54.71875,
+                "height": 44,
+                "top": 188,
+                "right": 235.140625,
+                "bottom": 232,
+                "left": 180.421875
+              }
+            }
+          ]
+        },
+        {
+          "t": 1023.0999999996275,
+          "value": 0.3808450768667643,
+          "sources": [
+            {
+              "selector": "div#corpo",
+              "previous": {
+                "x": 0,
+                "y": 35,
+                "width": 1366,
+                "height": 809,
+                "top": 35,
+                "right": 1366,
+                "bottom": 844,
+                "left": 0
+              },
+              "current": {
+                "x": 0,
+                "y": 555.234375,
+                "width": 1366,
+                "height": 288.765625,
+                "top": 555.234375,
+                "right": 1366,
+                "bottom": 844,
+                "left": 0
+              }
+            },
+            {
+              "selector": "div.conteiner.cabecalho-conteiner",
+              "previous": {
+                "x": 13,
+                "y": 0,
+                "width": 1340,
+                "height": 242,
+                "top": 0,
+                "right": 1353,
+                "bottom": 242,
+                "left": 13
+              },
+              "current": {
+                "x": 0,
+                "y": 0,
+                "width": 1366,
+                "height": 85,
+                "top": 0,
+                "right": 1366,
+                "bottom": 85,
+                "left": 0
+              }
+            },
+            {
+              "selector": "div.listagem-item.prod-id-84180724.prod-cat-4186914",
+              "previous": {
+                "x": 41.6875,
+                "y": 707.6875,
+                "width": 288.625,
+                "height": 136.3125,
+                "top": 707.6875,
+                "right": 330.3125,
+                "bottom": 844,
+                "left": 41.6875
+              },
+              "current": {
+                "x": 0,
+                "y": 0,
+                "width": 0,
+                "height": 0,
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+              }
+            },
+            {
+              "selector": "div.listagem-item.prod-id-78371612.prod-cat-4186914",
+              "previous": {
+                "x": 375.015625,
+                "y": 707.6875,
+                "width": 288.625,
+                "height": 136.3125,
+                "top": 707.6875,
+                "right": 663.640625,
+                "bottom": 844,
+                "left": 375.015625
+              },
+              "current": {
+                "x": 0,
+                "y": 0,
+                "width": 0,
+                "height": 0,
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+              }
+            },
+            {
+              "selector": "div.listagem-item.prod-id-130154765.prod-cat-23334452",
+              "previous": {
+                "x": 708.34375,
+                "y": 707.6875,
+                "width": 288.625,
+                "height": 136.3125,
+                "top": 707.6875,
+                "right": 996.96875,
+                "bottom": 844,
+                "left": 708.34375
+              },
+              "current": {
+                "x": 0,
+                "y": 0,
+                "width": 0,
+                "height": 0,
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+              }
+            }
+          ]
+        }
+      ],
+      "geometry": [
+        {
+          "t": 182.59999999962747,
+          "headerPosition": null,
+          "bodyPadding": "0px",
+          "owl": false,
+          "base": false
+        },
+        {
+          "t": 198.39999999850988,
+          "headerPosition": null,
+          "bodyPadding": "85px",
+          "owl": false,
+          "base": false
+        },
+        {
+          "t": 300.59999999962747,
+          "headerPosition": "fixed",
+          "headerHeight": 242,
+          "mainTop": 5,
+          "bodyPadding": "85px",
+          "listHeight": 1239,
+          "owl": false,
+          "base": false
+        },
+        {
+          "t": 500.5,
+          "headerPosition": "fixed",
+          "headerHeight": 242,
+          "mainTop": 5,
+          "bodyPadding": "85px",
+          "listHeight": 1239,
+          "owl": false,
+          "base": true
+        },
+        {
+          "t": 1020.2999999988824,
+          "headerPosition": "fixed",
+          "headerHeight": 85,
+          "mainTop": 5,
+          "bodyPadding": "85px",
+          "listHeight": 1239,
+          "owl": false,
+          "base": true
+        }
+      ],
+      "lcp": {
+        "t": 1156,
+        "selector": "img",
+        "url": "https://cdn.awsli.com.br/1920x1920/1351/1351790/banner/outubro_rosa_desktop-1-bz2txh3aum.jpg"
+      },
+      "state": {
+        "state": "mounted"
+      },
+      "duplicateQuiz": 2,
+      "rawCodeText": false,
+      "visibleProducts": 8,
+      "qc": true,
+      "categories": true
+    },
+    {
+      "width": 1366,
+      "run": 4,
+      "candidate": false,
+      "header": true,
+      "replaced": false,
+      "status": 200,
+      "cls": 0.38465012591137354,
+      "asset": {
+        "url": "https://cdn.awsli.com.br/1351/1351790/arquivos/end-home-malheiro-ablation-cls.js",
+        "status": 200,
+        "sha256": "d007502952ecd40ae6c70c9d0177b23e40b5645523a0c2e30b6119a6eac3382d",
+        "benefitsFlex": false,
+        "instagram": false
+      },
+      "errors": [
+        "Failed to fetch",
+        "Failed to fetch",
+        "Failed to fetch"
+      ],
+      "shifts": [
+        {
+          "t": 262,
+          "value": 0.002613820948359226,
+          "sources": [
+            {
+              "selector": "button#qc-trigger.qc-trigger",
+              "previous": {
+                "x": 1300.09375,
+                "y": 718,
+                "width": 65.90625,
+                "height": 82,
+                "top": 718,
+                "right": 1366,
+                "bottom": 800,
+                "left": 1300.09375
+              },
+              "current": {
+                "x": 1135.09375,
+                "y": 692,
+                "width": 230.90625,
+                "height": 108,
+                "top": 692,
+                "right": 1366,
+                "bottom": 800,
+                "left": 1135.09375
+              }
+            }
+          ]
+        },
+        {
+          "t": 334.30000000074506,
+          "value": 0.00007726319778609552,
+          "sources": [
+            {
+              "selector": "ul.nivel-um",
+              "previous": {
+                "x": 33,
+                "y": 201.171875,
+                "width": 507.890625,
+                "height": 15,
+                "top": 201.171875,
+                "right": 540.890625,
+                "bottom": 216.171875,
+                "left": 33
+              },
+              "current": {
+                "x": 33,
+                "y": 201.171875,
+                "width": 517.296875,
+                "height": 15,
+                "top": 201.171875,
+                "right": 550.296875,
+                "bottom": 216.171875,
+                "left": 33
+              }
+            },
+            {
+              "selector": "li.categoria-id-4186926.com-filho.borda-principal",
+              "previous": {
+                "x": 358.203125,
+                "y": 188,
+                "width": 100.359375,
+                "height": 44,
+                "top": 188,
+                "right": 458.5625,
+                "bottom": 232,
+                "left": 358.203125
+              },
+              "current": {
+                "x": 363.578125,
+                "y": 188,
+                "width": 101.703125,
+                "height": 44,
+                "top": 188,
+                "right": 465.28125,
+                "bottom": 232,
+                "left": 363.578125
+              }
+            },
+            {
+              "selector": "li.categoria-id-4186921.com-filho.borda-principal",
+              "previous": {
+                "x": 296.734375,
+                "y": 188,
+                "width": 58.3125,
+                "height": 44,
+                "top": 188,
+                "right": 355.046875,
+                "bottom": 232,
+                "left": 296.734375
+              },
+              "current": {
+                "x": 300.765625,
+                "y": 188,
+                "width": 59.65625,
+                "height": 44,
+                "top": 188,
+                "right": 360.421875,
+                "bottom": 232,
+                "left": 300.765625
+              }
+            },
+            {
+              "selector": "li.categoria-id-22013977.com-filho.borda-principal",
+              "previous": {
+                "x": 502.734375,
+                "y": 188,
+                "width": 38.15625,
+                "height": 44,
+                "top": 188,
+                "right": 540.890625,
+                "bottom": 232,
+                "left": 502.734375
+              },
+              "current": {
+                "x": 510.796875,
+                "y": 188,
+                "width": 39.5,
+                "height": 44,
+                "top": 188,
+                "right": 550.296875,
+                "bottom": 232,
+                "left": 510.796875
+              }
+            },
+            {
+              "selector": "li.categoria-id-20382821.com-filho.borda-principal",
+              "previous": {
+                "x": 461.71875,
+                "y": 188,
+                "width": 37.859375,
+                "height": 44,
+                "top": 188,
+                "right": 499.578125,
+                "bottom": 232,
+                "left": 461.71875
+              },
+              "current": {
+                "x": 468.4375,
+                "y": 188,
+                "width": 39.203125,
+                "height": 44,
+                "top": 188,
+                "right": 507.640625,
+                "bottom": 232,
+                "left": 468.4375
+              }
+            }
+          ]
+        },
+        {
+          "t": 640.8000000007451,
+          "value": 0.0002476907787679505,
+          "sources": [
+            {
+              "selector": "div",
+              "previous": {
+                "x": 91,
+                "y": 508,
+                "width": 184,
+                "height": 43,
+                "top": 508,
+                "right": 275,
+                "bottom": 551,
+                "left": 91
+              },
+              "current": {
+                "x": 91,
+                "y": 518,
+                "width": 184,
+                "height": 43,
+                "top": 518,
+                "right": 275,
+                "bottom": 561,
+                "left": 91
+              }
+            },
+            {
+              "selector": "div",
+              "previous": {
+                "x": 424.328125,
+                "y": 508,
+                "width": 184,
+                "height": 43,
+                "top": 508,
+                "right": 608.328125,
+                "bottom": 551,
+                "left": 424.328125
+              },
+              "current": {
+                "x": 424.328125,
+                "y": 518,
+                "width": 184,
+                "height": 43,
+                "top": 518,
+                "right": 608.328125,
+                "bottom": 561,
+                "left": 424.328125
+              }
+            },
+            {
+              "selector": "div",
+              "previous": {
+                "x": 757.65625,
+                "y": 508,
+                "width": 184,
+                "height": 43,
+                "top": 508,
+                "right": 941.65625,
+                "bottom": 551,
+                "left": 757.65625
+              },
+              "current": {
+                "x": 757.65625,
+                "y": 518,
+                "width": 184,
+                "height": 43,
+                "top": 518,
+                "right": 941.65625,
+                "bottom": 561,
+                "left": 757.65625
+              }
+            },
+            {
+              "selector": "div",
+              "previous": {
+                "x": 1090.984375,
+                "y": 508,
+                "width": 184,
+                "height": 43,
+                "top": 508,
+                "right": 1274.984375,
+                "bottom": 551,
+                "left": 1090.984375
+              },
+              "current": {
+                "x": 1090.984375,
+                "y": 518,
+                "width": 184,
+                "height": 43,
+                "top": 518,
+                "right": 1274.984375,
+                "bottom": 561,
+                "left": 1090.984375
+              }
+            }
+          ]
+        },
+        {
+          "t": 836,
+          "value": 0.0008662741196959999,
+          "sources": [
+            {
+              "selector": "button#qc-trigger.qc-trigger",
+              "previous": {
+                "x": 1134.96875,
+                "y": 692,
+                "width": 231.03125,
+                "height": 108,
+                "top": 692,
+                "right": 1366,
+                "bottom": 800,
+                "left": 1134.96875
+              },
+              "current": {
+                "x": 1141.96875,
+                "y": 692,
+                "width": 224.03125,
+                "height": 108,
+                "top": 692,
+                "right": 1366,
+                "bottom": 800,
+                "left": 1141.96875
+              }
+            },
+            {
+              "selector": "ul.nivel-um",
+              "previous": {
+                "x": 33,
+                "y": 201.171875,
+                "width": 517.296875,
+                "height": 14,
+                "top": 201.171875,
+                "right": 550.296875,
+                "bottom": 215.171875,
+                "left": 33
+              },
+              "current": {
+                "x": 33,
+                "y": 202.109375,
+                "width": 493.265625,
+                "height": 14,
+                "top": 202.109375,
+                "right": 526.265625,
+                "bottom": 216.109375,
+                "left": 33
+              }
+            },
+            {
+              "selector": "li.categoria-id-4186926.com-filho.borda-principal",
+              "previous": {
+                "x": 363.578125,
+                "y": 188,
+                "width": 101.703125,
+                "height": 44,
+                "top": 188,
+                "right": 465.28125,
+                "bottom": 232,
+                "left": 363.578125
+              },
+              "current": {
+                "x": 348.859375,
+                "y": 188,
+                "width": 95.1875,
+                "height": 44,
+                "top": 188,
+                "right": 444.046875,
+                "bottom": 232,
+                "left": 348.859375
+              }
+            },
+            {
+              "selector": "li.categoria-id-4186921.com-filho.borda-principal",
+              "previous": {
+                "x": 300.765625,
+                "y": 188,
+                "width": 59.65625,
+                "height": 44,
+                "top": 188,
+                "right": 360.421875,
+                "bottom": 232,
+                "left": 300.765625
+              },
+              "current": {
+                "x": 288.609375,
+                "y": 188,
+                "width": 56.90625,
+                "height": 44,
+                "top": 188,
+                "right": 345.515625,
+                "bottom": 232,
+                "left": 288.609375
+              }
+            },
+            {
+              "selector": "li.categoria-id-4186914.com-filho.borda-principal",
+              "previous": {
+                "x": 190.09375,
+                "y": 188,
+                "width": 57.140625,
+                "height": 44,
+                "top": 188,
+                "right": 247.234375,
+                "bottom": 232,
+                "left": 190.09375
+              },
+              "current": {
+                "x": 180.421875,
+                "y": 188,
+                "width": 54.71875,
+                "height": 44,
+                "top": 188,
+                "right": 235.140625,
+                "bottom": 232,
+                "left": 180.421875
+              }
+            }
+          ]
+        },
+        {
+          "t": 1155.9000000003725,
+          "value": 0.3808450768667643,
+          "sources": [
+            {
+              "selector": "div#corpo",
+              "previous": {
+                "x": 0,
+                "y": 35,
+                "width": 1366,
+                "height": 809,
+                "top": 35,
+                "right": 1366,
+                "bottom": 844,
+                "left": 0
+              },
+              "current": {
+                "x": 0,
+                "y": 555.234375,
+                "width": 1366,
+                "height": 288.765625,
+                "top": 555.234375,
+                "right": 1366,
+                "bottom": 844,
+                "left": 0
+              }
+            },
+            {
+              "selector": "div.conteiner.cabecalho-conteiner",
+              "previous": {
+                "x": 13,
+                "y": 0,
+                "width": 1340,
+                "height": 242,
+                "top": 0,
+                "right": 1353,
+                "bottom": 242,
+                "left": 13
+              },
+              "current": {
+                "x": 0,
+                "y": 0,
+                "width": 1366,
+                "height": 85,
+                "top": 0,
+                "right": 1366,
+                "bottom": 85,
+                "left": 0
+              }
+            },
+            {
+              "selector": "div.listagem-item.prod-id-84180724.prod-cat-4186914",
+              "previous": {
+                "x": 41.6875,
+                "y": 707.6875,
+                "width": 288.625,
+                "height": 136.3125,
+                "top": 707.6875,
+                "right": 330.3125,
+                "bottom": 844,
+                "left": 41.6875
+              },
+              "current": {
+                "x": 0,
+                "y": 0,
+                "width": 0,
+                "height": 0,
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+              }
+            },
+            {
+              "selector": "div.listagem-item.prod-id-78371612.prod-cat-4186914",
+              "previous": {
+                "x": 375.015625,
+                "y": 707.6875,
+                "width": 288.625,
+                "height": 136.3125,
+                "top": 707.6875,
+                "right": 663.640625,
+                "bottom": 844,
+                "left": 375.015625
+              },
+              "current": {
+                "x": 0,
+                "y": 0,
+                "width": 0,
+                "height": 0,
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+              }
+            },
+            {
+              "selector": "div.listagem-item.prod-id-130154765.prod-cat-23334452",
+              "previous": {
+                "x": 708.34375,
+                "y": 707.6875,
+                "width": 288.625,
+                "height": 136.3125,
+                "top": 707.6875,
+                "right": 996.96875,
+                "bottom": 844,
+                "left": 708.34375
+              },
+              "current": {
+                "x": 0,
+                "y": 0,
+                "width": 0,
+                "height": 0,
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+              }
+            }
+          ]
+        }
+      ],
+      "geometry": [
+        {
+          "t": 203.40000000037253,
+          "headerPosition": null,
+          "bodyPadding": "0px",
+          "owl": false,
+          "base": false
+        },
+        {
+          "t": 261.19999999925494,
+          "headerPosition": "fixed",
+          "headerHeight": 222,
+          "mainTop": 85,
+          "bodyPadding": "85px",
+          "owl": false,
+          "base": false
+        },
+        {
+          "t": 323.5,
+          "headerPosition": "fixed",
+          "headerHeight": 242,
+          "mainTop": 5,
+          "bodyPadding": "85px",
+          "listHeight": 1239,
+          "owl": false,
+          "base": false
+        },
+        {
+          "t": 638.5999999996275,
+          "headerPosition": "fixed",
+          "headerHeight": 242,
+          "mainTop": 5,
+          "bodyPadding": "85px",
+          "listHeight": 1239,
+          "owl": false,
+          "base": true
+        },
+        {
+          "t": 1153.699999999255,
+          "headerPosition": "fixed",
+          "headerHeight": 85,
+          "mainTop": 5,
+          "bodyPadding": "85px",
+          "listHeight": 1239,
+          "owl": false,
+          "base": true
+        }
+      ],
+      "lcp": {
+        "t": 1300,
+        "selector": "img",
+        "url": "https://cdn.awsli.com.br/1920x1920/1351/1351790/banner/outubro_rosa_desktop-1-bz2txh3aum.jpg"
+      },
+      "state": {
+        "state": "mounted"
+      },
+      "duplicateQuiz": 2,
+      "rawCodeText": false,
+      "visibleProducts": 8,
+      "qc": true,
+      "categories": true
+    },
+    {
+      "width": 1366,
+      "run": 5,
+      "candidate": false,
+      "header": true,
+      "replaced": false,
+      "status": 200,
+      "cls": 0.3846686930364229,
+      "asset": {
+        "url": "https://cdn.awsli.com.br/1351/1351790/arquivos/end-home-malheiro-ablation-cls.js",
+        "status": 200,
+        "sha256": "d007502952ecd40ae6c70c9d0177b23e40b5645523a0c2e30b6119a6eac3382d",
+        "benefitsFlex": false,
+        "instagram": false
+      },
+      "errors": [
+        "Failed to fetch",
+        "Failed to fetch",
+        "Failed to fetch"
+      ],
+      "shifts": [
+        {
+          "t": 315.40000000037253,
+          "value": 0.002613820948359226,
+          "sources": [
+            {
+              "selector": "button#qc-trigger.qc-trigger",
+              "previous": {
+                "x": 1300.09375,
+                "y": 718,
+                "width": 65.90625,
+                "height": 82,
+                "top": 718,
+                "right": 1366,
+                "bottom": 800,
+                "left": 1300.09375
+              },
+              "current": {
+                "x": 1135.09375,
+                "y": 692,
+                "width": 230.90625,
+                "height": 108,
+                "top": 692,
+                "right": 1366,
+                "bottom": 800,
+                "left": 1135.09375
+              }
+            }
+          ]
+        },
+        {
+          "t": 546,
+          "value": 0.00034352110160341785,
+          "sources": [
+            {
+              "selector": "div",
+              "previous": {
+                "x": 757.65625,
+                "y": 508,
+                "width": 184,
+                "height": 43,
+                "top": 508,
+                "right": 941.65625,
+                "bottom": 551,
+                "left": 757.65625
+              },
+              "current": {
+                "x": 757.65625,
+                "y": 518,
+                "width": 184,
+                "height": 43,
+                "top": 518,
+                "right": 941.65625,
+                "bottom": 561,
+                "left": 757.65625
+              }
+            },
+            {
+              "selector": "div",
+              "previous": {
+                "x": 1090.984375,
+                "y": 508,
+                "width": 184,
+                "height": 43,
+                "top": 508,
+                "right": 1274.984375,
+                "bottom": 551,
+                "left": 1090.984375
+              },
+              "current": {
+                "x": 1090.984375,
+                "y": 518,
+                "width": 184,
+                "height": 43,
+                "top": 518,
+                "right": 1274.984375,
+                "bottom": 561,
+                "left": 1090.984375
+              }
+            },
+            {
+              "selector": "div",
+              "previous": {
+                "x": 91,
+                "y": 508,
+                "width": 184,
+                "height": 43,
+                "top": 508,
+                "right": 275,
+                "bottom": 551,
+                "left": 91
+              },
+              "current": {
+                "x": 91,
+                "y": 518,
+                "width": 184,
+                "height": 43,
+                "top": 518,
+                "right": 275,
+                "bottom": 561,
+                "left": 91
+              }
+            },
+            {
+              "selector": "div",
+              "previous": {
+                "x": 424.328125,
+                "y": 508,
+                "width": 184,
+                "height": 43,
+                "top": 508,
+                "right": 608.328125,
+                "bottom": 551,
+                "left": 424.328125
+              },
+              "current": {
+                "x": 424.328125,
+                "y": 518,
+                "width": 184,
+                "height": 43,
+                "top": 518,
+                "right": 608.328125,
+                "bottom": 561,
+                "left": 424.328125
+              }
+            },
+            {
+              "selector": "ul.nivel-um",
+              "previous": {
+                "x": 33,
+                "y": 201.171875,
+                "width": 507.890625,
+                "height": 15,
+                "top": 201.171875,
+                "right": 540.890625,
+                "bottom": 216.171875,
+                "left": 33
+              },
+              "current": {
+                "x": 33,
+                "y": 201.171875,
+                "width": 517.296875,
+                "height": 15,
+                "top": 201.171875,
+                "right": 550.296875,
+                "bottom": 216.171875,
+                "left": 33
+              }
+            }
+          ]
+        },
+        {
+          "t": 808.4000000003725,
+          "value": 0.0008662741196959999,
+          "sources": [
+            {
+              "selector": "button#qc-trigger.qc-trigger",
+              "previous": {
+                "x": 1134.96875,
+                "y": 692,
+                "width": 231.03125,
+                "height": 108,
+                "top": 692,
+                "right": 1366,
+                "bottom": 800,
+                "left": 1134.96875
+              },
+              "current": {
+                "x": 1141.96875,
+                "y": 692,
+                "width": 224.03125,
+                "height": 108,
+                "top": 692,
+                "right": 1366,
+                "bottom": 800,
+                "left": 1141.96875
+              }
+            },
+            {
+              "selector": "ul.nivel-um",
+              "previous": {
+                "x": 33,
+                "y": 201.171875,
+                "width": 517.296875,
+                "height": 14,
+                "top": 201.171875,
+                "right": 550.296875,
+                "bottom": 215.171875,
+                "left": 33
+              },
+              "current": {
+                "x": 33,
+                "y": 202.109375,
+                "width": 493.265625,
+                "height": 14,
+                "top": 202.109375,
+                "right": 526.265625,
+                "bottom": 216.109375,
+                "left": 33
+              }
+            },
+            {
+              "selector": "li.categoria-id-4186926.com-filho.borda-principal",
+              "previous": {
+                "x": 363.578125,
+                "y": 188,
+                "width": 101.703125,
+                "height": 44,
+                "top": 188,
+                "right": 465.28125,
+                "bottom": 232,
+                "left": 363.578125
+              },
+              "current": {
+                "x": 348.859375,
+                "y": 188,
+                "width": 95.1875,
+                "height": 44,
+                "top": 188,
+                "right": 444.046875,
+                "bottom": 232,
+                "left": 348.859375
+              }
+            },
+            {
+              "selector": "li.categoria-id-4186921.com-filho.borda-principal",
+              "previous": {
+                "x": 300.765625,
+                "y": 188,
+                "width": 59.65625,
+                "height": 44,
+                "top": 188,
+                "right": 360.421875,
+                "bottom": 232,
+                "left": 300.765625
+              },
+              "current": {
+                "x": 288.609375,
+                "y": 188,
+                "width": 56.90625,
+                "height": 44,
+                "top": 188,
+                "right": 345.515625,
+                "bottom": 232,
+                "left": 288.609375
+              }
+            },
+            {
+              "selector": "li.categoria-id-4186914.com-filho.borda-principal",
+              "previous": {
+                "x": 190.09375,
+                "y": 188,
+                "width": 57.140625,
+                "height": 44,
+                "top": 188,
+                "right": 247.234375,
+                "bottom": 232,
+                "left": 190.09375
+              },
+              "current": {
+                "x": 180.421875,
+                "y": 188,
+                "width": 54.71875,
+                "height": 44,
+                "top": 188,
+                "right": 235.140625,
+                "bottom": 232,
+                "left": 180.421875
+              }
+            }
+          ]
+        },
+        {
+          "t": 1165.5999999996275,
+          "value": 0.3808450768667643,
+          "sources": [
+            {
+              "selector": "div#corpo",
+              "previous": {
+                "x": 0,
+                "y": 35,
+                "width": 1366,
+                "height": 809,
+                "top": 35,
+                "right": 1366,
+                "bottom": 844,
+                "left": 0
+              },
+              "current": {
+                "x": 0,
+                "y": 555.234375,
+                "width": 1366,
+                "height": 288.765625,
+                "top": 555.234375,
+                "right": 1366,
+                "bottom": 844,
+                "left": 0
+              }
+            },
+            {
+              "selector": "div.conteiner.cabecalho-conteiner",
+              "previous": {
+                "x": 13,
+                "y": 0,
+                "width": 1340,
+                "height": 242,
+                "top": 0,
+                "right": 1353,
+                "bottom": 242,
+                "left": 13
+              },
+              "current": {
+                "x": 0,
+                "y": 0,
+                "width": 1366,
+                "height": 85,
+                "top": 0,
+                "right": 1366,
+                "bottom": 85,
+                "left": 0
+              }
+            },
+            {
+              "selector": "div.listagem-item.prod-id-84180724.prod-cat-4186914",
+              "previous": {
+                "x": 41.6875,
+                "y": 707.6875,
+                "width": 288.625,
+                "height": 136.3125,
+                "top": 707.6875,
+                "right": 330.3125,
+                "bottom": 844,
+                "left": 41.6875
+              },
+              "current": {
+                "x": 0,
+                "y": 0,
+                "width": 0,
+                "height": 0,
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+              }
+            },
+            {
+              "selector": "div.listagem-item.prod-id-78371612.prod-cat-4186914",
+              "previous": {
+                "x": 375.015625,
+                "y": 707.6875,
+                "width": 288.625,
+                "height": 136.3125,
+                "top": 707.6875,
+                "right": 663.640625,
+                "bottom": 844,
+                "left": 375.015625
+              },
+              "current": {
+                "x": 0,
+                "y": 0,
+                "width": 0,
+                "height": 0,
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+              }
+            },
+            {
+              "selector": "div.listagem-item.prod-id-130154765.prod-cat-23334452",
+              "previous": {
+                "x": 708.34375,
+                "y": 707.6875,
+                "width": 288.625,
+                "height": 136.3125,
+                "top": 707.6875,
+                "right": 996.96875,
+                "bottom": 844,
+                "left": 708.34375
+              },
+              "current": {
+                "x": 0,
+                "y": 0,
+                "width": 0,
+                "height": 0,
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+              }
+            }
+          ]
+        }
+      ],
+      "geometry": [
+        {
+          "t": 272.2999999988824,
+          "headerPosition": null,
+          "bodyPadding": "0px",
+          "owl": false,
+          "base": false
+        },
+        {
+          "t": 289.19999999925494,
+          "headerPosition": null,
+          "bodyPadding": "85px",
+          "owl": false,
+          "base": false
+        },
+        {
+          "t": 381.40000000037253,
+          "headerPosition": "fixed",
+          "headerHeight": 242,
+          "mainTop": 5,
+          "bodyPadding": "85px",
+          "listHeight": 1239,
+          "owl": false,
+          "base": false
+        },
+        {
+          "t": 543.7999999988824,
+          "headerPosition": "fixed",
+          "headerHeight": 242,
+          "mainTop": 5,
+          "bodyPadding": "85px",
+          "listHeight": 1239,
+          "owl": false,
+          "base": true
+        },
+        {
+          "t": 1161.5,
+          "headerPosition": "fixed",
+          "headerHeight": 85,
+          "mainTop": 5,
+          "bodyPadding": "85px",
+          "listHeight": 1239,
+          "owl": false,
+          "base": true
+        }
+      ],
+      "lcp": {
+        "t": 1296,
+        "selector": "img",
+        "url": "https://cdn.awsli.com.br/1920x1920/1351/1351790/banner/outubro_rosa_desktop-1-bz2txh3aum.jpg"
+      },
+      "state": {
+        "state": "mounted"
+      },
+      "duplicateQuiz": 2,
+      "rawCodeText": false,
+      "visibleProducts": 8,
+      "qc": true,
+      "categories": true
+    }
+  ]
+}
