@@ -138,3 +138,21 @@ Comparação da base local com reaproveitamento do QuizChat (cinco cargas por la
 No controle, o teste de clicar no primeiro trigger do QuizChat falhou porque a segunda cópia interceptava o ponteiro. Na candidata com uma cópia, abrir e fechar o drawer passou em mobile, tablet e desktop. Todos os cenários públicos responderam HTTP 200. O clique em link de carrinho não foi executado; o teste de um seletor exato relativo não encontrou o link no experimento e não é prova de ausência de carrinho. O scroll manteve o header em top=0/position=fixed no experimento, mas isso não supera a regressão de CLS.
 
 **NO-GO para declarar CLS resolvido.** A base atualizada está pronta para homologar a deduplicação do QuizChat. O principal trabalho restante está na geometria inicial do cabeçalho/hero e nas mutações do tema. Nenhuma alteração foi publicada na loja. Rollback da base: voltar à URL CDN anterior informada nesta seção; os assets anteriores e os arquivos em legado continuam preservados.
+
+### Último teste: reserva de espaço do banner móvel — 23/10/2026
+
+Repeti cinco cargas anônimas frias por viewport (390/820/1366 × 844, DPR 1, sem throttling, espera de 10 s, janela de sessão CLS, excluído input recente). A loja publicada permaneceu sem alterações. Baseline e candidata foram testadas com o mesmo Chrome local/Playwright e mesmo método.
+
+O evento móvel dominante da publicação teve CLS 0,44162 e apontou `#corpo` deslocando de y=194 para y=554. No estado final, o banner `.pagina-inicial .secao-banners .row-fluid.banner.cheio` e sua imagem móvel de 767 × 767 px ocupam 390 × 390 px. Ao reservar essa proporção antes do conteúdo montar, a candidata eliminou o evento dominante; esta intervenção confirma a geometria tardia do banner como causa do grande deslocamento móvel medido.
+
+Na candidata, acrescentei somente no `<head>` a regra de `aspect-ratio: 1 / 1` nesse wrapper, limitada a 767 px. A regra reserva o espaço que a imagem já ocupa, sem esconder conteúdo ou alterar a imagem. A medição local interceptou o HTML apenas para inserir esse CSS antes de `</head>`; não trocou JS nem alterou a loja publicada.
+
+| Viewport | Publicado: intervalo / mediana | CSS candidato: intervalo / mediana |
+|---|---:|---:|
+| 390 × 844 | 0,45417–0,45510 / **0,45510** | 0,022997–0,023870 / **0,023479** |
+| 820 × 844 | 0,24014–0,24132 / **0,24132** | 0,23468–0,24198 / **0,24198** |
+| 1366 × 844 | 0,19633–0,19884 / **0,19884** | 0,19622–0,19884 / **0,19884** |
+
+O CLS móvel reduziu aproximadamente 94,8% nesta comparação local e os três viewports medidos ficaram abaixo de 0,25. O CSS é inerte acima de 767 px; as pequenas diferenças em tablet/desktop são variação entre cargas, sem ganho atribuível a ele. Tablet ficou perto do limite (máximo observado 0,24198), então não há margem grande para regressões. Estes números são resultado de laboratório, não CrUX nem PSI, e não certificam outros aparelhos/rotas ou uma janela de 28 dias.
+
+O snippet para testar está em `homologacao/snippets/reserva-banner-mobile-prepaint.html`; ele deve entrar estaticamente no HTML/Cabeçalho, dentro de `<head>`, antes de `</head>`. Carregá-lo por JavaScript tardio não reproduz o teste e não reserva espaço para a primeira renderização. Uma carga de verificação da candidata manteve 8/8 cards de produto visíveis e a URL original da imagem do banner. Na homologação, medir novamente cinco vezes e verificar mobile/tablet, banner e vitrines; remover o bloco para rollback. Nenhuma publicação/alteração na loja oficial foi feita. Aprovação: **GO apenas para teste A/B em homologação desta regra; NO-GO para afirmar CLS de produção corrigido.**
